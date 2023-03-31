@@ -30,7 +30,7 @@ form.addEventListener("submit", async function (event) {
   const images = await handleSearch(searchTerm);
 
   gallery.innerHTML = "";
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 24; i++) {
     const img = document.createElement("img");
     img.src = images[i][0];
     img.alt = images[i][1];

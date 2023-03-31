@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Search Images</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<header style="height: 30vh;">
+		<script src="js/buttonClick.js"></script>
+		<div class="header-container">
+			<div class="left-aligned">
+				<a href="index.html" style="flex-grow: 0.05;">
+					<img src="images/iconBack.png" alt="back" width="25" height="25"/>
+				</a>
+				<form style="flex-grow: 1">
+					<div class="search-container">
+						<input type="text" id="search-input" placeholder="Search for key terms">
+						<button type="submit" id="search-button">
+							<img src="images/iconSearch.png" alt="Search" />
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="right-aligned">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider round"></span>
+				</label>
+				<body1-medium> compare prompts </body1-medium>
+				<img src="images/iconQuestion.png" alt="question" width="20" height="28"/>
+			</div>
+		</div>
+
+		<p id="topic"></p>
+
+	</header>
+
+	<main>
+		<div class="gallery"></div>
+		<script src="js/imageSearch.js"></script>
+	</main>
+
+	<div class="fixed-add-thread-button">
+		<button class="btn-dark" id="comparePrompts" style="font-size: 30px;">
+			<!-- <img src="images/iconAddThread.png" alt="Search" width="20", height="20"/> -->
+			<span> + New Thread </span>
+		</button>
+	<div>
+
+</body>
+
+</html>

@@ -2,7 +2,21 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif, 'Karla', 'Inter';
-  background-color: #f2f2f2;
+  background-color: #ffffff;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 50vh;
+  margin-left: 135px;
+  margin-right: 130px;
+}
+
+header form {
+  margin-top: 20px;
 }
 
 h1 {
@@ -80,24 +94,10 @@ body1-medium {
   color: #797B7B;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  height: 50vh;
-  margin-left: 135px;
-  margin-right: 130px;
-}
-
 header body1-medium {
   display: flex;
   align-items: left;
   width: 75%;
-}
-
-header form {
-  margin-top: 20px;
 }
 
 header form .search-container {
@@ -149,13 +149,20 @@ header form #search-button {
 }
 
 .left-aligned {
-  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex: 4;
 }
 
 .right-aligned {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.right-aligned button {
+  margin-left: 10px;
 }
 
 .right-aligned body1-medium {
@@ -179,8 +186,62 @@ section {
   flex-direction: column;
   align-items: left;
   justify-content: center;
+  margin-top: -70px;
   margin-left: 135px;
   margin-right: 130px;
+}
+
+.fixed-add-thread-button {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  z-index: 9999;
+}
+
+.btn-dark {
+  color: #ffffff;
+  background-color: #10724F;
+  border: 2px solid #10724F;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-dark image {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-dark span {
+  font-size: 20px;
+}
+
+.btn-light {
+  color: #10724F;
+  background-color: #EFF9F5;
+  border: 2px solid #10724F;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-light image {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-light span {
+  font-size: 16px;
 }
 
 .gallery {
@@ -189,6 +250,8 @@ section {
   justify-content: center;
   align-items: center;
   margin-top: -80px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .gallery img {
@@ -198,6 +261,10 @@ section {
   object-fit: cover;
   border-radius: 4px;
   /* box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4); */
+}
+
+.hidden {
+  display: none;
 }
 
 #searchInterface {
