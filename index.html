@@ -2,53 +2,63 @@
 <html>
 
 <head>
-  <title>Search Images</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+	<title>Search Images</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h2>Find patterns and detect biases in Stable Diffusion.</h2>
+	<header>
+		<h2>Find patterns and detect biases in Stable Diffusion.</h2>
 
-    <div id="searchInterface" class="hidden">
-      This is the content that will be displayed when the button is clicked.
-    </div>
+		<div id="searchInterface" class="hidden">
+			This is the content that will be displayed when the button is clicked.
+		</div>
 
-    <body1-medium>
-      Search for different prompts to see all the data that has been
-      collected related to it and detect biases. Some
-      of the trending topics being searched are doctors,
-      firefighters, CEO, family, professional hairstyle.
-    </body1-medium>
+		<body1-medium>
+			Search for different prompts to see all the data that has been
+			collected related to it and detect biases. Some
+			of the trending topics being searched are doctors,
+			firefighters, CEO, family, professional hairstyle.
+		</body1-medium>
 
-    <div class="header-container">
-      <form style="flex-grow: 1">
-        <a href="search.html">
-          <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search for key terms" name="search">
-            <button type="submit" id="search-button">
-              <img src="images/iconSearch.png" alt="Search" />
-            </button>
-          </div>
-        </a>
-      </form>
-      <div class="right-aligned">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <body1-medium> compare prompts </body1-medium>
-        <img src="images/iconQuestion.png" alt="question" width="20" height="28" />
-      </div>
-    </div>
+		<div class="header-container">
+			<form style="flex-grow: 1">
+				<a href="search.html">
+					<div class="search-container">
+						<input type="text" id="search-input" placeholder="Search for key terms" name="search">
+						<button type="submit" id="search-button">
+							<img src="images/iconSearch.png" alt="Search" />
+						</button>
+					</div>
+				</a>
+			</form>
+			<div class="right-aligned">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider round"></span>
+				</label>
+				<body1-medium> compare prompts </body1-medium>
+				<img src="images/iconQuestion.png" alt="question" width="20" height="28" />
+			</div>
+		</div>
 
-    <p id="topic"></p>
+		<p id="topic"></p>
 
-  </header>
+	</header>
 
-  <section>
-    <h3> How does it work? </h3>
-  </section>
+	<section>
+		<h3> How does it work? </h3>
+		<div class="box-container">
+			<img src="images/HowItWork-index/HowItWork-A.png" />
+			<img src="images/HowItWork-index/HowItWork-B.png" />
+			<img src="images/HowItWork-index/HowItWork-C.png" />
+			<img src="images/HowItWork-index/HowItWork-D.png" />
+		</div>
+	</section>
+
+	<div style="margin-left: 8%; margin-right: 8%;">
+		<img src="images/TrendingThread-index.png" width="100%" />
+	</div>
 
 </body>
 
