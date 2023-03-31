@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Search Images</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h2>Find patterns and detect biases in Stable Diffusion.</h2>
+
+    <body1-medium>
+      Search for different prompts to see all the data that has been
+      collected related to it and detect biases. Some
+      of the trending topics being searched are doctors,
+      firefighters, CEO, family, professional hairstyle.
+    </body1-medium>
+
+    <div class="header-container">
+      <form style="flex-grow: 1">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search for key terms">
+          <button type="submit" id="search-button">
+            <img src="images/iconSearch.png" alt="Search" />
+          </button>
+        </div>
+      </form>
+      <div class="right-aligned">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <body1-medium> compare prompts </body1-medium>
+        <img src="images/iconQuestion.png" alt="question" width="20" , height="28" />
+      </div>
+    </div>
+
+    <p id="topic"></p>
+
+  </header>
+
+  <main>
+    <div class="gallery"></div>
+    <script src="js/imageSearch.js"></script>
+  </main>
+
+  <section>
+    <h3> How does it work? </h3>
+  </section>
+
+</body>
+
+</html>
