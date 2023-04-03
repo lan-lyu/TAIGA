@@ -338,9 +338,9 @@ section {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background-color: #f5f5f5;
+	background-color: #ffffff;
 	padding: 20px;
-	/* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
+	box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.15);
 	display: none;
 }
 
@@ -368,9 +368,8 @@ section {
 	/* identical to box height, or 122% */
 
 	border: none;
-	background-color: #f5f5f5;
+	background-color: #ffffff;
 
-	display: flex;
 	align-items: center;
 	letter-spacing: -0.012em;
 
@@ -386,7 +385,7 @@ section {
 	height: 80%;
 	right: 30%;
 	top: 10%;
-	background: #FFFFFF;
+	background: #ffffff;
 	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
 }
