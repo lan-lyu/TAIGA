@@ -93,6 +93,21 @@ h5 {
 	color: #797B7B;
 }
 
+.body-2-regular {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 18px;
+	/* identical to box height, or 129% */
+
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.01em;
+
+	color: #000000;
+}
+
 body1-medium {
 	/* Body 1 - Medium */
 	font-family: 'Inter';
@@ -133,7 +148,9 @@ header form .search-container-half {
 	width: 50%;
 }
 
-header form #search-input, #search-input-1, #search-input-2 {
+header form #search-input,
+#search-input-1,
+#search-input-2 {
 	flex: 1;
 	padding: 14px;
 	font-size: 16px;
@@ -164,14 +181,14 @@ header form #search-button {
 	margin-right: 10%;
 }
 
-.row-container input{
+.row-container input {
 	box-sizing: border-box;
 
 	font-family: 'Inter';
 	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
-	line-height: 30px;
+	line-height: 20px;
 	/* or 150% */
 
 	display: flex;
@@ -326,11 +343,11 @@ section {
 	/* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
 	display: none;
 }
-  
+
 .popup p {
 	margin: 0;
 }
-  
+
 /* .popup button {
 	display: block;
 	margin: 10px auto 0;
@@ -361,6 +378,40 @@ section {
 	color: #10724F;
 }
 
+.popup-thread {
+	position: fixed;
+	align-items: center;
+	display: none;
+	width: 40%;
+	height: 80%;
+	right: 30%;
+	top: 10%;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+.popup-thread h3 {
+	margin-left: 10%;
+}
+
+.popup-thread.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.popup-thread.gallery img {
+	margin: 5px;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
 .gallery {
 	display: flex;
 	flex-wrap: wrap;
@@ -377,10 +428,26 @@ section {
 	max-height: 200px;
 	object-fit: cover;
 	border-radius: 4px;
-	/* box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.4); */
 }
 
 .hidden {
+	display: none;
+}
+
+.selected {
+	border: 5px solid #FFD540;
+	border-radius: 4px;
+}
+
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 9998;
 	display: none;
 }
 
