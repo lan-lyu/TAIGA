@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Arial, sans-serif, 'Karla', 'Inter';
+	font-family: Arial, sans-serif, Karla, Inter;
 	background-color: #ffffff;
 }
 
@@ -20,7 +20,8 @@ header form {
 }
 
 h1 {
-	font-family: 'Karla';
+	/* font-family: 'Karla'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 48px;
@@ -35,7 +36,8 @@ h1 {
 }
 
 h2 {
-	font-family: 'Karla';
+	/* font-family: 'Karla'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 36px;
@@ -50,7 +52,8 @@ h2 {
 }
 
 h3 {
-	font-family: 'Karla';
+	/* font-family: 'Karla'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 28px;
@@ -65,7 +68,8 @@ h3 {
 }
 
 h4 {
-	font-family: 'Inter';
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
@@ -79,7 +83,8 @@ h4 {
 }
 
 h5 {
-	font-family: 'Inter';
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
@@ -94,7 +99,8 @@ h5 {
 }
 
 .body-2-regular {
-	font-family: 'Inter';
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	font-size: 14px;
@@ -110,7 +116,8 @@ h5 {
 
 body1-medium {
 	/* Body 1 - Medium */
-	font-family: 'Inter';
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 16px;
@@ -148,9 +155,7 @@ header form .search-container-half {
 	width: 50%;
 }
 
-header form #search-input,
-#search-input-1,
-#search-input-2 {
+header form #search-input, #search-input-one, #search-input-1, #search-input-2 {
 	flex: 1;
 	padding: 14px;
 	font-size: 16px;
@@ -184,7 +189,8 @@ header form #search-button {
 .row-container input {
 	box-sizing: border-box;
 
-	font-family: 'Inter';
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
@@ -338,16 +344,16 @@ section {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background-color: #ffffff;
+	background-color: #f5f5f5;
 	padding: 20px;
-	box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.15);
+	/* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); */
 	display: none;
 }
-
+  
 .popup p {
 	margin: 0;
 }
-
+  
 /* .popup button {
 	display: block;
 	margin: 10px auto 0;
@@ -360,7 +366,8 @@ section {
 }   */
 
 .popup-close {
-	font-family: 'Karla';
+	/* font-family: 'Karla'; */
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 18px;
@@ -368,8 +375,9 @@ section {
 	/* identical to box height, or 122% */
 
 	border: none;
-	background-color: #ffffff;
+	background-color: #f5f5f5;
 
+	display: flex;
 	align-items: center;
 	letter-spacing: -0.012em;
 
@@ -385,7 +393,7 @@ section {
 	height: 80%;
 	right: 30%;
 	top: 10%;
-	background: #ffffff;
+	background: #FFFFFF;
 	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
 }
@@ -416,15 +424,43 @@ section {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	margin-top: -80px;
+	margin-top: -70px;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
 .gallery img {
 	margin: 10px;
-	max-width: 300px;
-	max-height: 200px;
+	max-width: 240px;
+	max-height: 240px;
+	width: 240px;
+	width: 240px;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
+
+.gallery-container {
+	justify-content: space-around;
+	display: flex;
+	align-items: flex-start;
+	/* width: 90%; */
+	margin-right: 5%;
+}
+
+.col-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	width: 48%;
+}
+
+#search-gallery-1 img, #search-gallery-2 img {
+	margin: 10px;
+	max-width: 250px;
+	max-height: 250px;
+	width: 250px;
+	width: 250px;
 	object-fit: cover;
 	border-radius: 4px;
 }
@@ -436,7 +472,7 @@ section {
 .selected {
 	border: 5px solid #FFD540;
 	border-radius: 4px;
-}
+}  
 
 #overlay {
 	position: fixed;

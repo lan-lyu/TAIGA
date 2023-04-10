@@ -53,11 +53,34 @@
     </header>
 
     <main>
-        <div class="row-container">
-            <div class="gallery" id="search-gallery-1" style="width: 60%;"></div>
-            <div class="gallery" id="search-gallery-2" style="width: 60%;"></div>
+
+        <div class="gallery-container">
+            <div class="col-container" style="width: 48%; margin-left: 3%;">
+                <h5 id="search-in-progress-text-1" style="display: none;"> searching now...<br/>don't look away! </h5>
+                <div class="gallery" id="search-gallery-1"></div>
+            </div>
+            <div class="col-container" style="width: 48%; margin-left: -7%;">
+                <h5 id="search-in-progress-text-2" style="display: none;"> searching now...<br/>don't look away! </h5>
+                <div class="gallery" id="search-gallery-2"></div>
+            </div>
         </div>
-        <script src="js/imageSearch2.js"></script>
+
+        <script src="js/imageSearchFunc.js"></script>
+        <script>
+            const form1 = document.querySelector("#query-form-1");
+            const form2 = document.querySelector("#query-form-2");
+
+            form1.addEventListener("submit", (event) => {    
+                const inputId = "1";
+                const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
+                serachInProgressText.style.display = "block";
+                searchFunction(event, "1", 10);
+            });
+
+            form2.addEventListener("submit", (event) => {
+                searchFunction(event, "2", 10);
+            });
+        </script>
     </main>
 
     <div class="fixed-add-thread-button">

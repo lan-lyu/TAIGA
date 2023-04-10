@@ -15,9 +15,9 @@
 				<a href="index.html" style="flex-grow: 0.05;">
 					<img src="images/iconBack.png" alt="back" width="25" height="25" />
 				</a>
-				<form style="flex-grow: 1" id="form-one">
+				<form style="flex-grow: 1" id="query-form-one">
 					<div class="search-container">
-						<input type="text" id="search-input" placeholder="Search for key terms">
+						<input type="text" id="search-input-one" placeholder="Search for key terms">
 						<button type="submit" id="search-button">
 							<img src="images/iconSearch.png" alt="Search" />
 						</button>
@@ -40,8 +40,15 @@
 	</header>
 
 	<main>
+		<h5 id="search-in-progress-text-one" style="display: none;"> searching now... don't look away! </h5>
 		<div class="gallery" id="search-gallery-one"></div>
-		<script src="js/imageSearch.js"></script>
+		<script src="js/imageSearchFunc.js"></script>
+		<script>
+			const formOne = document.querySelector("#query-form-one");
+			formOne.addEventListener("submit", (event) => {
+			searchFunction(event, "one", 25);
+			})
+		</script>
 	</main>
 
 	<div class="fixed-add-thread-button">
