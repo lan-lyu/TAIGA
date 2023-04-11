@@ -30,22 +30,48 @@
         </div>
 
         <div class="header-container">
-            <form id="query-form-1" style="flex-grow: 0.5">
+            <form id="query-form-3" style="flex-grow: 0.4">
                 <div class="search-container">
-                    <input type="text" id="search-input-1" placeholder="Search for key terms">
+                    <input type="text" id="search-input-3" placeholder="Search for key terms">
                     <button type="submit" id="search-button">
                         <img src="images/iconSearch.png" alt="Search" />
                     </button>
                 </div>
             </form>
-            <form id="query-form-2" style="flex-grow: 0.5">
+            <form id="query-form-4" style="flex-grow: 0.4">
                 <div class="search-container">
-                    <input type="text" id="search-input-2" placeholder="Search for key terms">
+                    <input type="text" id="search-input-4" placeholder="Search for key terms">
                     <button type="submit" id="search-button">
                         <img src="images/iconSearch.png" alt="Search" />
                     </button>
                 </div>
             </form>
+
+            <div class="slider-container" style="flex-grow: 0.1;">
+                <div id="slide1" class="slide active">
+                    <h5>Here are some text-image pairs others found being harmful:</h5>
+                    <p style="margin-left: 5%;"> an American/Africa man with his house </p>
+                    <img src="images/sidebarExample1.png" style="width: 90%; margin-left: 5%;" />
+                </div>
+                <div id="slide2" class="slide">
+                    <h5>Example 2</h5>
+                    <p style="margin-left: 5%;"> confident CEO vs emotional CEO </p>
+                    <img src="images/sidebarExample2.jpeg" style="width: 90%; margin-left: 5%;" />
+                </div>
+                <div id="slide3" class="slide">
+                    <h5>Example 3</h5>
+                    <p style="margin-left: 5%;"> doctor vs nurse </p>
+                    <img src="images/sidebarExample3.png" style="width: 90%; margin-left: 5%;" />
+                    <a href="https://forum.weaudit.org/t/test-daily-comparison-doctor-vs-nurse/288"
+                        style="margin-left: 5%;"> Click to know more</a>
+                </div>
+                <div class="controls">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
         </div>
 
         <p id="topic"></p>
@@ -53,28 +79,28 @@
     </header>
 
     <main>
-        <div class="gallery-container">
+        <div class="gallery-container" style="width: 70%; margin-right: 25%;">
             <div class="col-container" style="width: 48%; margin-left: 3%;">
-                <h5 id="search-in-progress-text-1" style="display: none;"> searching now...<br/>don't look away! </h5>
-                <div class="gallery" id="search-gallery-1"></div>
+                <h5 id="search-in-progress-text-3" style="display: none;"> searching now...<br />don't look away! </h5>
+                <div class="gallery" id="search-gallery-3"></div>
             </div>
             <div class="col-container" style="width: 48%; margin-left: -7%;">
-                <h5 id="search-in-progress-text-2" style="display: none;"> searching now...<br/>don't look away! </h5>
-                <div class="gallery" id="search-gallery-2"></div>
+                <h5 id="search-in-progress-text-4" style="display: none;"> searching now...<br />don't look away! </h5>
+                <div class="gallery" id="search-gallery-4"></div>
             </div>
         </div>
 
         <script src="js/imageSearchFunc.js"></script>
         <script>
-            const form1 = document.querySelector("#query-form-1");
-            const form2 = document.querySelector("#query-form-2");
+            const form1 = document.querySelector("#query-form-3");
+            const form2 = document.querySelector("#query-form-4");
 
             form1.addEventListener("submit", (event) => {
-                searchFunction(event, "1", 10);
+                searchFunction(event, "3", 10);
             });
 
             form2.addEventListener("submit", (event) => {
-                searchFunction(event, "2", 10);
+                searchFunction(event, "4", 10);
             });
         </script>
     </main>
@@ -122,8 +148,8 @@
                 among the results in the thread.
             </p>
             <div class="row-container" style="margin-top: 20%;">
-                <div class="gallery" id="thread-gallery-1" style="width: 60%;"></div>
-                <div class="gallery" id="thread-gallery-2" style="width: 60%;"></div>
+                <div class="gallery" id="thread-gallery-3" style="width: 60%;"></div>
+                <div class="gallery" id="thread-gallery-4" style="width: 60%;"></div>
             </div>
             <div class="right-aligned">
                 <button class="btn-dark" id="next-button-1" style="margin-top: 3%; margin-right: 10%;"> Next
@@ -173,9 +199,11 @@
             </div>
         </div>
 
-        <script src="js/threadAddNew2.js"></script>
+        <script src="js/threadAddNew2-side.js"></script>
     </div>
 
 </body>
+
+<script src="js/sliderSwitch.js"></script>
 
 </html>
