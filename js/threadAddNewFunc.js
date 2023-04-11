@@ -28,6 +28,15 @@ function copyGallery(src, dst) {
     gallery2.innerHTML = newGallery.innerHTML;
 }
 
+
+function checkGalleryEmpty(gallerySuffix) {
+    const gallery = document.querySelector(`#search-gallery-${gallerySuffix}`);
+    if (gallery.innerHTML == "") {
+        return true;
+    }
+    return false;
+}
+
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     // click on "+ new thread" button
     const popup = document.querySelector(`#add-thread-popup${suffix}`);
@@ -35,7 +44,16 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     const popupButton = document.querySelector(`#add-thread-button${suffix}`);
     const overlay = document.querySelector(`#overlay${suffix}`);
 
-    popupButton.addEventListener("click", function() {
+    popupButton.addEventListener("click", function() {             
+        // check if the gallery is empty, if empty then show error message
+        if (oneOrTwo == 1 && checkGalleryEmpty(gallery1Suffix)) {
+            alert("Please search images before adding a new thread!");
+            return;
+        } else if (oneOrTwo == 2 && (checkGalleryEmpty(gallery1Suffix) && checkGalleryEmpty(gallery2Suffix))) {
+            alert("Please search images before adding a new thread!");
+            return;
+        }
+
         popup.style.display = "block";
     });
 

@@ -23,14 +23,19 @@ const handleSearch = async (query) => {
 async function searchFunction (event, inputId, img_num) {
     event.preventDefault();
 
+    const form = document.querySelector(`#query-form-${inputId}`);
+    const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
+    if(searchTerm == "") {
+        alert("Please enter a search term!");
+        return;
+    }
+
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
     const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
     serachInProgressText.style.display = "block";
 
-    const form = document.querySelector(`#query-form-${inputId}`);
-    const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
     const images = await handleSearch(searchTerm);
 
     serachInProgressText.style.display = "none";
