@@ -625,5 +625,3 @@ input:checked+.slider:before {
 .dot.active, .dot:hover {
 	background-color: #efefef;
 }
-
-  
