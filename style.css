@@ -576,16 +576,30 @@ input:checked+.slider:before {
 .slider-container {
 	position: relative;
 	width: 20%;
-	height: 450%;
-	overflow: hidden;
+	height: 800%;
+	overflow: auto;
 	margin-top: 1.5%;
+	margin-bottom: 1.5% auto;
 	/* border: 2px solid #10724f; */
 	border-radius: 8px;
+}
+
+.slider-container img {
+	margin-left: 5%;
+	width: 90%;
 }
 
 .slider-container h5 {
 	margin-left: 5%;
 	margin-right: 5%;
+	text-align: justify;
+}
+
+.slider-container p {
+	margin: 5%;
+	text-align: justify;
+	font-size: 14px;
+	line-height: 1.5;
 }
   
 .slide {

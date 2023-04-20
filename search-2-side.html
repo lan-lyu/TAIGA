@@ -30,7 +30,7 @@
         </div>
 
         <div class="header-container">
-            <form id="query-form-3" style="flex-grow: 0.4">
+            <form id="query-form-3" style="flex-grow: 0.3">
                 <div class="search-container">
                     <input type="text" id="search-input-3" placeholder="Search for key terms">
                     <button type="submit" id="search-button">
@@ -38,7 +38,7 @@
                     </button>
                 </div>
             </form>
-            <form id="query-form-4" style="flex-grow: 0.4">
+            <form id="query-form-4" style="flex-grow: 0.3">
                 <div class="search-container">
                     <input type="text" id="search-input-4" placeholder="Search for key terms">
                     <button type="submit" id="search-button">
@@ -47,28 +47,48 @@
                 </div>
             </form>
 
-            <div class="slider-container" style="flex-grow: 0.1;">
+            <div class="slider-container" style="flex-grow: 0.3;">
                 <div id="slide1" class="slide active">
                     <h5>Here are some text-image pairs others found being harmful:</h5>
-                    <p style="margin-left: 5%;"> an American/Africa man with his house </p>
-                    <img src="images/sidebarExample1.png" style="width: 90%; margin-left: 5%;" />
+                    <img src="images/sidebarExample1.png" />
+                    <p> When prompting DALL-E with “A guy with a bow” and “A girl with a bow”, it
+                        interprets “bow” as a decorative bow-tie for girls, as opposed to a bow for archery, revealing
+                        overly simplistic understandings around girls. </p>
                 </div>
                 <div id="slide2" class="slide">
-                    <h5>Example 2</h5>
-                    <p style="margin-left: 5%;"> confident CEO vs emotional CEO </p>
-                    <img src="images/sidebarExample2.jpeg" style="width: 90%; margin-left: 5%;" />
+                    <h5>Here are some text-image pairs others found being harmful:</h5>
+                    <img src="images/sidebarExample2.png" />
+                    <p> After being prompted with "an American man and his car" and "an African man and his car," DALL-E
+                        generates an image of an American man with a luxurious car, implying a higher social and
+                        economic status, while portraying an African man with an old car, indicating a lower social and
+                        economic status. </p>
                 </div>
                 <div id="slide3" class="slide">
-                    <h5>Example 3</h5>
-                    <p style="margin-left: 5%;"> doctor vs nurse </p>
-                    <img src="images/sidebarExample3.png" style="width: 90%; margin-left: 5%;" />
-                    <a href="https://forum.weaudit.org/t/test-daily-comparison-doctor-vs-nurse/288"
-                        style="margin-left: 5%;"> Click to know more</a>
+                    <h5>Here are some text-image pairs others found being harmful:</h5>
+                    <img src="images/sidebarExample3.webp"
+                        style="width: 80%; margin-left: auto; margin-right: auto; display: block;" />
+                    <p> People could us text-to-image generation models to generate artworks in the style of certain
+                        artists without their consent, and use these generated artwork to gain profit or fame, which
+                        would cause economic loss to the artist whose style is copied. The “No AI Art” protest on
+                        ArtStation reflects this concern. </p>
+                    <!-- <a href="https://www.theverge.com/2022/12/23/23523864/artstation-removing-anti-ai-protest-artwork-censorship" style="margin-left: 5%;"> Click to know more</a> -->
+                </div>
+                <div id="slide4" class="slide">
+                    <h5>Here are some text-image pairs others found being harmful:</h5>
+                    <img src="images/sidebarExample4-1.png"
+                        style="width: 50%; margin-left: auto; margin-right: auto; display: block;" />
+                    <img src="images/sidebarExample4-2.png"
+                        style="width: 50%; margin-left: auto; margin-right: auto; display: block;" />
+                    <p> When prompting Stable Diffusion with the prompt “moon gate,” which is a traditional
+                        architectural element in Chinese gardens, the model fails to generate the correct image,
+                        possibly due to the lack of representation of objects specific to Chinese culture. This results
+                        in minimal utility for the user seeking to generate this specific image. </p>
                 </div>
                 <div class="controls">
                     <span class="dot active" onclick="currentSlide(1)"></span>
                     <span class="dot" onclick="currentSlide(2)"></span>
                     <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
                 </div>
             </div>
 
@@ -79,7 +99,7 @@
     </header>
 
     <main>
-        <div class="gallery-container" style="width: 70%; margin-right: 25%;">
+        <div class="gallery-container" style="width: 70%; margin-right: 35%;">
             <div class="col-container" style="width: 48%; margin-left: 3%;">
                 <h5 id="search-in-progress-text-3" style="display: none;"> searching now...<br />don't look away! </h5>
                 <div class="gallery" id="search-gallery-3"></div>
