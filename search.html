@@ -9,7 +9,6 @@
 <body>
 	<div class="overlay" id="overlay-one" style="display: none;"></div>
 	<header style="height: 30vh;">
-		<!-- <script src="js/buttonClick.js"></script> -->
 		<div class="header-container">
 			<div class="left-aligned">
 				<a href="index.html" style="flex-grow: 0.05;">
@@ -18,9 +17,7 @@
 				<form style="flex-grow: 1" id="query-form-one">
 					<div class="search-container">
 						<input type="text" id="search-input-one" placeholder="Search for key terms">
-						<button type="submit" id="search-button">
-							<img src="images/iconSearch.png" alt="Search" />
-						</button>
+						<button type="submit" id="search-button"> </button>
 					</div>
 				</form>
 			</div>
@@ -42,13 +39,13 @@
 	<main>
 		<h5 id="search-in-progress-text-one" style="display: none;"> searching now... don't look away! </h5>
 		<div class="gallery" id="search-gallery-one"></div>
-		<script src="js/imageSearchFunc.js"></script>
 		<script>
 			const formOne = document.querySelector("#query-form-one");
 			formOne.addEventListener("submit", (event) => {
 				searchFunction(event, "one", 25);
 			})
 		</script>
+		<script src="js/imageSearchFunc.js"></script>
 	</main>
 
 	<div class="fixed-add-thread-button">

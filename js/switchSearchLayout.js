@@ -11,7 +11,3 @@ function toggleLayoutBack() {
     window.location.href = "search.html";
   }
 }
-
-document.getElementById("search-button-index").addEventListener("click", () => {
-  window.location.href = "search.html";
-});
