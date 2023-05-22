@@ -42,10 +42,12 @@
 		<script>
 			const formOne = document.querySelector("#query-form-one");
 			formOne.addEventListener("submit", (event) => {
-				searchFunction(event, "one", 25);
+				searchFunction(event, "one", 20);
+				generateFunction(event, "one", 5);
 			})
 		</script>
 		<script src="js/imageSearchFunc.js"></script>
+		<script src="js/imageGenerateFunc.js"></script>
 	</main>
 
 	<div class="fixed-add-thread-button">
