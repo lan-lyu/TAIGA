@@ -47,7 +47,22 @@ function copyGallery(src, dst) {
     addCheckboxListener(dst);
 }
 
+// function to set the title of the thread
+function setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix) {
+    if (oneOrTwo == 1) {
+        const searchText = document.querySelector(`#search-input-${gallery1Suffix}`).value;
+        const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`);
+        threadTitle.value = `  [${searchText}] Add Title...`;
+    }
+    else if(oneOrTwo == 2) {
+        const searchText1 = document.querySelector(`#search-input-${gallery1Suffix}`).value;
+        const searchText2 = document.querySelector(`#search-input-${gallery2Suffix}`).value;
+        const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`);
+        threadTitle.value = `  [${searchText1}]vs[${searchText2}] Add Title...`;
+    }
+}
 
+// check if the gallery is empty
 function checkGalleryEmpty(gallerySuffix) {
     const gallery = document.querySelector(`#search-gallery-${gallerySuffix}`);
     if (gallery.innerHTML == "") {
@@ -73,6 +88,7 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
             return;
         }
 
+        setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix);
         popup.style.display = "block";
     });
 
