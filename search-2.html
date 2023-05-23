@@ -62,16 +62,19 @@
         </div>
 
         <script src="js/imageSearchFunc.js"></script>
+        <script src="js/imageGenerateFunc.js"></script>
         <script>
             const form1 = document.querySelector("#query-form-1");
             const form2 = document.querySelector("#query-form-2");
 
             form1.addEventListener("submit", (event) => {
-                searchFunction(event, "1", 10);
+                searchFunction(event, "1", 6);
+                generateFunction(event, "1", 4);
             });
 
             form2.addEventListener("submit", (event) => {
-                searchFunction(event, "2", 10);
+                searchFunction(event, "2", 6);
+                generateFunction(event, "2", 4);
             });
         </script>
     </main>
