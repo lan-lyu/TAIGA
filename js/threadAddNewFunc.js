@@ -1,12 +1,35 @@
-// make editions on the gallery
-function refineGallery(gallery) {
+// make the images multi-selectable
+function addCheckbox(gallery) {
     const images = gallery.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-        // resize the images
-        images[i].style.width = "80px";
-        images[i].style.height = "80px";
-        images[i].style.margin = "3px";
+    const newGallery = document.createElement("div");
+    const imgLength = images.length;
+    // add checkbox to each image
+    for (let i = 0; i < imgLength; i++) {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox-input";
+        const checkboxContainer = document.createElement("div");
+        checkboxContainer.className = "checkbox-container";
+        checkboxContainer.appendChild(checkbox);
+        checkboxContainer.appendChild(images[0]);
+        newGallery.appendChild(checkboxContainer);
     }
+    gallery.innerHTML = newGallery.innerHTML;
+}
+
+// add event listener to the checkbox
+function addCheckboxListener(gallerySuffix) {
+    const checkboxes = document.querySelectorAll(`#${gallerySuffix} .checkbox-input`);
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener("change", function() {
+            const imageContainer = this.parentNode;
+            if (this.checked) {
+                imageContainer.classList.add("selected");
+            } else {
+                imageContainer.classList.remove("selected");
+            }
+        });
+    });
 }
 
 // function to copy the gallery to the thread popup
@@ -17,15 +40,11 @@ function copyGallery(src, dst) {
     const newGallery = document.createElement("div");
     newGallery.innerHTML = gallery1.innerHTML;
 
-    const images = newGallery.getElementsByTagName("img");
-    for (let i = 0; i < images.length; i++) {
-        // resize the images
-        images[i].style.width = "80px";
-        images[i].style.height = "80px";
-        images[i].style.margin = "3px";
-    }
+    addCheckbox(newGallery);
 
     gallery2.innerHTML = newGallery.innerHTML;
+
+    addCheckboxListener(dst);
 }
 
 
