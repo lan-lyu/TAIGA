@@ -93,10 +93,17 @@
             <hr style="color: #DEE4E1; width: 80%; opacity: 0.5;" />
             <div class="row-container" style="padding-top:1%; padding-bottom:1%;">
                 <input type="text" style="flex-grow: 0.49" id="thread-title-1" placeholder="  [data] Add Title..." />
-                <input type="text" style="flex-grow: 0.49" placeholder="  Add tags here" />
+				<select name="tags" style="flex-grow: 0.49" id="thread-tag-1">
+					<option value="" disabled selected>Add tags here</option>
+					<option value="racial-bias">racial-bias</option>
+					<option value="gender-bias">gender-bias</option>
+					<option value="age-bias">age-bias</option>
+					<option value="lgbtq-bias">lgbtq-bias</option>
+					<option value="cultural-bias">cultural-bias</option>
+				</select>
             </div>
             <div class="row-container">
-                <input type="text" style="flex-grow: 4; height: 178px;"
+                <input type="text" style="flex-grow: 4; height: 178px; font-size: 16px;" id="thread-description-1"
                     placeholder="  Type here. Use Markdown, BBCode, or HTML to format. Drag or paste images." />
             </div>
         </div>

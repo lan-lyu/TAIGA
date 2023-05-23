@@ -71,6 +71,40 @@ function checkGalleryEmpty(gallerySuffix) {
     return false;
 }
 
+// check if the thread content is valid
+function checkThreadTitleValid(title) {
+    if (title.includes("Add Title...")) {
+        alert("Please enter a title for the thread!");
+        return false;
+    }
+    return true;
+}
+function checkThreadTagValid(tag) {
+    if (tag == "") {
+        alert("Please enter a tag for the thread!");
+        return false;
+    }
+    return true;
+}
+function checkThreadDescriptionValid(description) {
+    if (description == "") {
+        alert("Please enter a description for the thread!");
+        return false;
+    }
+    return true;
+}
+function checkThreadContentValid(gallery1Suffix) {
+    const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value;
+    const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
+    const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
+    if ((!checkThreadTitleValid(threadTitle)) || 
+        (!checkThreadTagValid(threadTag)) ||
+        (!checkThreadDescriptionValid(threadDescription))) {
+        return false;
+    }
+    return true;
+}
+
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     // click on "+ new thread" button
     const popup = document.querySelector(`#add-thread-popup${suffix}`);
@@ -101,6 +135,9 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     const createButton = document.querySelector(`#create-thread${suffix}`);
     const threadPopup = document.querySelector(`#create-thread-popup-1${suffix}`);
     createButton.addEventListener("click", () => {
+        if(!checkThreadContentValid(gallery1Suffix)) {
+            return;
+        }
         popup.style.display = "none";
         threadPopup.style.display = "block";
         overlay.style.display = "block";

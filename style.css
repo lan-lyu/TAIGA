@@ -195,10 +195,34 @@ header form #search-button {
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 20px;
+	color: #222222;
 	/* or 150% */
 
 	display: flex;
 	align-items: center;
+
+	padding-left: 10px;
+
+	border: 2px solid #DEE4E1;
+	border-radius: 16px;
+}
+
+.row-container select {
+	box-sizing: border-box;
+
+	/* font-family: 'Inter'; */
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 20px;
+	color: #222222;
+	/* or 150% */
+
+	display: flex;
+	align-items: center;
+
+	padding-left: 10px;
 
 	border: 2px solid #DEE4E1;
 	border-radius: 16px;
