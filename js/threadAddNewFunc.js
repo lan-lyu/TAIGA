@@ -47,6 +47,24 @@ function copyGallery(src, dst) {
     addCheckboxListener(dst);
 }
 
+// function to preview the images gallary and the selected highlight iamges
+function copyPreviewGallery(gallerySuffix) {
+    const gallery1 = document.querySelector(`#thread-gallery-${gallerySuffix}`);
+    const gallery2 = document.querySelector(`#thread-preview-gallery-${gallerySuffix}`);
+    gallery2.innerHTML = gallery1.innerHTML;
+    //remove the checkbox
+    checkboxes = gallery2.querySelectorAll(".checkbox-input");
+    checkboxes.forEach(function(checkbox) {
+        checkbox.remove();
+    });
+    // resize the images
+    images = gallery2.querySelectorAll("img");
+    images.forEach(function(image) {
+        image.style.width = "60px";
+        image.style.height = "60px";
+    });
+}
+
 // function to set the title of the thread
 function setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix) {
     if (oneOrTwo == 1) {
@@ -158,6 +176,18 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     });
 
     document.getElementById(`next-button-2${suffix}`).addEventListener("click", () => {
+        // set the content for the third thread preview page
+        const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value;
+        const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
+        const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
+        document.querySelector(`#thread-preview-title-${gallery1Suffix}`).textContent = threadTitle;
+        document.querySelector(`#thread-preview-tag-${gallery1Suffix}`).textContent = threadTag;
+        document.querySelector(`#thread-preview-description-${gallery1Suffix}`).textContent = threadDescription;
+        copyPreviewGallery(gallery1Suffix);
+        if (oneOrTwo == 2) {
+            copyPreviewGallery(gallery2Suffix);
+        }
+        // make the page trasition
         document.getElementById(`create-thread-popup-2${suffix}`).style.display = "none";
         document.getElementById(`create-thread-popup-3${suffix}`).style.display = "block";
     });
