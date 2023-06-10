@@ -123,6 +123,38 @@ function checkThreadContentValid(gallery1Suffix) {
     return true;
 }
 
+function createThread(gallery1Suffix) {
+    const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value.trim();
+    const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
+    const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
+    console.log(threadTitle);
+    console.log(threadTag);
+    console.log(threadDescription);
+    postToDiscourse(threadTitle, threadTag, "", threadDescription, "")
+}
+
+async function postToDiscourse(title, tag, category, content, image) {
+    const categoryNum = 46; // Category for stable-diffusion
+
+    // TODO: Post the image on discourse server and get the URL
+    
+    let response = await fetch(`https://forum.weaudit.org/posts.json`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'api-key': '',
+            'api-username': ''
+        },
+        body: JSON.stringify({
+            "title": title,
+            "raw": content,
+            "category": categoryNum
+        })
+    });
+
+    console.log("API Call finished!");
+}
+
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     // click on "+ new thread" button
     const popup = document.querySelector(`#add-thread-popup${suffix}`);
