@@ -133,6 +133,13 @@ function createThread(gallery1Suffix) {
     postToDiscourse(threadTitle, threadTag, "", threadDescription, "")
 }
 
+function generateTopicURL(title) {
+    const BASE_URL = "https://forum.weaudit.org/t/"
+    const wordsArray = title.split(" ");
+    const resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-");
+    return BASE_URL + resultString + "/";
+}
+
 async function postToDiscourse(title, tag, category, content, image) {
     const categoryNum = 46; // Category for stable-diffusion
     let response = await fetch(`http://127.0.0.1:5000/createpost`, {
@@ -150,12 +157,13 @@ async function postToDiscourse(title, tag, category, content, image) {
                 raw: content,
                 category: categoryNum
             },
-            // TODO: Get the images 
+            // TODO: Get the image and replace the image
             image_path: "./static/images/0AHCAD48IZZ8.png"
         })
     });
-    // TODO: Get the URL of the post and redirect there from TAIGA
-    console.log("API Call finished!");
+    const URL = generateTopicURL(title);
+    console.log("API Call finished! -> " + URL);
+    window.location.href = URL;
 }
 
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
