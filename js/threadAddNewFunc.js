@@ -135,23 +135,26 @@ function createThread(gallery1Suffix) {
 
 async function postToDiscourse(title, tag, category, content, image) {
     const categoryNum = 46; // Category for stable-diffusion
-
-    // TODO: Post the image on discourse server and get the URL
-    
-    let response = await fetch(`https://forum.weaudit.org/posts.json`, {
+    let response = await fetch(`http://127.0.0.1:5000/createpost`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'api-key': '',
-            'api-username': ''
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "title": title,
-            "raw": content,
-            "category": categoryNum
+            headers: {
+                "Api-Key": "faa52080e7da71c54395adbaafa82d33590b26cb3426d0060ea0088ba0f26091",
+                "Api-Username": "CMUweaudit-admin",
+            },
+            params: {
+                title: title,
+                raw: content,
+                category: categoryNum
+            },
+            // TODO: Get the images 
+            image_path: "./static/images/0AHCAD48IZZ8.png"
         })
     });
-
+    // TODO: Get the URL of the post and redirect there from TAIGA
     console.log("API Call finished!");
 }
 
