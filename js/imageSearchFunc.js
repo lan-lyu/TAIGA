@@ -34,11 +34,20 @@ async function searchFunction (event, inputId, img_num) {
     gallery.innerHTML = "";
 
     const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
+    // serachInProgressText.style.display = "block";
+
+    // show loading animation for images
+    for (let i = 0; i < img_num; i++) {
+        const loadingBox = document.createElement("div");
+        loadingBox.classList.add("image-loading-box");
+        gallery.appendChild(loadingBox);
+    }
 
     const images = await handleSearch(searchTerm);
+    setTimeout(function() {console.log("to test the loading animation");}, 5000);
 
     serachInProgressText.style.display = "none";
+    gallery.innerHTML = "";
     for (let i = 0; i < img_num; i++) {
       const img = document.createElement("img");
       img.src = images[i][0];
