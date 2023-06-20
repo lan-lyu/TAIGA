@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,15 @@
                     <img src="images/iconBack.png" alt="back" width="25" height="25" />
                 </a>
             </div>
-            <div class="col-9-half">
+            <div class="col-4-3qtr">
+                <form id="search-input-form-one">
+                    <input type="text" id="search-input-one" placeholder="Search for key terms">
+                    <div class="input-group-append">
+                        <button type="submit" id="search-button"> </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4-3qtr">
                 <form id="search-input-form-one">
                     <input type="text" id="search-input-one" placeholder="Search for key terms">
                     <div class="input-group-append">
@@ -45,16 +54,20 @@
                             var promptSwitch = document.getElementById('switch-compare-prompt');
                             if (promptSwitch.checked == true){
                                 window.location.href = "responsive-search-2.html";
+                            } else {
+                                window.location.href = "responsive.html";
                             }
                         }
                         function switchGoogleLayout() {
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
                                 window.location.href = "search-2-google.html";
+                            } else {
+                                window.location.href = "responsive-search-2.html";
                             }
                         }
                     </script>
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
                     <label class="form-check-label" for="switch-compare-prompt">
                         <body1-medium> Compare </body1-medium>
                     </label>
@@ -66,7 +79,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col-0-half">
+            <div class="col-0-1qtr">
                 <img src="images/iconQuestion.png" alt="question" width="20" height="28" />
             </div>
         </div>
