@@ -103,9 +103,11 @@
                     // Create an image element
                     var imageElement = document.createElement("img");
                     imageElement.src = screenshotDataUrl;
+                    imageElement.style.width = "80%";
 
                     // Append the image to the screenshot container div
                     var screenshotContainer = document.getElementById("screenshotContainer");
+                    screenshotContainer.innerHTML = "";
                     screenshotContainer.appendChild(imageElement);
                 });
             }

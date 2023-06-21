@@ -49,10 +49,16 @@ async function searchFunction (event, inputId, img_num) {
     serachInProgressText.style.display = "none";
     gallery.innerHTML = "";
     for (let i = 0; i < img_num; i++) {
-      const img = document.createElement("img");
-      img.src = images[i][0];
-      img.alt = images[i][1];
-      gallery.appendChild(img);
+        const img = document.createElement("img");
+        img.src = images[i][0];
+        img.alt = images[i][1];
+        gallery.appendChild(img);
+
+        //download the image        
+        var link = document.createElement("a");
+        link.href = image.src;
+        link.download = image.src.split('/').pop();
+        link.click();
     }
 }
 
@@ -115,8 +121,14 @@ function performImageSearch(event, inputId, img_num) {
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
-    const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
+    // const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
+    // serachInProgressText.style.display = "block";
+    // show loading animation for images
+    for (let i = 0; i < img_num; i++) {
+        const loadingBox = document.createElement("div");
+        loadingBox.classList.add("image-loading-box");
+        gallery.appendChild(loadingBox);
+    }
 
     const form = document.querySelector(`#query-form-${inputId}`);
     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
@@ -129,7 +141,8 @@ function performImageSearch(event, inputId, img_num) {
       .then(response => response.json())
       .then(data => {
    
-        serachInProgressText.style.display = "none";
+        gallery.innerHTML = "";
+        // serachInProgressText.style.display = "none";
         for (let i = 0; i < img_num; i++) {
             var item = data.items[i];
             var imageElement = document.createElement("img");
