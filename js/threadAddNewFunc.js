@@ -127,10 +127,22 @@ function createThread(gallery1Suffix) {
     const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value.trim();
     const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
     const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
-    console.log(threadTitle);
-    console.log(threadTag);
-    console.log(threadDescription);
-    postToDiscourse(threadTitle, threadTag, "", threadDescription, "")
+    var checkboxes_selected = []
+    var image_urls = []
+    const gallery1 = document.querySelector(`#thread-gallery-one`);
+    checkboxes = gallery1.querySelectorAll(".checkbox-input");
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            checkboxes_selected.push(true)
+        } else {
+            checkboxes_selected.push(false)
+        }
+    });
+    images = gallery1.querySelectorAll("img");
+    images.forEach(function(image) {
+        image_urls.push(image.src)
+    });
+    postToDiscourse(threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected)
 }
 
 function generateTopicURL(title) {
@@ -140,9 +152,9 @@ function generateTopicURL(title) {
     return BASE_URL + resultString + "/";
 }
 
-async function postToDiscourse(title, tag, category, content, image) {
+async function postToDiscourse(title, tag, category, content, image_urls, checkbox) {
     const categoryNum = 46; // Category for stable-diffusion
-    let response = await fetch(`http://127.0.0.1:5000/createpost`, {
+    await fetch(`http://127.0.0.1:5000/createpost`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -154,15 +166,15 @@ async function postToDiscourse(title, tag, category, content, image) {
             },
             params: {
                 title: title,
-                raw: content,
+                raw: "<b>" + tag + "</b>" + "<hr>" + content + "<br>",
                 category: categoryNum
             },
-            // TODO: Get the image and replace the image
-            image_path: "./static/images/0AHCAD48IZZ8.png"
+            urls: image_urls,
+            checkbox: checkbox,
+            image_path: "./assets/TAIGA_Single.jpg"
         })
     });
     const URL = generateTopicURL(title);
-    console.log("API Call finished! -> " + URL);
     window.location.href = URL;
 }
 
