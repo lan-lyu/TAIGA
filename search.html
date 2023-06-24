@@ -147,10 +147,6 @@
 			<!-- <img src="images/egThreadStep3.png" alt="placeholder"
 				style="width: 80%; margin-left: 10%; margin-top: -1%; margin-right: 10%;" /> -->
 			<div class="right-aligned">
-				<!-- <a href="https://forum.weaudit.org/t/daily-comparison-teachers-in-your-lifetime/301"
-					style="margin-top: 3%; margin-right: 10%;">
-					<button class="btn-dark" id="next-button-3-one"> Next </button>
-				</a> -->
 				<button class="btn-dark" id="next-button-3-one"> Next </button>
 			</div>
 		</div>
@@ -158,12 +154,9 @@
 		<script src="js/threadAddNewFunc.js"></script>
         <script>
             addButtonListener("-one", 1, "one", "");
-        </script>
-		<script>
 			const button = document.getElementById("next-button-3-one");
 			button.addEventListener("click", (event) => {
-				console.log("Button clicked!");
-				createThread("one");
+				createThread("one", false);
 			});
 		</script>
 	</div>

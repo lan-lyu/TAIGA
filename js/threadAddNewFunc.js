@@ -123,13 +123,15 @@ function checkThreadContentValid(gallery1Suffix) {
     return true;
 }
 
-function createThread(gallery1Suffix) {
+function createThread(gallery1Suffix, comparison) {
     const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value.trim();
     const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
     const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
     var checkboxes_selected = []
     var image_urls = []
-    const gallery1 = document.querySelector(`#thread-gallery-one`);
+    var image_path = "./assets/TAIGA_Single.jpg"
+    var compare = false
+    const gallery1 = document.querySelector(`#thread-gallery-${gallery1Suffix}`);
     checkboxes = gallery1.querySelectorAll(".checkbox-input");
     checkboxes.forEach(function(checkbox) {
         if (checkbox.checked) {
@@ -142,17 +144,38 @@ function createThread(gallery1Suffix) {
     images.forEach(function(image) {
         image_urls.push(image.src)
     });
-    postToDiscourse(threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected)
+    if(comparison){
+        const gallery2 = document.querySelector(`#thread-gallery-2`);
+        checkboxes = gallery2.querySelectorAll(".checkbox-input");
+        checkboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                checkboxes_selected.push(true)
+            } else {
+                checkboxes_selected.push(false)
+            }
+        });
+        images = gallery2.querySelectorAll("img");
+        images.forEach(function(image) {
+            image_urls.push(image.src)
+        });
+        image_path = "./assets/TAIGA_Compare.jpg"
+        compare = true
+    }
+    console.log(checkboxes_selected)
+    console.log(image_urls)
+    postToDiscourse(threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_path, compare)
 }
 
 function generateTopicURL(title) {
     const BASE_URL = "https://forum.weaudit.org/t/"
-    const wordsArray = title.split(" ");
-    const resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-");
+    var wordsArray = title.split("]vs[");
+    var resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-vs-");
+    wordsArray = resultString.split(" ");
+    resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-");
     return BASE_URL + resultString + "/";
 }
 
-async function postToDiscourse(title, tag, category, content, image_urls, checkbox) {
+async function postToDiscourse(title, tag, category, content, image_urls, checkbox, image_path, compare) {
     const categoryNum = 46; // Category for stable-diffusion
     await fetch(`http://127.0.0.1:5000/createpost`, {
         method: 'POST',
@@ -171,7 +194,8 @@ async function postToDiscourse(title, tag, category, content, image_urls, checkb
             },
             urls: image_urls,
             checkbox: checkbox,
-            image_path: "./assets/TAIGA_Single.jpg"
+            compare: compare,
+            image_path: image_path
         })
     });
     const URL = generateTopicURL(title);

@@ -59,17 +59,17 @@
             </div>
         </div>
 
-        <script src="js/imageSearchFunc.js"></script>
+        <script src="js/imageGenerateFunc.js"></script>
         <script>
             const form1 = document.querySelector("#query-form-1");
             const form2 = document.querySelector("#query-form-2");
 
             form1.addEventListener("submit", (event) => {
-                searchFunction(event, "1", 10);
+                generateFunction(event, "1", 10);
             });
 
             form2.addEventListener("submit", (event) => {
-                searchFunction(event, "2", 10);
+                generateFunction(event, "2", 10);
             });
         </script>
     </main>
@@ -176,16 +176,17 @@
                 </div>
 			</div>
             <div class="right-aligned">
-                <a href="https://forum.weaudit.org/t/daily-comparison-teachers-in-your-lifetime/301"
-                    style="margin-top: 3%; margin-right: 10%;">
-                    <button class="btn-dark" id="next-button-3"> Next </button>
-                </a>
+                <button class="btn-dark" id="next-button-3-one"> Next </button>
             </div>
         </div>
 
         <script src="js/threadAddNewFunc.js"></script>
         <script>
             addButtonListener("", 2, "1", "2");
+            const button = document.getElementById("next-button-3-one");
+			button.addEventListener("click", (event) => {
+				createThread("1",true);
+			});
         </script>
 
     </div>
