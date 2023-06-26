@@ -63,7 +63,6 @@ function copyPreviewGallery(gallerySuffix) {
     images.forEach(function(image) {
         image.style.width = "60px";
         image.style.height = "60px";
-        // image.download = `image-${index++}.png`;
     });
     // generateImage(images);
 }
@@ -80,15 +79,17 @@ function createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix) {
     if (oneOrTwo == 2) {
         gallery2 = document.querySelector(`#search-gallery-${gallery2Suffix}`);
     }
-    // const images = gallery1.getElementsByTagName("img");
+
+    // test screenshot function with gallery 1 
     const images = gallery1.querySelectorAll("img");
-    // download images
-    // images.forEach(function(image) {
-    //     var link = document.createElement("a");
-    //     link.href = image.src;
-    //     link.download = image.src.split('/').pop();
-    //     link.click();
-    // });
+
+    // download images in the gallery
+    images.forEach(function(image) {
+        var link = document.createElement("a");
+        link.href = image.src;
+        link.download = image.src.split('/').pop();
+        link.click();
+    });
 
     // Create a canvas element
     var canvas = document.createElement("canvas");
@@ -97,7 +98,7 @@ function createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix) {
     // Set canvas dimensions
     canvas.width = 1920;
     canvas.height = 1080;
-    
+
     // we can use this to show the prompts of the search
     ctx.font = "30px Arial";
     ctx.fillText("Hello, World!", 50, 50);
@@ -126,7 +127,7 @@ function createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix) {
     var image = canvas.toDataURL("image/png");
     var link = document.createElement("a");
     link.href = image;
-    link.download = "gallery.png"; // set the desired file name for the downloaded image
+    link.download = "gallery.png";
     link.click();
 }
 
@@ -240,7 +241,7 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
         }
 
         setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix);
-        createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix);
+        // createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix);
         popup.style.display = "block";
     });
 
