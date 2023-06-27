@@ -20,14 +20,14 @@
 <body>
     <div class="container">
         <div class="row align-items-center" style="margin-top: 3%;">
-            <div class="col-0-half top">
+            <div class="col-0-half">
                 <!-- <a href="index.html" class="previous">&#8249;</a> -->
                 <a href="index.html">
                     <img src="images/iconBack.png" alt="back" width="25" height="25" />
                 </a>
             </div>
-            <div class="col-10 mid">
-                <form id="search-input-form-one">
+            <div class="col-10">
+                <form id="query-form-one">
                     <input type="text" id="search-input-one" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button type="submit" class="btn button-search" id="search-button">
@@ -40,7 +40,7 @@
                 </form>
             </div>
             <!-- <div class="col-sm-2"> -->
-            <div class="col-1 bottom">
+            <div class="col-1">
                 <div class="form-check form-switch">
                     <script>
                         function switchCompareLayout() {
@@ -52,7 +52,8 @@
                         function switchGoogleLayout() {
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
-                                window.location.href = "search-2-google.html";
+                                // window.location.href = "search-2-google.html";
+                                alert("Change to google search");
                             }
                         }
                     </script>
@@ -68,11 +69,32 @@
                     </label>
                 </div>
             </div>
-            <div class="col-0-half">
+            <!-- <div class="col-0-half">
                 <img src="images/iconQuestion.png" alt="question" width="20" height="28" />
+            </div> -->
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-0-half">
+            </div>
+            <div class="col-11-half">
+                <div class="gallery" id="search-gallery-one"></div>
+                <script>
+                    const formOne = document.querySelector("#query-form-one");
+                    formOne.addEventListener("submit", (event) => {
+                        var promptSwitch = document.getElementById('switch-google-source');
+                        if (promptSwitch.checked == true){
+                            performImageSearch(event, "one", 25);
+                        } else {
+                            searchUnsplashFunction(event, "one", 25);
+                        }
+                    })
+                </script>
+                <script src="js/imageSearchFunc.js"></script>
+                <script src="js/imageGenerateFunc.js"></script>
             </div>
         </div>
     </div>
+
 
 </body>
 

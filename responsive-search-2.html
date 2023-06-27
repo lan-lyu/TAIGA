@@ -6,7 +6,7 @@
 <head>
 	<title>Search Images</title>
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="responsive-style.css">
+	<link rel="stylesheet" type="text/css" href="responsive-style-2.css">
 
     <!-- bootstrap settings https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="col-md-5 mid1">
-                <form id="search-input-form-1">
+                <form id="query-form-1">
                     <input type="text" id="search-input-1" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button type="submit" class="btn button-search" id="search-button" style="height: 54px; width: 54px;">
@@ -40,7 +40,7 @@
                 </form>
             </div>
             <div class="col-md-5 mid2">
-                <form id="search-input-form-2">
+                <form id="query-form-2">
                     <input type="text" id="search-input-2" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button type="submit" class="btn button-search" id="search-button" style="height: 54px; width: 54px;">
@@ -67,7 +67,7 @@
                         function switchGoogleLayout() {
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
-                                window.location.href = "search-2-google.html";
+                                window.location.href = "responsive-google-2.html";
                             } else {
                                 window.location.href = "responsive-search-2.html";
                             }
@@ -85,9 +85,43 @@
                     </label>
                 </div>
             </div>
-            <div class="col-0-1qtr buttom2">
+            <!-- <div class="col-0-1qtr buttom2">
                 <img src="images/iconQuestion.png" alt="question" width="20" height="28" />
+            </div> -->
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-0-half">
             </div>
+            <div class="col-5">
+                <div class="gallery" id="search-gallery-1"></div>
+            </div>
+            <div class="col-5">
+                <div class="gallery" id="search-gallery-2"></div>
+            </div>
+            <script>
+                const form1 = document.querySelector("#query-form-1");
+                const form2 = document.querySelector("#query-form-2");
+
+                form1.addEventListener("submit", (event) => {
+                    var promptSwitch = document.getElementById('switch-google-source');
+                    if (promptSwitch.checked == true){
+                        performImageSearch(event, "1", 10);
+                    } else {
+                        searchUnsplashFunction(event, "1", 10);
+                    }
+                })
+
+                form2.addEventListener("submit", (event) => {
+                    var promptSwitch = document.getElementById('switch-google-source');
+                    if (promptSwitch.checked == true){
+                        performImageSearch(event, "2", 10);
+                    } else {
+                        searchUnsplashFunction(event, "2", 10);
+                    }
+                })
+            </script>
+            <script src="js/imageSearchFunc.js"></script>
+            <script src="js/imageGenerateFunc.js"></script>
         </div>
     </div>
 

@@ -70,14 +70,10 @@ async function searchUnsplashFunction (event, inputId, img_num) {
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
-    const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
-
     const form = document.querySelector(`#query-form-${inputId}`);
     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
-    const url = `https://source.unsplash.com/1600x900/?${searchTerm}`;
+    const url = `https://source.unsplash.com/1600x1600/?${searchTerm}`;
 
-    serachInProgressText.style.display = "none";
     for (let i = 0; i < img_num; i++) {
         const img = document.createElement('img');
         img.src = `${url}&${i}`;
@@ -93,9 +89,6 @@ async function searchGoogleFunction (event, inputId, img_num) {
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
-    const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
-
     const form = document.querySelector(`#query-form-${inputId}`);
     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
 
@@ -104,7 +97,6 @@ async function searchGoogleFunction (event, inputId, img_num) {
     const cx = "";
     const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&searchType=image&q=${encodeURIComponent(searchTerm)}`;
 
-    serachInProgressText.style.display = "none";
     for (let i = 0; i < img_num; i++) {
         const img = document.createElement('img');
         img.src = `${url}&${i}`;
@@ -121,8 +113,6 @@ function performImageSearch(event, inputId, img_num) {
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
-    // const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    // serachInProgressText.style.display = "block";
     // show loading animation for images
     for (let i = 0; i < img_num; i++) {
         const loadingBox = document.createElement("div");
