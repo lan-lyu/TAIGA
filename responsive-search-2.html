@@ -6,11 +6,7 @@
 <head>
 	<title>Search Images</title>
     <meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-    
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="responsive-style.css">
 
     <!-- bootstrap settings https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,29 +21,39 @@
 <body>
     <div class="container">
         <div class="row align-items-center" style="margin-top: 3%;">
-            <div class="col-0-half">
-                <a href="index.html" style="margin-top: 5px; padding-top: 5px;">
+            <div class="col-md-0-half top">
+                <a href="index.html">
                     <img src="images/iconBack.png" alt="back" width="25" height="25" />
                 </a>
             </div>
-            <div class="col-4-3qtr">
-                <form id="search-input-form-one">
-                    <input type="text" id="search-input-one" placeholder="Search for key terms">
-                    <div class="input-group-append">
-                        <button type="submit" id="search-button"> </button>
+            <div class="col-md-5 mid1">
+                <form id="search-input-form-1">
+                    <input type="text" id="search-input-1" placeholder="Search for key terms">
+                    <div class="input-group-append" style="background-color: #0C826A;">
+                        <button type="submit" class="btn button-search" id="search-button" style="height: 54px; width: 54px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                            </svg>
+                        </button>
+                        <!-- <button type="submit" id="search-button"> </button> -->
                     </div>
                 </form>
             </div>
-            <div class="col-4-3qtr">
-                <form id="search-input-form-one">
-                    <input type="text" id="search-input-one" placeholder="Search for key terms">
-                    <div class="input-group-append">
-                        <button type="submit" id="search-button"> </button>
+            <div class="col-md-5 mid2">
+                <form id="search-input-form-2">
+                    <input type="text" id="search-input-2" placeholder="Search for key terms">
+                    <div class="input-group-append" style="background-color: #0C826A;">
+                        <button type="submit" class="btn button-search" id="search-button" style="height: 54px; width: 54px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                            </svg>
+                        </button>
+                        <!-- <button type="submit" id="search-button"> </button> -->
                     </div>
                 </form>
             </div>
-            <!-- <div class="col-sm-2"> -->
-            <div class="col-1">
+            <!-- <div class="col-md-2"> -->
+            <div class="col-md-1 bottom1">
                 <div class="form-check form-switch">
                     <script>
                         function switchCompareLayout() {
@@ -79,7 +85,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col-0-1qtr">
+            <div class="col-0-1qtr buttom2">
                 <img src="images/iconQuestion.png" alt="question" width="20" height="28" />
             </div>
         </div>
