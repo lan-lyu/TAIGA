@@ -18,7 +18,7 @@ a {
 }
 
 .previous {
-    background-color: #ffffff;
+    background-color: var(--bs-white);
     color: black;
     font-size: 35px;
 }
@@ -50,7 +50,8 @@ form input {
 }
 
 .form-switch .form-check-input {
-	background-color: #b7bbc1;
+	background-color: var(--grey-4);
+	border: var(--grey-5);
 }
 
 .form-switch .form-check-input:checked {
@@ -66,7 +67,7 @@ form input {
 	width: 240px;
 	height: 240px;
 	border-radius: 4px;
-	background-color: #cfcfcf;
+	background-color: var(--grey-3);
 	animation: imageLoadingAnimation 1s ease-in-out infinite alternate;
 }
 

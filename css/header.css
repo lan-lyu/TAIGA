@@ -9,11 +9,11 @@
 	--grey-3: #A4ACA8;
 	--grey-4: #DEE4E1;
 	--grey-5: #F8F9F8;
-
 }
 
 #header {
 	background-color: var(--green-5);
+    border-bottom: 1px solid var(--grey-4);
 }
 
 #title {
