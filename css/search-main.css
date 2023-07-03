@@ -9,7 +9,15 @@
 	--grey-3: #A4ACA8;
 	--grey-4: #DEE4E1;
 	--grey-5: #F8F9F8;
+}
 
+.body-4-medium {
+	color: var(--gray-2, #797B7B);
+	font-size: 10px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
 }
 
 a {
