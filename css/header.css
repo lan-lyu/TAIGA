@@ -34,14 +34,3 @@
 	font-size: 17px;
 	color: var(--green-1);
 }
-
-/* #header-workflow-container::before {
-    content: "";
-    position: absolute;
-    top: 9.3%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: var(--grey-3); /* Replace with your desired line color */
-    z-index: -1;
-} */
