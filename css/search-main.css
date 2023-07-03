@@ -8,22 +8,6 @@ a {
     color: black;
     font-size: 35px;
 }
-/* 
-@media (max-width: 768px) {
-    .row {
-      display: flex;
-      flex-direction: column;
-    }
-    .top .bottom1 .bottom2{
-        order: 1;
-    }
-    .mid1 {
-        order: 2;
-    }
-    .mid2 {
-        order: 3;
-    }
-} */
 
 form {
 	display: flex;
@@ -42,30 +26,13 @@ form input {
 	background-color: #EFF9F5;
 }
 
-/* #search-button {
-	background-image: url("images/iconSearch.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 30px;
-	border: none;
-	border-radius: 0 2px 2px 0;
-	padding: 10px;
-	cursor: pointer;
-	background-color: #0C826A;
-	height: 54px;
-	width: 64px;
-} */
+.btn {
+    --bs-btn-hover-bg: #10724f;
+}
 
 .button-search {
     height: 54px;
-    --bs-btn-color: #ffffff;
-    --bs-btn-border-color: #ffffff;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #10724f;
-    --bs-btn-focus-shadow-rgb: 60,153,110;
-    --bs-btn-active-color: #ffffff;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
-    --bs-btn-disabled-color: #ffffff;
+	width: 54px;
 }
 
 .form-switch .form-check-input {
@@ -98,12 +65,13 @@ form input {
 	}
 }
 
-/* .gallery img{
-	max-width: 200px;
-	max-height: 200px;
-    width: 200px;
-    height: 200px;
-	border-radius: 4px;
-	margin: 10px;
-    /* height: 240px; */
-} */
+#createThreadBtn {
+	position: fixed;
+	bottom: 10%;
+	right: 5%;
+	z-index: 9999;
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: #0C826A;
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #10724f;
+}
