@@ -1,0 +1,36 @@
+:root {
+	--green-1: #10724f;
+	--green-2: #48996D;
+	--green-3: #87C7B3;
+	--green-4: #EFF9F5;
+	--green-5: #F7FCFA;
+	--grey-1: #222222;
+	--grey-2: #797B7B;
+	--grey-3: #A4ACA8;
+	--grey-4: #DEE4E1;
+	--grey-5: #F8F9F8;
+
+}
+
+#header {
+	background-color: var(--green-5);
+}
+
+#title {
+	font: Karla;
+	font-size: 30px;
+	font-weight: bold;
+	color: var(--green-1);
+}
+
+#subTitle {
+	font: Karla;
+	font-size: 15px;
+	font-weight: bold;
+	color: var(--grey-2);
+}
+#subTitle span { display: inline-block; }
+#subTitle::first-letter, #subTitle span::first-letter {
+	font-size: 17px;
+	color: var(--green-1);
+}

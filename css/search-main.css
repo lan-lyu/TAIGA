@@ -1,3 +1,17 @@
+:root {
+	--green-1: #10724f;
+	--green-2: #48996D;
+	--green-3: #87C7B3;
+	--green-4: #EFF9F5;
+	--green-5: #F7FCFA;
+	--grey-1: #222222;
+	--grey-2: #797B7B;
+	--grey-3: #A4ACA8;
+	--grey-4: #DEE4E1;
+	--grey-5: #F8F9F8;
+
+}
+
 a {
     text-decoration: none;
     display: inline-block;
@@ -12,7 +26,7 @@ a {
 form {
 	display: flex;
 	align-items: center;
-	border: 2px solid #0C826A;
+	border: 2px solid var(--green-2);
 	border-radius: 8px 8px 8px 8px;
 	background-color: #EFF9F5;
 }
@@ -27,7 +41,7 @@ form input {
 }
 
 .btn {
-    --bs-btn-hover-bg: #10724f;
+    --bs-btn-hover-bg: var(--green-1);
 }
 
 .button-search {
@@ -40,11 +54,11 @@ form input {
 }
 
 .form-switch .form-check-input:checked {
-	background-color: #10724f;
+	background-color: var(--green-1);
 }
 
 .form-switch .form-check-input:focus {
-	box-shadow: 0 0 1px #10724f;
+	box-shadow: 0 0 1px var(--green-1);
 }
 
 .image-loading-box {
@@ -71,7 +85,7 @@ form input {
 	right: 5%;
 	z-index: 9999;
 	--bs-btn-color: var(--bs-white);
-	--bs-btn-bg: #0C826A;
+	--bs-btn-bg: #07826a;
 	--bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #10724f;
+    --bs-btn-hover-bg: var(--green-1);
 }
