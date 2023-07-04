@@ -50,6 +50,15 @@
 	line-height: 30px;
 }
 
+.body-1-medium {
+	color: var(--gray-3);
+	font-size: 16px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+}
+
 .body-4-medium {
 	color: var(--gray-2, #797B7B);
 	font-size: 10px;
@@ -148,7 +157,7 @@ form input {
 
 #thread-create-btn {
 	--bs-btn-color: var(--bs-white);
-	--bs-btn-bg: var(--green-1);
+	--bs-btn-bg: #07826a;
 	--bs-btn-hover-color: var(--bs-white);
     --bs-btn-hover-bg: var(--green-1);
 	--bs-btn-border-color: var(--green-1);
@@ -183,4 +192,43 @@ form input {
 	font-style: normal;
 	font-weight: 400;
 	line-height: 22px;
+}
+
+.back-icon-btn {
+	--bs-btn-color: var(--grey-1);
+	--bs-btn-bg: var(--bs-white);
+	--bs-btn-border-color: var(--bs-white);
+	--bs-btn-hover-color: var(--green-1);
+	--bs-btn-hover-bg: var(--bs-white);
+	--bs-btn-hover-border-color: var(--bs-white);
+}
+
+#thread-back-btn-1 {
+	--bs-btn-color: var(--grey-1);
+	--bs-btn-bg: var(--bs-white);
+	--bs-btn-border-color: var(--bs-white);
+	--bs-btn-hover-color: var(--green-1);
+	--bs-btn-hover-bg: var(--bs-white);
+	--bs-btn-hover-border-color: var(--bs-white);
+}
+
+.next-modal-btn {
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: #07826a;
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--green-1);
+	--bs-btn-border-color: var(--green-1);
+	font-size: 20px;
+}
+
+.modal-body {
+	color: var(--gray-2, #797B7B);
+	font-size: 14px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: -0.14px;
+	margin-left: 7%;
+	margin-right: 7%;
 }
