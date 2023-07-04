@@ -136,7 +136,7 @@ form input {
 	}
 }
 
-#createThreadBtn {
+#thread-begin-button {
 	position: fixed;
 	bottom: 10%;
 	right: 5%;
@@ -231,4 +231,39 @@ form input {
 	letter-spacing: -0.14px;
 	margin-left: 7%;
 	margin-right: 7%;
+}
+
+.select-gallery img {
+	width: 80px;
+	height: 80px;
+	margin: 3px;
+}
+
+#thread-gallery-1 img, #thread-gallery-2 img {
+	width: 120px;
+	height: 120px;
+	margin: 3px;
+}
+
+.checkbox-container {
+	position: relative;
+	display: inline-block;
+	border: 4px transparent solid;
+}
+
+.checkbox-container img {
+	width: 80px;
+	height: 80px;
+	margin: 3px;
+}
+
+.checkbox-input {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.selected {
+	border: 4px solid #FFD540;
+	/* border-radius: 4px; */
 }

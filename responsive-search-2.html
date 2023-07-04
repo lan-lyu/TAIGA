@@ -191,7 +191,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="createThreadBtn" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
+    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
         + &nbsp;New Thread
     </button>
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
@@ -249,12 +249,16 @@
                 Select certain images which are most relevant to the identified bias in order to highlight them among the results in the thread.
                 <div class="row">
                     <div class="col-6">
-                        <div class="gallery" id="thread-gallery-1"></div>
+                        <div class="gallery select-gallery" id="thread-gallery-1"></div>
                     </div>
                     <div class="col-6">
-                        <div class="gallery" id="thread-gallery-2"></div>
+                        <div class="gallery select-gallery" id="thread-gallery-2"></div>
                     </div>
                 </div>
+                <script src="js/createThread.js"></script>
+                <script>
+                    addButtonListener("", 2, "1", "2");
+                </script>
             </div>
             <div class="modal-footer">
                 <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button>
@@ -276,6 +280,7 @@
             </div>
             <div class="modal-body">
                 Select all that are similar to your thread. Taking this step would help viewers easily find related things and amplify the effect of your posts. 
+                <img src="images/egThreadStep2.png" style="width: 100%;"/>
             </div>
             <div class="modal-footer">
                 <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"> Next </button>
@@ -296,10 +301,10 @@
                 <h3 class="modal-title body-1-medium" style="color: var(--grey-2);"> Step 3/3 </h3>
             </div>
             <div class="modal-body">
-                
+                This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
             </div>
             <div class="modal-footer">
-                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button>
+                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Post </button>
             </div>
           </div>
         </div>
