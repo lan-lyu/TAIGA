@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/search-main.css">
 	<link rel="stylesheet" type="text/css" href="css/search-2.css">
 
-    <!-- bootstrap settings https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
+    <!-- bootstrap settings: https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -17,6 +17,17 @@
 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     
+    <!-- src: https://www.tiny.cloud/blog/bootstrap-wysiwyg-editor/ -->
+    <script src="https://cdn.tiny.cloud/1/3y76gl6fpamvcloey1ahbtozaiu9ahdxccyldgo5xnzsdz3r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            skin: 'bootstrap',
+            plugins: 'lists, link, image, media',
+            toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+            menubar: false,
+        });
+    </script>
 </head>
 
 <body>    
@@ -84,7 +95,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="search-container">
         <div class="row align-items-center" style="margin-top: 3%;">
             <div class="col-md-0-half top">
                 <a href="index.html">
@@ -180,9 +191,81 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="createThreadBtn">
+    <button type="button" class="btn btn-floating btn-lg" id="createThreadBtn" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
         + &nbsp;New Thread
     </button>
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-header" style="padding-left: 10%; padding-right: 10%; border-bottom: solid 1px var(--grey-4);">
+            <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
+            <div class="col-auto ms-auto justify-content-center">
+                <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
+                <!-- <a class="btn disabled" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="thread-create-btn"> -->
+                <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button" id="thread-create-btn">
+                    Create Thread
+                </a>
+            </div>
+        </div>
+        <div class="offcanvas-body small" style="padding-left: 10%; padding-right: 10%;">
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" placeholder="Add Title..." aria-label="Title" aria-describedby="basic-addon1" id="thread-input-title">
+                </div>
+                <div class="col-sm-6">
+                    <!-- TODO: make this multi-selectable -->
+                    <select class="form-select" aria-label="Default select example" id="thread-input-tag">
+                        <option selected>Add tags here...</option>
+                        <option value="1">racial-bias</option>
+                        <option value="2">gender-bias</option>
+                        <option value="3">age-bias</option>
+                        <option value="4">lgbtq-bias</option>
+                        <option value="5">cultural-bias</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-sm-12">
+                    <!-- <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea> -->
+                    <div class="form-group">
+                        <textarea id="editor"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
+    <div class="modal modal-fixed-bottom fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Show a second modal and hide this one with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
 </body>
 

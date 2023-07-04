@@ -11,6 +11,45 @@
 	--grey-5: #F8F9F8;
 }
 
+.h1 {
+	color: #000;
+	font-size: 48px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 58px;
+	letter-spacing: -0.96px;
+}
+
+.h2 {
+	color: #000;
+	font-size: 36px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 46px;
+	letter-spacing: -0.432px;
+}
+
+.h3 {
+	color: #000;
+	font-size: 28px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 36px;
+	letter-spacing: -0.336px;
+}
+
+.h4 {
+	color: #000;
+	font-size: 20px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+
 .body-4-medium {
 	color: var(--gray-2, #797B7B);
 	font-size: 10px;
@@ -92,9 +131,56 @@ form input {
 	position: fixed;
 	bottom: 10%;
 	right: 5%;
-	z-index: 9999;
+	z-index: 1;
 	--bs-btn-color: var(--bs-white);
 	--bs-btn-bg: #07826a;
 	--bs-btn-hover-color: var(--bs-white);
     --bs-btn-hover-bg: var(--green-1);
+}
+
+#thread-dismiss-btn {
+	--bs-btn-color: var(--green-1);
+	--bs-btn-bg: var(--bs-white);
+	--bs-btn-hover-color: var(--green-1);
+    --bs-btn-hover-bg: var(--green-4);
+	--bs-btn-border-color: var(--green-5);
+}
+
+#thread-create-btn {
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: var(--green-1);
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--green-1);
+	--bs-btn-border-color: var(--green-1);
+	font-size: 20px;
+}
+
+#thread-create-btn.disabled {
+	--bs-btn-color: var(--grey-3);
+	--bs-btn-bg: var(--grey-4);
+	--bs-btn-border-color: var(--grey-4);
+}
+
+#thread-input-title, #thread-input-tag {
+	border-radius: 16px;
+	border: 2px solid var(--gray-4, #DEE4E1);
+	color: var(--grey-2);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+#thread-create-offcanvas {
+	height: 40%;
+}
+
+#thread-input-desc {
+	border-radius: 16px;
+	border: 2px solid var(--gray-4, #DEE4E1);
+	color: var(--gray-2, #797B7B);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
 }
