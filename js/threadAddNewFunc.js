@@ -124,6 +124,8 @@ function checkThreadContentValid(gallery1Suffix) {
 }
 
 function createThread(gallery1Suffix, comparison) {
+    const searchTerm1 = document.querySelector(`#search-input-${gallery1Suffix}`).value.trim();
+    var searchTerm2 = "";
     const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value.trim();
     const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
     const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
@@ -146,6 +148,7 @@ function createThread(gallery1Suffix, comparison) {
     });
     if(comparison){
         const gallery2 = document.querySelector(`#thread-gallery-2`);
+        searchTerm2 = document.querySelector(`#search-input-2`).value.trim();
         checkboxes = gallery2.querySelectorAll(".checkbox-input");
         checkboxes.forEach(function(checkbox) {
             if (checkbox.checked) {
@@ -163,7 +166,7 @@ function createThread(gallery1Suffix, comparison) {
     }
     console.log(checkboxes_selected)
     console.log(image_urls)
-    postToDiscourse(threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_path, compare)
+    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_path, compare)
 }
 
 function generateTopicURL(title) {
@@ -175,9 +178,9 @@ function generateTopicURL(title) {
     return BASE_URL + resultString + "/";
 }
 
-async function postToDiscourse(title, tag, category, content, image_urls, checkbox, image_path, compare) {
+async function postToDiscourse(search1, search2, title, tag, category, content, image_urls, checkbox, image_path, compare) {
     const categoryNum = 46; // Category for stable-diffusion
-    await fetch(`http://127.0.0.1:5000/createpost`, {
+    await fetch(`http://127.0.0.1:5001/taigacreatepost`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -190,8 +193,11 @@ async function postToDiscourse(title, tag, category, content, image_urls, checkb
             params: {
                 title: title,
                 raw: "<b>" + tag + "</b>" + "<hr>" + content + "<br>",
-                category: categoryNum
+                category: categoryNum,
+                tags: [tag]
             },
+            searchTerm1: search1,
+            searchTerm2: search2,
             urls: image_urls,
             checkbox: checkbox,
             compare: compare,

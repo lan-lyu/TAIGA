@@ -1,5 +1,5 @@
 const handleGeneration = async (query, img_num) => {
-    let response = await fetch(`http://127.0.0.1:5000/predict`, {
+    let response = await fetch('http://127.0.0.1:5001/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
