@@ -33,7 +33,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
-<body>    
+<body>
     <div class="container-fluid" id="header-container">
         <div class="row align-items-center" id="header" style="padding-top: 1%;">
             <div class="col-0-3qtr"></div>
@@ -249,7 +249,7 @@
             </div>
             <div class="modal-body">
                 Select certain images which are most relevant to the identified bias in order to highlight them among the results in the thread.
-                <div class="row">
+                <div class="row margin-top:2%">
                     <div class="col-6">
                         <div class="gallery" id="thread-gallery-1"></div>
                     </div>
@@ -267,6 +267,11 @@
                             $(this).toggleClass('selected');
                         });
                     });
+                    // Storing gallery HTML
+                    const gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
+                    const gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
+                    localStorage.setItem('gallery1HTML', gallery1HTML);
+                    localStorage.setItem('gallery2HTML', gallery2HTML);
                 </script>
             </div>
             <div class="modal-footer">
@@ -292,7 +297,7 @@
                 <img src="images/egThreadStep2.png" style="width: 100%;"/>
             </div>
             <div class="modal-footer">
-                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"> Next </button>
+                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button>
             </div>
           </div>
         </div>
@@ -311,6 +316,21 @@
             </div>
             <div class="modal-body">
                 This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
+                <div class="row margin-top:2%">
+                    <div class="col-6">
+                        <div class="gallery" id="thread-preview-gallery-1"></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="gallery" id="thread-preview-gallery-2"></div>
+                    </div>
+                </div>
+                <script>
+                    const preview1HTML = localStorage.getItem('gallery1HTML');
+                    const preview2HTML = localStorage.getItem('gallery2HTML');
+                    document.querySelector('#thread-preview-gallery-1').innerHTML = preview1HTML;
+                    document.querySelector('#thread-preview-gallery-2').innerHTML = preview2HTML;
+                    console.log(preview1HTML);
+                </script>
             </div>
             <div class="modal-footer">
                 <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Post </button>
@@ -318,38 +338,6 @@
           </div>
         </div>
     </div>
-    
-    <!-- <script type="text/javascript">
-        jQuery(function ($) {
-            // init the state from the input
-            $(".image-checkbox").each(function () {
-                if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-                    $(this).addClass('image-checkbox-checked');
-                    console.log("a checked on add broder");
-                }
-                else {
-                    $(this).removeClass('image-checkbox-checked');
-                    console.log("unchecked remove broader");
-                }
-            });
-    
-            // sync the state to the input
-            $(".image-checkbox").on("click", function (e) {
-                console.log("click");
-                if ($(this).hasClass('image-checkbox-checked')) {
-                    console.log("uncheck to check");
-                    $(this).removeClass('image-checkbox-checked');
-                    $(this).find('input[type="checkbox"]').first().removeAttr("checked");
-                } else {
-                    console.log("chekced to uncheck");
-                    $(this).addClass('image-checkbox-checked');
-                    $(this).find('input[type="checkbox"]').first().attr("checked", "checked");
-                }
-    
-                e.preventDefault();
-            });
-        });
-    </script> -->
 </body>
 
 </html>

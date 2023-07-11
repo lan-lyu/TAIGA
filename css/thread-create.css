@@ -95,6 +95,7 @@
     width: 120px;
     overflow: hidden;
 	align-items: flex-start;
+	margin: 3px;
 }
 
 .gallery-item.selected {

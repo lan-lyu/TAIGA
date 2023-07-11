@@ -1,3 +1,15 @@
+$(document).ready(function() {
+    // Override Bootstrap modal behavior
+    $.fn.modal.Constructor.prototype._enforceFocus = function() {};
+
+    // Add event listener to prevent modal content from being moved
+    $('.modal').on('hidden.bs.modal', function(e) {
+        if ($(e.currentTarget).hasClass('show')) {
+        $(e.currentTarget).appendTo(document.body);
+        }
+    });
+});
+
 // called in search-2.html and search.html
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
 
@@ -29,6 +41,21 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
             throw new Error("oneOrTwo must be 1 or 2");
         }
     });
+
+    // document.getElementById(`thread-create-preview-button${suffix}`).addEventListener("click", () => {
+        // set the content for the third thread preview page
+        // const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value;
+        // const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
+        // const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
+        // document.querySelector(`#thread-preview-title-${gallery1Suffix}`).textContent = threadTitle;
+        // document.querySelector(`#thread-preview-tag-${gallery1Suffix}`).textContent = threadTag;
+        // document.querySelector(`#thread-preview-description-${gallery1Suffix}`).textContent = threadDescription;
+    //     copyPreviewGallery(gallery1Suffix);
+    //     if (oneOrTwo == 2) {
+    //         copyPreviewGallery(gallery2Suffix);
+    //     }
+    // });
+
 }
 
 // check if the gallery is empty
@@ -56,5 +83,4 @@ function copyGallery(src, dst) {
         newGallery.appendChild(galleryItemClass);
     }
     gallery2.innerHTML = newGallery.innerHTML;
-    console.log(gallery2.innerHTML)
 }

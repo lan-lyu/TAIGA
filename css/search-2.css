@@ -7,11 +7,14 @@
 	margin: 10px;
 }
 
+#thread-gallery-1, #thread-gallery-2 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 #thread-gallery-1 img, #thread-gallery-2 img {
 	width: 120px;
 	height: 120px;
-}
-
-.gallery {
-	align-items: flex-start;
 }
