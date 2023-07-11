@@ -1,8 +1,18 @@
-.gallery img{
+#search-gallery-1 img, #search-gallery-2 img{
 	max-width: 220px;
 	max-height: 220px;
     width: 220px;
     height: 220px;
 	border-radius: 4px;
 	margin: 10px;
+}
+
+#thread-gallery-1 img, #thread-gallery-2 img {
+	width: 120px;
+	height: 120px;
+	border-radius: 4px;
+}
+
+.gallery {
+	align-items: flex-start;
 }

@@ -1,6 +1,7 @@
 // called in search-2.html and search.html
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
 
+    // click on "+ new thread" button
     const threadBeginButton = document.querySelector(`#thread-begin-button${suffix}`);
     threadBeginButton.addEventListener("click", function() {             
         // check if the gallery is empty, if empty then show error message
@@ -11,10 +12,6 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
             alert("Please search images before creating a new thread!");
             return;
         }
-
-        setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix);
-        // createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix);
-        popup.style.display = "block";
     });
 
     // click on "create thread" button
@@ -43,51 +40,29 @@ function checkGalleryEmpty(gallerySuffix) {
     return false;
 }
 
-// make the images multi-selectable
-function addCheckbox(gallery) {
-    const images = gallery.getElementsByTagName("img");
-    const newGallery = document.createElement("div");
-    const imgLength = images.length;
-    // add checkbox to each image
-    for (let i = 0; i < imgLength; i++) {
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "checkbox-input";
-        const checkboxContainer = document.createElement("div");
-        checkboxContainer.className = "checkbox-container";
-        checkboxContainer.appendChild(checkbox);
-        checkboxContainer.appendChild(images[0]);
-        newGallery.appendChild(checkboxContainer);
-    }
-    gallery.innerHTML = newGallery.innerHTML;
-}
-
-// add event listener to the checkbox
-function addCheckboxListener(gallerySuffix) {
-    const checkboxes = document.querySelectorAll(`#${gallerySuffix} .checkbox-input`);
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener("change", function() {
-            const imageContainer = this.parentNode;
-            if (this.checked) {
-                imageContainer.classList.add("selected");
-            } else {
-                imageContainer.classList.remove("selected");
-            }
-        });
-    });
-}
-
 // function to copy the gallery to the thread popup
 function copyGallery(src, dst) {
     const gallery1 = document.querySelector(`#${src}`);
     const gallery2 = document.querySelector(`#${dst}`);
 
     const newGallery = document.createElement("div");
-    newGallery.innerHTML = gallery1.innerHTML;
+    const images = gallery1.getElementsByTagName("img");
+    const imgLength = images.length;
+    // make each image clickable
+    for (let i = 0; i < imgLength; i++) {
+        // const ColClass = document.createElement("div");
+        // ColClass.className = "col-md-3";
 
-    addCheckbox(newGallery);
+        // newGallery.appendChild(images[0]);
 
+        const galleryItemClass = document.createElement("div");
+        galleryItemClass.className = "gallery-item";
+        galleryItemClass.appendChild(images[0]);
+        newGallery.appendChild(galleryItemClass);
+
+        // ColClass.appendChild(galleryItemClass);
+        // newGallery.appendChild(ColClass);
+    }
     gallery2.innerHTML = newGallery.innerHTML;
-
-    addCheckboxListener(dst);
+    console.log(gallery2.innerHTML)
 }
