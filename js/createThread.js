@@ -50,18 +50,10 @@ function copyGallery(src, dst) {
     const imgLength = images.length;
     // make each image clickable
     for (let i = 0; i < imgLength; i++) {
-        // const ColClass = document.createElement("div");
-        // ColClass.className = "col-md-3";
-
-        // newGallery.appendChild(images[0]);
-
         const galleryItemClass = document.createElement("div");
         galleryItemClass.className = "gallery-item";
         galleryItemClass.appendChild(images[0]);
         newGallery.appendChild(galleryItemClass);
-
-        // ColClass.appendChild(galleryItemClass);
-        // newGallery.appendChild(ColClass);
     }
     gallery2.innerHTML = newGallery.innerHTML;
     console.log(gallery2.innerHTML)
