@@ -247,7 +247,7 @@
                 <h3 class="modal-title" id="thread-create-modal-label-1">Highlight Images</h3>
                 <h3 class="modal-title body-1-medium" style="color: var(--grey-2);"> Step 1/3 </h3>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="thread-create-modal-body-1">
                 Select certain images which are most relevant to the identified bias in order to highlight them among the results in the thread.
                 <div class="row margin-top:2%">
                     <div class="col-6">
@@ -267,15 +267,11 @@
                             $(this).toggleClass('selected');
                         });
                     });
-                    // Storing gallery HTML
-                    const gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
-                    const gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
-                    localStorage.setItem('gallery1HTML', gallery1HTML);
-                    localStorage.setItem('gallery2HTML', gallery2HTML);
                 </script>
             </div>
             <div class="modal-footer">
-                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button>
+                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button> -->
+                <button id="save" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
         </div>
@@ -297,11 +293,28 @@
                 <img src="images/egThreadStep2.png" style="width: 100%;"/>
             </div>
             <div class="modal-footer">
-                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button>
+                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button> -->
+                <button id="save2" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details">Save</button>
             </div>
           </div>
         </div>
     </div>
+    <script>
+        $('#save').click(function() {
+            gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
+            gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
+            $('#thread-create-modal-1').modal('hide');
+            $('#thread-create-modal-2').modal('show');
+        });
+
+        $('#save2').click(function() {
+            console.log(gallery2HTML);
+            $('#thread-create-modal-2').modal('hide');
+            $('#thread-create-modal-3').modal('show');
+            document.querySelector('#thread-preview-gallery-1').innerHTML = gallery1HTML;
+            document.querySelector('#thread-preview-gallery-2').innerHTML = gallery2HTML;
+        });
+    </script>
     <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -324,13 +337,6 @@
                         <div class="gallery" id="thread-preview-gallery-2"></div>
                     </div>
                 </div>
-                <script>
-                    const preview1HTML = localStorage.getItem('gallery1HTML');
-                    const preview2HTML = localStorage.getItem('gallery2HTML');
-                    document.querySelector('#thread-preview-gallery-1').innerHTML = preview1HTML;
-                    document.querySelector('#thread-preview-gallery-2').innerHTML = preview2HTML;
-                    console.log(preview1HTML);
-                </script>
             </div>
             <div class="modal-footer">
                 <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Post </button>
