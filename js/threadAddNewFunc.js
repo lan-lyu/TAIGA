@@ -180,7 +180,7 @@ function generateTopicURL(title) {
 
 async function postToDiscourse(search1, search2, title, tag, category, content, image_urls, checkbox, image_path, compare) {
     const categoryNum = 46; // Category for stable-diffusion
-    await fetch(`http://127.0.0.1:5001/taigacreatepost`, {
+    await fetch(`https://fmduzu5ad1.execute-api.us-east-1.amazonaws.com/Prod/taigacreatepost`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
