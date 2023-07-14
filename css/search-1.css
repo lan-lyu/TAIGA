@@ -1,4 +1,4 @@
-#search-gallery-one img{
+#search-gallery-one img {
 	max-width: 200px;
 	max-height: 200px;
     width: 200px;
@@ -6,4 +6,16 @@
 	border-radius: 4px;
 	margin: 10px;
     /* height: 240px; */
+}
+
+#thread-gallery-one, #thread-preview-gallery-one {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+#thread-gallery-one img, #thread-preview-gallery-one img {
+	width: 120px;
+	height: 120px;
 }

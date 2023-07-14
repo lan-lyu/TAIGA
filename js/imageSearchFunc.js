@@ -114,11 +114,11 @@ function performImageSearch(event, inputId, img_num) {
     gallery.innerHTML = "";
 
     // show loading animation for images
-    for (let i = 0; i < img_num; i++) {
-        const loadingBox = document.createElement("div");
-        loadingBox.classList.add("image-loading-box");
-        gallery.appendChild(loadingBox);
-    }
+    // for (let i = 0; i < img_num; i++) {
+    //     const loadingBox = document.createElement("div");
+    //     loadingBox.classList.add("image-loading-box");
+    //     gallery.appendChild(loadingBox);
+    // }
 
     const form = document.querySelector(`#query-form-${inputId}`);
     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;

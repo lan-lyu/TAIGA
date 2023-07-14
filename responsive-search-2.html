@@ -271,7 +271,7 @@
             </div>
             <div class="modal-footer">
                 <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button> -->
-                <button id="save" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
+                <button id="thread-create-next-button-1" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
         </div>
@@ -294,27 +294,11 @@
             </div>
             <div class="modal-footer">
                 <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button> -->
-                <button id="save2" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details">Save</button>
+                <button id="thread-create-next-button-2" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
         </div>
     </div>
-    <script>
-        $('#save').click(function() {
-            gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
-            gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
-            $('#thread-create-modal-1').modal('hide');
-            $('#thread-create-modal-2').modal('show');
-        });
-
-        $('#save2').click(function() {
-            console.log(gallery2HTML);
-            $('#thread-create-modal-2').modal('hide');
-            $('#thread-create-modal-3').modal('show');
-            document.querySelector('#thread-preview-gallery-1').innerHTML = gallery1HTML;
-            document.querySelector('#thread-preview-gallery-2').innerHTML = gallery2HTML;
-        });
-    </script>
     <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -329,6 +313,9 @@
             </div>
             <div class="modal-body">
                 This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
+                <h4 id="thread-preview-title" class="modal-title body-1-medium" style="color: var(--grey-2);"> Title </h4>
+                <h6 id="thread-preview-tag" class="modal-title body-1-medium" style="color: var(--grey-2);"> Subtitle </h6>
+                <h6 id="threa-preview-content" class="modal-title body-1-medium" style="color: var(--grey-2);"> Content </h6>
                 <div class="row margin-top:2%">
                     <div class="col-6">
                         <div class="gallery" id="thread-preview-gallery-1"></div>
@@ -339,11 +326,33 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Post </button>
+                <button id="thread-create-next-button-3" class="btn next-modal-btn"> Post </button>
             </div>
           </div>
         </div>
     </div>
+    <script>
+        $('#thread-create-next-button-1').click(function() {
+            gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
+            gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
+            $('#thread-create-modal-1').modal('hide');
+            $('#thread-create-modal-2').modal('show');
+        });
+
+        $('#thread-create-next-button-2').click(function() {
+            // console.log(gallery2HTML);
+            $('#thread-create-modal-2').modal('hide');
+            $('#thread-create-modal-3').modal('show');
+            document.querySelector('#thread-preview-gallery-1').innerHTML = gallery1HTML;
+            document.querySelector('#thread-preview-gallery-2').innerHTML = gallery2HTML;
+        });
+
+        $('#thread-create-next-button-3').click(function() {
+            $('#thread-create-modal-3').modal('hide');
+            var linkUrl = "https://forum.weaudit.org/t/fireman-vs-miners-comparison-discourse-topic-created-from-taiga/366";
+            window.open(linkUrl);
+        });
+    </script>
 </body>
 
 </html>
