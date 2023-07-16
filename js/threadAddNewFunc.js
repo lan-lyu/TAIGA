@@ -131,7 +131,7 @@ function createThread(gallery1Suffix, comparison) {
     const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
     var checkboxes_selected = []
     var image_urls = []
-    var image_path = "./assets/TAIGA_Single.jpg"
+    var image_name = "TAIGA_Single"
     var compare = false
     const gallery1 = document.querySelector(`#thread-gallery-${gallery1Suffix}`);
     checkboxes = gallery1.querySelectorAll(".checkbox-input");
@@ -161,12 +161,12 @@ function createThread(gallery1Suffix, comparison) {
         images.forEach(function(image) {
             image_urls.push(image.src)
         });
-        image_path = "./assets/TAIGA_Compare.jpg"
+        image_name = "TAIGA_Compare"
         compare = true
     }
     console.log(checkboxes_selected)
     console.log(image_urls)
-    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_path, compare)
+    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
 }
 
 function generateTopicURL(title) {
@@ -178,7 +178,7 @@ function generateTopicURL(title) {
     return BASE_URL + resultString + "/";
 }
 
-async function postToDiscourse(search1, search2, title, tag, category, content, image_urls, checkbox, image_path, compare) {
+async function postToDiscourse(search1, search2, title, tag, category, content, image_urls, checkbox, image_name, compare) {
     const categoryNum = 46; // Category for stable-diffusion
     await fetch(`https://fmduzu5ad1.execute-api.us-east-1.amazonaws.com/Prod/taigacreatepost`, {
         method: 'POST',
@@ -201,7 +201,7 @@ async function postToDiscourse(search1, search2, title, tag, category, content, 
             urls: image_urls,
             checkbox: checkbox,
             compare: compare,
-            image_path: image_path
+            image_name: image_name
         })
     });
     const URL = generateTopicURL(title);
