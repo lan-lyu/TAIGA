@@ -175,7 +175,6 @@
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
             <div class="col-auto ms-auto justify-content-center">
                 <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
-                <!-- <a class="btn disabled" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn"> -->
                 <a class="btn" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn">
                     Create Thread
                 </a>
@@ -189,21 +188,21 @@
                 <div class="col-sm-6">
                     <!-- TODO: make this multi-selectable -->
                     <select class="form-select" aria-label="Default select example" id="thread-input-tag">
-                        <option selected>Add tags here...</option>
-                        <option value="1">racial-bias</option>
-                        <option value="2">gender-bias</option>
-                        <option value="3">age-bias</option>
-                        <option value="4">lgbtq-bias</option>
-                        <option value="5">cultural-bias</option>
+                        <option value="0" selected>Add tags here...</option>
+                        <option value="racial-bias">racial-bias</option>
+                        <option value="gender-bias">gender-bias</option>
+                        <option value="age-bias">age-bias</option>
+                        <option value="lgbtq-bias">lgbtq-bias</option>
+                        <option value="cultural-bias">cultural-bias</option>
                     </select>
                 </div>
             </div>
             <div class="row" style="padding-top: 10px;">
                 <div class="col-sm-12">
-                    <!-- <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea> -->
-                    <div class="form-group">
+                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea>
+                    <!-- <div class="form-group">
                         <textarea id="editor"></textarea>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -239,7 +238,6 @@
                 </script>
             </div>
             <div class="modal-footer">
-                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button> -->
                 <button id="thread-create-next-button-1" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
@@ -262,7 +260,6 @@
                 <img src="images/egThreadStep2.png" style="width: 100%;"/>
             </div>
             <div class="modal-footer">
-                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button> -->
                 <button id="thread-create-next-button-2" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
@@ -282,9 +279,15 @@
             </div>
             <div class="modal-body">
                 This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
-                <div class="row margin-top:2%">
-                    <div class="col-12">
-                        <div class="gallery" id="thread-preview-gallery-one"></div>
+                <div id="thread-create-preview-page">
+                    <h4 id="thread-preview-title" class="modal-title" style="color: var(--grey-1);"> Title </h4>
+                    <p id="thread-preview-tag" class="modal-title button-font-2"> Subtitle </p>
+                    <div><hr style="border: 1px solid var(--grey-4);"/></div>
+                    <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
+                    <div class="row margin-top:2%">
+                        <div class="col-12">
+                            <div class="gallery" id="thread-preview-gallery-one"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -295,6 +298,15 @@
         </div>
     </div>
     <script>
+        $('#thread-create-btn').click(function() {
+            $('#thread-create-modal-1').modal('show');
+            title = document.querySelector('#thread-input-title').value;
+            tag = document.querySelector('#thread-input-tag').value;
+            tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
+            content = document.querySelector('#thread-input-desc').value;
+            console.log("store thread content", content);
+        });
+
         $('#thread-create-next-button-1').click(function() {
             galleryHTML = document.querySelector('#thread-gallery-one').innerHTML;
             $('#thread-create-modal-1').modal('hide');
@@ -304,6 +316,9 @@
         $('#thread-create-next-button-2').click(function() {
             $('#thread-create-modal-2').modal('hide');
             $('#thread-create-modal-3').modal('show');
+            document.querySelector('#thread-preview-title').innerHTML = title;
+            document.querySelector('#thread-preview-tag').innerHTML = tag;
+            document.querySelector('#threa-preview-content').innerHTML = content;
             document.querySelector('#thread-preview-gallery-one').innerHTML = galleryHTML;
         });
 

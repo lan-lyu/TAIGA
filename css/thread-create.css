@@ -101,3 +101,17 @@
 .gallery-item.selected {
     border: 4px solid #FFD540;
 }
+
+#thread-create-preview-page {
+	padding: 10px;
+	margin-top: 10px; 
+	border: 1px solid var(--grey-3);
+}
+
+#thread-preview-tag {
+	background-color: var(--grey-4);
+	display: inline-block;
+	color: #000000;
+	border-radius: 6px;
+	font-size: small;
+}

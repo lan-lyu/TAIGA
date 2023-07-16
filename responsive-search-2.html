@@ -214,13 +214,13 @@
                 </div>
                 <div class="col-sm-6">
                     <!-- TODO: make this multi-selectable -->
-                    <select class="form-select" aria-label="Default select example" placeholder id="thread-input-tag">
-                        <option selected>Add tags here...</option>
-                        <option value="1">racial-bias</option>
-                        <option value="2">gender-bias</option>
-                        <option value="3">age-bias</option>
-                        <option value="4">lgbtq-bias</option>
-                        <option value="5">cultural-bias</option>
+                    <select class="form-select" aria-label="Default select example" id="thread-input-tag">
+                        <option value="0" selected>Add tags here...</option>
+                        <option value="racial-bias">racial-bias</option>
+                        <option value="gender-bias">gender-bias</option>
+                        <option value="age-bias">age-bias</option>
+                        <option value="lgbtq-bias">lgbtq-bias</option>
+                        <option value="cultural-bias">cultural-bias</option>
                     </select>
                 </div>
             </div>
@@ -295,7 +295,7 @@
           </div>
         </div>
     </div>
-    <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="false" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
+    <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -309,17 +309,18 @@
             </div>
             <div class="modal-body">
                 This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
-                <br/>
-                <h4 id="thread-preview-title" class="modal-title" style="color: var(--grey-1);"> Title </h4>
-                <p id="thread-preview-tag" class="modal-title button-font-2" style="color: #000000;"> Subtitle </p>
-                <div><hr style="border:1px solid var(--grey-4);"/></div>
-                <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
-                <div class="row margin-top:2%">
-                    <div class="col-6">
-                        <div class="gallery" id="thread-preview-gallery-1"></div>
-                    </div>
-                    <div class="col-6">
-                        <div class="gallery" id="thread-preview-gallery-2"></div>
+                <div id="thread-create-preview-page">
+                    <h4 id="thread-preview-title" class="modal-title" style="color: var(--grey-1);"> Title </h4>
+                    <p id="thread-preview-tag" class="modal-title button-font-2"> Subtitle </p>
+                    <div><hr style="border:1px solid var(--grey-4);"/></div>
+                    <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
+                    <div class="row margin-top:2%">
+                        <div class="col-6">
+                            <div class="gallery" id="thread-preview-gallery-1"></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="gallery" id="thread-preview-gallery-2"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -334,6 +335,7 @@
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
+            tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
             // content = document.querySelector('#editor').value;
             content = document.querySelector('#thread-input-desc').value;
             console.log("store thread content", content);
