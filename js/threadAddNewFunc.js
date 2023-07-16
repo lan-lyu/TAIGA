@@ -59,6 +59,7 @@ function copyPreviewGallery(gallerySuffix) {
     });
     // resize the images
     images = gallery2.querySelectorAll("img");
+    var index = 0;
     images.forEach(function(image) {
         image.style.width = "60px";
         image.style.height = "60px";
@@ -133,14 +134,15 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
     popupButton.addEventListener("click", function() {             
         // check if the gallery is empty, if empty then show error message
         if (oneOrTwo == 1 && checkGalleryEmpty(gallery1Suffix)) {
-            alert("Please search images before adding a new thread!");
+            alert("Please search images before creating a new thread!");
             return;
         } else if (oneOrTwo == 2 && (checkGalleryEmpty(gallery1Suffix) && checkGalleryEmpty(gallery2Suffix))) {
-            alert("Please search images before adding a new thread!");
+            alert("Please search images before creating a new thread!");
             return;
         }
 
         setSearchTitle(oneOrTwo, gallery1Suffix, gallery2Suffix);
+        // createCanvas(oneOrTwo, gallery1Suffix, gallery2Suffix);
         popup.style.display = "block";
     });
 

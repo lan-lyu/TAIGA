@@ -34,39 +34,126 @@ async function searchFunction (event, inputId, img_num) {
     gallery.innerHTML = "";
 
     const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
+    // serachInProgressText.style.display = "block";
+
+    // show loading animation for images
+    for (let i = 0; i < img_num; i++) {
+        const loadingBox = document.createElement("div");
+        loadingBox.classList.add("image-loading-box");
+        gallery.appendChild(loadingBox);
+    }
 
     const images = await handleSearch(searchTerm);
+    setTimeout(function() {console.log("to test the loading animation");}, 5000);
 
     serachInProgressText.style.display = "none";
+    gallery.innerHTML = "";
     for (let i = 0; i < img_num; i++) {
-      const img = document.createElement("img");
-      img.src = images[i][0];
-      img.alt = images[i][1];
-      gallery.appendChild(img);
+        const img = document.createElement("img");
+        img.src = images[i][0];
+        img.alt = images[i][1];
+        gallery.appendChild(img);
+
+        //download the image        
+        var link = document.createElement("a");
+        link.href = image.src;
+        link.download = image.src.split('/').pop();
+        link.click();
     }
 }
 
 
-// // test function for search
-// async function searchFunction (event, inputId, img_num) {
-//     event.preventDefault();
+// test function for search
+async function searchUnsplashFunction (event, inputId, img_num) {
+    event.preventDefault();
 
-//     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
-//     gallery.innerHTML = "";
+    const gallery = document.querySelector(`#search-gallery-${inputId}`); 
+    gallery.innerHTML = "";
 
-//     const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-//     serachInProgressText.style.display = "block";
+    const form = document.querySelector(`#query-form-${inputId}`);
+    const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
+    const url = `https://source.unsplash.com/1600x1600/?${searchTerm}`;
 
-//     const form = document.querySelector(`#query-form-${inputId}`);
-//     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
-//     const url = `https://source.unsplash.com/1600x900/?${searchTerm}`;
+    for (let i = 0; i < img_num; i++) {
+        const img = document.createElement('img');
+        img.src = `${url}&${i}`;
+        img.alt = searchTerm;
+        gallery.appendChild(img);
+    }
+}
 
-//     serachInProgressText.style.display = "none";
-//     for (let i = 0; i < img_num; i++) {
-//         const img = document.createElement('img');
-//         img.src = `${url}&${i}`;
-//         img.alt = searchTerm;
-//         gallery.appendChild(img);
-//     }
-// }
+// google search
+async function searchGoogleFunction (event, inputId, img_num) {
+    event.preventDefault();
+
+    const gallery = document.querySelector(`#search-gallery-${inputId}`); 
+    gallery.innerHTML = "";
+
+    const form = document.querySelector(`#query-form-${inputId}`);
+    const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
+
+    // Replace apiKey and cx with your own
+    const apiKey = "";
+    const cx = "";
+    const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&searchType=image&q=${encodeURIComponent(searchTerm)}`;
+
+    for (let i = 0; i < img_num; i++) {
+        const img = document.createElement('img');
+        img.src = `${url}&${i}`;
+        img.alt = searchTerm;
+        gallery.appendChild(img);
+    }
+}
+
+
+function performImageSearch(event, inputId, img_num) {
+
+    event.preventDefault();
+
+    const gallery = document.querySelector(`#search-gallery-${inputId}`); 
+    gallery.innerHTML = "";
+
+    // show loading animation for images
+    // for (let i = 0; i < img_num; i++) {
+    //     const loadingBox = document.createElement("div");
+    //     loadingBox.classList.add("image-loading-box");
+    //     gallery.appendChild(loadingBox);
+    // }
+
+    const form = document.querySelector(`#query-form-${inputId}`);
+    const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
+
+    const apiKey = "AIzaSyDs_FMoDmyUyXCUpKBvj-NN-cm-oxH9Mg4";
+    const cx = "126d91af9e97942e8";
+    var url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&searchType=image&q=${encodeURIComponent(searchTerm)}`;
+  
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+   
+        gallery.innerHTML = "";
+        // serachInProgressText.style.display = "none";
+        for (let i = 0; i < img_num; i++) {
+            var item = data.items[i];
+            var imageElement = document.createElement("img");
+            imageElement.src = item.link;
+            imageElement.alt = item.title;
+    
+            gallery.appendChild(imageElement);
+        }
+      })
+      .catch(error => console.log(error));
+}
+
+function displayImageResults(items) {
+    var imageResults = document.getElementById("imageResults");
+    imageResults.innerHTML = "";
+
+    items.forEach(function(item) {
+        var imageElement = document.createElement("img");
+        imageElement.src = item.link;
+        imageElement.alt = item.title;
+
+        imageResults.appendChild(imageElement);
+    });
+}

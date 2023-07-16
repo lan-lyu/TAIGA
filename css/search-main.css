@@ -1,0 +1,153 @@
+:root {
+	--green-1: #10724f;
+	--green-2: #48996D;
+	--green-3: #87C7B3;
+	--green-4: #EFF9F5;
+	--green-5: #F7FCFA;
+	--grey-1: #222222;
+	--grey-2: #797B7B;
+	--grey-3: #A4ACA8;
+	--grey-4: #DEE4E1;
+	--grey-5: #F8F9F8;
+}
+
+.h1 {
+	color: #000;
+	font-size: 48px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 58px;
+	letter-spacing: -0.96px;
+}
+
+.h2 {
+	color: #000;
+	font-size: 36px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 46px;
+	letter-spacing: -0.432px;
+}
+
+.h3 {
+	color: #000;
+	font-size: 28px;
+	font-family: Karla;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 36px;
+	letter-spacing: -0.336px;
+}
+
+.h4 {
+	color: #000;
+	font-size: 20px;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.body-1-medium {
+	color: var(--gray-3);
+	font-size: 16px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+}
+
+.body-4-medium {
+	color: var(--gray-2, #797B7B);
+	font-size: 10px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.button-font-1 {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: -0.288px;
+}
+
+.button-font-2 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: -0.216px;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.previous {
+    background-color: var(--bs-white);
+    color: black;
+    font-size: 35px;
+}
+
+form {
+	display: flex;
+	align-items: center;
+	border: 2px solid var(--green-2);
+	border-radius: 8px 8px 8px 8px;
+	background-color: #EFF9F5;
+}
+
+form input {
+	flex: 1;
+	padding: 14px;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px 0 0 8px;
+	background-color: #EFF9F5;
+}
+
+.btn {
+    --bs-btn-hover-bg: var(--green-1);
+}
+
+.button-search {
+    height: 54px;
+	width: 54px;
+}
+
+.form-switch .form-check-input {
+	background-color: var(--grey-4);
+	border: var(--grey-5);
+}
+
+.form-switch .form-check-input:checked {
+	background-color: var(--green-1);
+}
+
+.form-switch .form-check-input:focus {
+	box-shadow: 0 0 1px var(--green-1);
+}
+
+.image-loading-box {
+	margin: 10px;
+	width: 240px;
+	height: 240px;
+	border-radius: 4px;
+	background-color: var(--grey-3);
+	animation: imageLoadingAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes imageLoadingAnimation {
+	0% {
+	  opacity: 0.3;
+	}
+	100% {
+	  opacity: 1;
+	}
+}
