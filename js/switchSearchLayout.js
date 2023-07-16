@@ -1,7 +1,7 @@
 function toggleLayout() {
   var checkBox = document.getElementById("switchLayout");
   if (checkBox.checked == true){
-    window.location.href = "search-2.html";
+    window.location.href = "responsive-search-2.html";
   }
 }
 

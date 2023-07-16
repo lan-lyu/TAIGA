@@ -1,5 +1,5 @@
-var gallery1HTML = null;
-var gallery2HTML = null;
+// var gallery1HTML = null;
+// var gallery2HTML = null;
 
 // called in search-2.html and search.html
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {

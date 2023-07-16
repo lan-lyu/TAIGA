@@ -68,6 +68,22 @@
 	line-height: normal;
 }
 
+.button-font-1 {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: -0.288px;
+}
+
+.button-font-2 {
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	letter-spacing: -0.216px;
+}
+
 a {
     text-decoration: none;
     display: inline-block;

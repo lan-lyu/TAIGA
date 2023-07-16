@@ -202,7 +202,6 @@
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
             <div class="col-auto ms-auto justify-content-center">
                 <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
-                <!-- <a class="btn disabled" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn"> -->
                 <a class="btn" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn">
                     Create Thread
                 </a>
@@ -215,7 +214,7 @@
                 </div>
                 <div class="col-sm-6">
                     <!-- TODO: make this multi-selectable -->
-                    <select class="form-select" aria-label="Default select example" id="thread-input-tag">
+                    <select class="form-select" aria-label="Default select example" placeholder id="thread-input-tag">
                         <option selected>Add tags here...</option>
                         <option value="1">racial-bias</option>
                         <option value="2">gender-bias</option>
@@ -227,10 +226,10 @@
             </div>
             <div class="row" style="padding-top: 10px;">
                 <div class="col-sm-12">
-                    <!-- <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea> -->
-                    <div class="form-group">
+                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea>
+                    <!-- <div class="form-group">
                         <textarea id="editor"></textarea>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -263,14 +262,12 @@
                     $(document).ready(function() {
                         // Attach the click event listener to the parent element
                         $('.gallery').on('click', '.gallery-item', function() {
-                            console.log("clicked");
                             $(this).toggleClass('selected');
                         });
                     });
                 </script>
             </div>
             <div class="modal-footer">
-                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-2" data-bs-toggle="modal"> Next </button> -->
                 <button id="thread-create-next-button-1" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
@@ -293,13 +290,12 @@
                 <img src="images/egThreadStep2.png" style="width: 100%;"/>
             </div>
             <div class="modal-footer">
-                <!-- <button class="btn next-modal-btn" data-bs-target="#thread-create-modal-3" data-bs-toggle="modal"  id="thread-preview-btn"> Next </button> -->
                 <button id="thread-create-next-button-2" class="btn btn-width bkgrnd-cyan save-details next-modal-btn" type="button" name="save-details"> Next </button>
             </div>
           </div>
         </div>
     </div>
-    <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
+    <div id="thread-create-modal-3" class="modal modal-lg fade" aria-hidden="false" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -313,9 +309,11 @@
             </div>
             <div class="modal-body">
                 This is what your thread would look like. If you are satisfied with it, click the "Post" button to post it on the forum.
-                <h4 id="thread-preview-title" class="modal-title body-1-medium" style="color: var(--grey-2);"> Title </h4>
-                <h6 id="thread-preview-tag" class="modal-title body-1-medium" style="color: var(--grey-2);"> Subtitle </h6>
-                <h6 id="threa-preview-content" class="modal-title body-1-medium" style="color: var(--grey-2);"> Content </h6>
+                <br/>
+                <h4 id="thread-preview-title" class="modal-title" style="color: var(--grey-1);"> Title </h4>
+                <p id="thread-preview-tag" class="modal-title button-font-2" style="color: #000000;"> Subtitle </p>
+                <div><hr style="border:1px solid var(--grey-4);"/></div>
+                <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
                 <div class="row margin-top:2%">
                     <div class="col-6">
                         <div class="gallery" id="thread-preview-gallery-1"></div>
@@ -332,6 +330,15 @@
         </div>
     </div>
     <script>
+        $('#thread-create-btn').click(function() {
+            $('#thread-create-modal-1').modal('show');
+            title = document.querySelector('#thread-input-title').value;
+            tag = document.querySelector('#thread-input-tag').value;
+            // content = document.querySelector('#editor').value;
+            content = document.querySelector('#thread-input-desc').value;
+            console.log("store thread content", content);
+        });
+
         $('#thread-create-next-button-1').click(function() {
             gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
             gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
@@ -340,9 +347,11 @@
         });
 
         $('#thread-create-next-button-2').click(function() {
-            // console.log(gallery2HTML);
             $('#thread-create-modal-2').modal('hide');
             $('#thread-create-modal-3').modal('show');
+            document.querySelector('#thread-preview-title').innerHTML = title;
+            document.querySelector('#thread-preview-tag').innerHTML = tag;
+            document.querySelector('#threa-preview-content').innerHTML = content;
             document.querySelector('#thread-preview-gallery-1').innerHTML = gallery1HTML;
             document.querySelector('#thread-preview-gallery-2').innerHTML = gallery2HTML;
         });
