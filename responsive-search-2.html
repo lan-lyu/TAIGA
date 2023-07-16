@@ -172,6 +172,7 @@
                 const form2 = document.querySelector("#query-form-2");
 
                 form1.addEventListener("submit", (event) => {
+                    event.preventDefault();
                     var promptSwitch = document.getElementById('switch-google-source');
                     if (promptSwitch.checked == true){
                         performImageSearch(event, "1", 10);
@@ -181,6 +182,7 @@
                 })
 
                 form2.addEventListener("submit", (event) => {
+                    event.preventDefault();
                     var promptSwitch = document.getElementById('switch-google-source');
                     if (promptSwitch.checked == true){
                         performImageSearch(event, "2", 10);
@@ -194,7 +196,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
+    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas">
         + &nbsp;New Thread
     </button>
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
@@ -202,7 +204,7 @@
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
             <div class="col-auto ms-auto justify-content-center">
                 <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
-                <a class="btn" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn">
+                <a class="btn" role="button" id="thread-create-btn">
                     Create Thread
                 </a>
             </div>
@@ -234,7 +236,7 @@
             </div>
         </div>
     </div>
-    <div id="thread-create-modal-1" class="modal modal-lg modal-fixed-bottom fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-1" tabindex="-1">
+    <div id="thread-create-modal-1" class="modal modal-lg modal-fixed-bottom fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-1" tabindex="-1" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -331,14 +333,31 @@
         </div>
     </div>
     <script>
+        $('#thread-begin-button').click(function() {
+            // check if the gallery if empty
+            if ($('#search-gallery-1').html() === "" || 
+                $('#search-gallery-2').html() === "") {
+                alert("Please search images before creating a new thread!");
+                return;
+            }
+            $('#thread-create-offcanvas').offcanvas('show');
+        });
+
         $('#thread-create-btn').click(function() {
+            // check if the thread content is empty
+            // if ($('#thread-input-title').val() === "" || 
+            //     $('#thread-input-tag').val() === "0" ||
+            //     $('#thread-input-desc').val() === "") {
+            //     alert("Please fill in all the fields for the thread!");
+            //     // return;
+            // }
+            // document.getElementById('#thread-create-modal-1').setAttribute('databackdrop', 'static');
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
             tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
             // content = document.querySelector('#editor').value;
             content = document.querySelector('#thread-input-desc').value;
-            console.log("store thread content", content);
         });
 
         $('#thread-create-next-button-1').click(function() {

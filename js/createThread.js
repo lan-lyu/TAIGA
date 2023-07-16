@@ -4,24 +4,11 @@
 // called in search-2.html and search.html
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
 
-    // click on "+ new thread" button
-    const threadBeginButton = document.querySelector(`#thread-begin-button${suffix}`);
-    threadBeginButton.addEventListener("click", function() {             
-        // check if the gallery is empty, if empty then show error message
-        if (oneOrTwo == 1 && checkGalleryEmpty(gallery1Suffix)) {
-            alert("Please search images before creating a new thread!");
-            return;
-        } else if (oneOrTwo == 2 && (checkGalleryEmpty(gallery1Suffix) && checkGalleryEmpty(gallery2Suffix))) {
-            alert("Please search images before creating a new thread!");
-            return;
-        }
-    });
-
     // click on "create thread" button
     const createButton = document.querySelector(`#thread-create-btn${suffix}`);
     createButton.addEventListener("click", () => {
         // if(!checkThreadContentValid(gallery1Suffix)) {
-        //     return;
+            // return;
         // }
         if (oneOrTwo == 1) {
             copyGallery(`search-gallery-${gallery1Suffix}`, `thread-gallery-${gallery1Suffix}`);
@@ -32,15 +19,6 @@ function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
             throw new Error("oneOrTwo must be 1 or 2");
         }
     });
-}
-
-// check if the gallery is empty
-function checkGalleryEmpty(gallerySuffix) {
-    const gallery = document.querySelector(`#search-gallery-${gallerySuffix}`);
-    if (gallery.innerHTML == "") {
-        return true;
-    }
-    return false;
 }
 
 // function to copy the gallery to the thread popup
@@ -59,4 +37,38 @@ function copyGallery(src, dst) {
         newGallery.appendChild(galleryItemClass);
     }
     gallery2.innerHTML = newGallery.innerHTML;
+}
+
+// check if the thread content is valid
+function checkThreadContentValid() {
+    const threadTitle = document.querySelector(`#thread-input-title`).value;
+    const threadTag = document.querySelector(`#thread-input-tag`).value;
+    const threadDescription = document.querySelector(`#thread-input-desc`).value;
+    if ((!checkThreadTitleValid(threadTitle)) || 
+        (!checkThreadTagValid(threadTag)) ||
+        (!checkThreadDescriptionValid(threadDescription))) {
+        return false;
+    }
+    return true;
+}
+function checkThreadTitleValid(title) {
+    if (title === "") {
+        alert("Please enter a title for the thread!");
+        return false;
+    }
+    return true;
+}
+function checkThreadTagValid(tag) {
+    if (tag === "0") {
+        alert("Please enter a tag for the thread!");
+        return false;
+    }
+    return true;
+}
+function checkThreadDescriptionValid(description) {
+    if (description === "") {
+        alert("Please enter a description for the thread!");
+        return false;
+    }
+    return true;
 }
