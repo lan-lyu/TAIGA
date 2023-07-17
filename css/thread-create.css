@@ -115,3 +115,10 @@
 	border-radius: 6px;
 	font-size: small;
 }
+
+#thread-create-posting-spinner {
+	width: 4rem;
+	height: 4rem;
+	/* padding-top: 15%; */
+	/* padding-bottom: 15%; */
+}

@@ -120,6 +120,9 @@ function performImageSearch(event, inputId, img_num) {
     //     gallery.appendChild(loadingBox);
     // }
 
+    const searchSpinner = document.querySelector(`#search-spinner-${inputId}`);
+    searchSpinner.style.display = "block";
+
     const form = document.querySelector(`#query-form-${inputId}`);
     const searchTerm = form.querySelector(`#search-input-${inputId}`).value;
 
@@ -129,10 +132,9 @@ function performImageSearch(event, inputId, img_num) {
   
     fetch(url)
       .then(response => response.json())
-      .then(data => {
-   
+      .then(data => { 
+        searchSpinner.style.display = "none";
         gallery.innerHTML = "";
-        // serachInProgressText.style.display = "none";
         for (let i = 0; i < img_num; i++) {
             var item = data.items[i];
             var imageElement = document.createElement("img");
@@ -141,8 +143,8 @@ function performImageSearch(event, inputId, img_num) {
     
             gallery.appendChild(imageElement);
         }
-      })
-      .catch(error => console.log(error));
+    })
+    .catch(error => console.log(error));
 }
 
 function displayImageResults(items) {

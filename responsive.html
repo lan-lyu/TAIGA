@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/search-1.css">
 	<link rel="stylesheet" type="text/css" href="css/thread-create.css">
 
-    <!-- bootstrap settings https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
+    <!-- bootstrap settings: https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -26,9 +27,7 @@
             menubar: false,
         });
     </script>
-
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    
+  
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
@@ -126,9 +125,10 @@
                             }
                         }
                         function switchGoogleLayout() {
+                            document.querySelector("#search-gallery-one").innerHTML = "";
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
-                                alert("Change to google search");
+                                alert("Change to Google search");
                             }
                         }
                     </script>
@@ -146,6 +146,28 @@
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-one">
+                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
+                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-one">
+                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
+                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
             <div class="col-0-half">
             </div>
             <div class="col-11-half">
@@ -157,7 +179,8 @@
                         if (promptSwitch.checked == true){
                             performImageSearch(event, "one", 25);
                         } else {
-                            searchUnsplashFunction(event, "one", 25);
+                            // searchUnsplashFunction(event, "one", 25);
+                            generateFunction(event, "one", 10);
                         }
                     })
                 </script>
@@ -167,7 +190,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
+    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas">
         + &nbsp;New Thread
     </button>
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
@@ -175,7 +198,7 @@
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
             <div class="col-auto ms-auto justify-content-center">
                 <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
-                <a class="btn" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn">
+                <a class="btn" role="button" id="thread-create-btn">
                     Create Thread
                 </a>
             </div>
@@ -199,7 +222,7 @@
             </div>
             <div class="row" style="padding-top: 10px;">
                 <div class="col-sm-12">
-                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea>
+                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="7"></textarea>
                     <!-- <div class="form-group">
                         <textarea id="editor"></textarea>
                     </div> -->
@@ -297,14 +320,40 @@
           </div>
         </div>
     </div>
+    <div id="thread-create-posting-modal" class="modal fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header text-align: center;">
+                <h3 class="modal-title" id="thread-create-modal-label-3" style="color: var(--grey-1); display: inline-block; margin: 0 auto;">Posting Now</h3>
+            </div>
+            <div class="modal-body">
+                Please wait for several seconds, we are posting your thread now. It will be redirected to your posted thread once it is done.
+                <div class="text-center" style="padding: 20px;">
+                    <div class="spinner-border text-success" role="status" id="thread-create-posting-spinner">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <script>
+        $('#thread-begin-button').click(function() {
+            // check if the gallery if empty
+            if ($('#search-gallery-one').html() === "") {
+                alert("Please search images before creating a new thread!");
+                return;
+            }
+            $('#thread-create-offcanvas').offcanvas('show');
+        });
+
         $('#thread-create-btn').click(function() {
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
             tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
             content = document.querySelector('#thread-input-desc').value;
-            console.log("store thread content", content);
         });
 
         $('#thread-create-next-button-1').click(function() {
@@ -324,8 +373,10 @@
 
         $('#thread-create-next-button-3').click(function() {
             $('#thread-create-modal-3').modal('hide');
-            var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
-            window.open(linkUrl);
+            $('#thread-create-posting-modal').modal('show');
+            // var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
+            // window.open(linkUrl);
+            createThread("one", false);
         });
     </script>
 </body>

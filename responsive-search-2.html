@@ -16,8 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/gh/hoomanbahreini/bootstrap-half-and-quarter-grid/fractional-grid.min.css" rel="stylesheet"> 
 
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    
     <!-- src: https://www.tiny.cloud/blog/bootstrap-wysiwyg-editor/ -->
     <script src="https://cdn.tiny.cloud/1/3y76gl6fpamvcloey1ahbtozaiu9ahdxccyldgo5xnzsdz3r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -34,8 +32,8 @@
 </head>
 
 <body>
-    <div class="container-fluid" id="header-container">
-        <div class="row align-items-center" id="header" style="padding-top: 1%;">
+    <div class="container-fluid" id="header">
+        <div class="row align-items-center" style="padding-top: 1%;">
             <div class="col-0-3qtr"></div>
             <div class="col-1">
                 <p id="title" onclick="backToMainPage()"> TAIGA </p>
@@ -139,6 +137,8 @@
                             }
                         }
                         function switchGoogleLayout() {
+                            document.querySelector("#search-gallery-1").innerHTML = "";
+                            document.querySelector("#search-gallery-2").innerHTML = "";
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
                                 alert("Change to Google search");
@@ -155,6 +155,48 @@
                     <label class="form-check-label" for="switch-compare-prompt">
                         <body1-medium> Google </body1-medium>
                     </label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-0-half"></div>
+            <div class="col-5">
+                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-1">
+                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
+                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-2">
+                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
+                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-0-half"></div>
+            <div class="col-5">
+                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-1">
+                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
+                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-2">
+                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
+                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -177,7 +219,8 @@
                     if (promptSwitch.checked == true){
                         performImageSearch(event, "1", 10);
                     } else {
-                        searchUnsplashFunction(event, "1", 10);
+                        // searchUnsplashFunction(event, "1", 10);
+                        generateFunction(event, "1", 10);
                     }
                 })
 
@@ -187,7 +230,8 @@
                     if (promptSwitch.checked == true){
                         performImageSearch(event, "2", 10);
                     } else {
-                        searchUnsplashFunction(event, "2", 10);
+                        // searchUnsplashFunction(event, "2", 10);
+                        generateFunction(event, "2", 10);
                     }
                 })
             </script>
@@ -228,7 +272,7 @@
             </div>
             <div class="row" style="padding-top: 10px;">
                 <div class="col-sm-12">
-                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="3"></textarea>
+                    <textarea class="form-control" placeholder="Type what you want to say here..." id="thread-input-desc" rows="7"></textarea>
                     <!-- <div class="form-group">
                         <textarea id="editor"></textarea>
                     </div> -->
@@ -236,7 +280,7 @@
             </div>
         </div>
     </div>
-    <div id="thread-create-modal-1" class="modal modal-lg modal-fixed-bottom fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-1" tabindex="-1" data-backdrop="static">
+    <div id="thread-create-modal-1" class="modal modal-lg modal-fixed-bottom fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-1" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
@@ -314,7 +358,7 @@
                 <div id="thread-create-preview-page">
                     <h4 id="thread-preview-title" class="modal-title" style="color: var(--grey-1);"> Title </h4>
                     <p id="thread-preview-tag" class="modal-title button-font-2"> Subtitle </p>
-                    <div><hr style="border:1px solid var(--grey-4);"/></div>
+                    <div><hr style="border: 1px solid var(--grey-4);"/></div>
                     <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
                     <div class="row margin-top:2%">
                         <div class="col-6">
@@ -332,6 +376,24 @@
           </div>
         </div>
     </div>
+    <div id="thread-create-posting-modal" class="modal fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header text-align: center;">
+                <h3 class="modal-title" id="thread-create-modal-label-3" style="color: var(--grey-1); display: inline-block; margin: 0 auto;">Posting Now</h3>
+            </div>
+            <div class="modal-body">
+                Please wait for several seconds, we are posting your thread now. It will be redirected to your posted thread once it is done.
+                <div class="text-center" style="padding: 20px;">
+                    <div class="spinner-border text-success" role="status" id="thread-create-posting-spinner">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <script>
         $('#thread-begin-button').click(function() {
             // check if the gallery if empty
@@ -356,7 +418,6 @@
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
             tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
-            // content = document.querySelector('#editor').value;
             content = document.querySelector('#thread-input-desc').value;
         });
 
@@ -379,8 +440,10 @@
 
         $('#thread-create-next-button-3').click(function() {
             $('#thread-create-modal-3').modal('hide');
-            var linkUrl = "https://forum.weaudit.org/t/fireman-vs-miners-comparison-discourse-topic-created-from-taiga/366";
-            window.open(linkUrl);
+            $('#thread-create-posting-modal').modal('show');
+            // var linkUrl = "https://forum.weaudit.org/t/fireman-vs-miners-comparison-discourse-topic-created-from-taiga/366";
+            // window.open(linkUrl);
+            createThread("1", true);
         });
     </script>
 </body>

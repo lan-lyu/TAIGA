@@ -1,5 +1,5 @@
 const handleGeneration = async (query, img_num) => {
-    let response = await fetch(`http://127.0.0.1:5000/predict`, {
+    let response = await fetch('https://fmduzu5ad1.execute-api.us-east-1.amazonaws.com/Prod/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,15 +23,16 @@ async function generateFunction (event, inputId, img_num) {
         return;
     }
 
+    const searchSpinner = document.querySelector(`#generate-spinner-${inputId}`);
+    searchSpinner.style.display = "block";
+
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
-    const serachInProgressText = document.querySelector(`#search-in-progress-text-${inputId}`);
-    serachInProgressText.style.display = "block";
-
     const images = await handleGeneration(searchTerm, img_num);
 
-    serachInProgressText.style.display = "none";
+    searchSpinner.style.display = "none";
+
     for (let i = 0; i < img_num; i++) {
       const img = document.createElement("img");
       img.src = images[i];
