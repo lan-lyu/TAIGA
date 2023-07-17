@@ -23,10 +23,15 @@ async function generateFunction (event, inputId, img_num) {
         return;
     }
 
+    const searchSpinner = document.querySelector(`#generate-spinner-${inputId}`);
+    searchSpinner.style.display = "block";
+
     const gallery = document.querySelector(`#search-gallery-${inputId}`); 
     gallery.innerHTML = "";
 
     const images = await handleGeneration(searchTerm, img_num);
+
+    searchSpinner.style.display = "none";
 
     for (let i = 0; i < img_num; i++) {
       const img = document.createElement("img");

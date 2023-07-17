@@ -83,7 +83,7 @@ function createThread(gallery1Suffix, comparison) {
     // console.log(image_name)
     // console.log(checkboxes_selected)
     // console.log(image_urls)
-    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
+    // postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
 }
 
 function generateTopicURL(title) {

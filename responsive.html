@@ -125,6 +125,7 @@
                             }
                         }
                         function switchGoogleLayout() {
+                            document.querySelector("#search-gallery-one").innerHTML = "";
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
                                 alert("Change to Google search");
@@ -141,6 +142,28 @@
                     <label class="form-check-label" for="switch-compare-prompt">
                         <body1-medium> Google </body1-medium>
                     </label>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-one">
+                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
+                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center" style="padding-top: 2px;">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-one">
+                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
+                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
