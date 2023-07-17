@@ -297,6 +297,24 @@
           </div>
         </div>
     </div>
+    <div id="thread-create-posting-modal" class="modal fade" aria-hidden="true" aria-labelledby="thread-create-modal-label-3" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header text-align: center;">
+                <h3 class="modal-title" id="thread-create-modal-label-3" style="color: var(--grey-1); display: inline-block; margin: 0 auto;">Posting Now</h3>
+            </div>
+            <div class="modal-body">
+                Please wait for several seconds, we are posting your thread now. It will be redirected to your posted thread once it is done.
+                <div class="text-center" style="padding: 20px;">
+                    <div class="spinner-border text-success" role="status" id="thread-create-posting-spinner">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <script>
         $('#thread-begin-button').click(function() {
             // check if the gallery if empty
@@ -306,6 +324,7 @@
             }
             $('#thread-create-offcanvas').offcanvas('show');
         });
+        
         $('#thread-create-btn').click(function() {
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
@@ -331,6 +350,7 @@
 
         $('#thread-create-next-button-3').click(function() {
             $('#thread-create-modal-3').modal('hide');
+            $('#thread-create-posting-modal').modal('show');
             // var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
             // window.open(linkUrl);
             createThread("one", false);
