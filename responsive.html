@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/search-1.css">
 	<link rel="stylesheet" type="text/css" href="css/thread-create.css">
 
-    <!-- bootstrap settings https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
+    <!-- bootstrap settings: https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -26,9 +27,7 @@
             menubar: false,
         });
     </script>
-
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    
+  
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
@@ -128,7 +127,7 @@
                         function switchGoogleLayout() {
                             var promptSwitch = document.getElementById('switch-google-source');
                             if (promptSwitch.checked == true){
-                                alert("Change to google search");
+                                alert("Change to Google search");
                             }
                         }
                     </script>
@@ -168,7 +167,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" data-bs-toggle="offcanvas" data-bs-target="#thread-create-offcanvas" aria-controls="thread-create-offcanvas">
+    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas">
         + &nbsp;New Thread
     </button>
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
@@ -176,7 +175,7 @@
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
             <div class="col-auto ms-auto justify-content-center">
                 <a class="btn" data-bs-dismiss="offcanvas" id="thread-dismiss-btn"> Dismiss </a>
-                <a class="btn" data-bs-toggle="modal" href="#thread-create-modal-1" role="button" id="thread-create-btn">
+                <a class="btn" role="button" id="thread-create-btn">
                     Create Thread
                 </a>
             </div>
@@ -299,13 +298,20 @@
         </div>
     </div>
     <script>
+        $('#thread-begin-button').click(function() {
+            // check if the gallery if empty
+            if ($('#search-gallery-one').html() === "") {
+                alert("Please search images before creating a new thread!");
+                return;
+            }
+            $('#thread-create-offcanvas').offcanvas('show');
+        });
         $('#thread-create-btn').click(function() {
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
             tag = (tag === "0")? "" : tag;   // if tag is default value, set it to empty string
             content = document.querySelector('#thread-input-desc').value;
-            console.log("store thread content", content);
         });
 
         $('#thread-create-next-button-1').click(function() {
@@ -325,8 +331,9 @@
 
         $('#thread-create-next-button-3').click(function() {
             $('#thread-create-modal-3').modal('hide');
-            var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
-            window.open(linkUrl);
+            // var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
+            // window.open(linkUrl);
+            createThread("one", false);
         });
     </script>
 </body>
