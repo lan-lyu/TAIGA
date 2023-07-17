@@ -165,7 +165,7 @@ header form #search-input, #search-input-one, #search-input-1, #search-input-2, 
 }
 
 header form #search-button {
-	background-image: url("images/iconSearch.png");
+	background-image: url("../images/iconSearch.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 30px;
