@@ -431,6 +431,7 @@
         $('#thread-create-next-button-2').click(function() {
             $('#thread-create-modal-2').modal('hide');
             $('#thread-create-modal-3').modal('show');
+            // searchTerms = "[" + $('#search-input-1').val() + " vs " + $('#search-input-2').val() + "]"; // whether to show search terms in title
             document.querySelector('#thread-preview-title').innerHTML = title;
             document.querySelector('#thread-preview-tag').innerHTML = tag;
             document.querySelector('#threa-preview-content').innerHTML = content;
