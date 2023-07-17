@@ -1,6 +1,3 @@
-// var gallery1HTML = null;
-// var gallery2HTML = null;
-
 // called in search-2.html and search.html
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
 
@@ -40,17 +37,21 @@ function copyGallery(src, dst) {
 function createThread(gallery1Suffix, comparison) {
     const searchTerm1 = document.querySelector(`#search-input-${gallery1Suffix}`).value.trim();
     var searchTerm2 = "";
-    const threadTitle = document.querySelector(`#thread-title-${gallery1Suffix}`).value.trim();
-    const threadTag = document.querySelector(`#thread-tag-${gallery1Suffix}`).value;
-    const threadDescription = document.querySelector(`#thread-description-${gallery1Suffix}`).value;
+    const threadTitle = document.querySelector(`#thread-input-title`).value.trim();
+    const threadTag = document.querySelector(`#thread-input-tag`).value;
+    const threadDescription = document.querySelector(`#thread-input-desc`).value;
+    // content validation
+    if (threadTitle === "") { alert("Please enter a thread title!");  return;}
+    if (threadTag === "0") { alert("Please enter a thread tag!");  return;}
+    if (threadDescription === "") { alert("Please enter a thread description!");  return;}
     var checkboxes_selected = []
     var image_urls = []
     var image_name = "TAIGA_Single"
     var compare = false
     const gallery1 = document.querySelector(`#thread-gallery-${gallery1Suffix}`);
-    checkboxes = gallery1.querySelectorAll(".checkbox-input");
+    checkboxes = gallery1.querySelectorAll(".gallery-item");
     checkboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
+        if (checkbox.classList.contains("selected")) {
             checkboxes_selected.push(true)
         } else {
             checkboxes_selected.push(false)
@@ -63,9 +64,9 @@ function createThread(gallery1Suffix, comparison) {
     if(comparison){
         const gallery2 = document.querySelector(`#thread-gallery-2`);
         searchTerm2 = document.querySelector(`#search-input-2`).value.trim();
-        checkboxes = gallery2.querySelectorAll(".checkbox-input");
+        checkboxes = gallery2.querySelectorAll(".gallery-item");
         checkboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
+            if (checkbox.classList.contains("selected")) {
                 checkboxes_selected.push(true)
             } else {
                 checkboxes_selected.push(false)
@@ -78,8 +79,10 @@ function createThread(gallery1Suffix, comparison) {
         image_name = "TAIGA_Compare"
         compare = true
     }
-    console.log(checkboxes_selected)
-    console.log(image_urls)
+    // console.log(searchTerm1, searchTerm2, threadTitle, threadTag, threadDescription)
+    // console.log(image_name)
+    // console.log(checkboxes_selected)
+    // console.log(image_urls)
     postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
 }
 
