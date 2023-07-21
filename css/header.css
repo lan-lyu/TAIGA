@@ -16,21 +16,42 @@
     border-bottom: 1px solid var(--grey-4);
 }
 
+#logo-WeAudit {
+	color: var(--green-1);
+	font: Karla;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: -0.6px;
+	text-transform: capitalize;
+}
+
 #title {
 	font: Karla;
-	font-size: 30px;
-	font-weight: bold;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 46px; /* 127.778% */
+	letter-spacing: 1px;
 	color: var(--green-1);
 }
 
 #subTitle {
 	font: Karla;
-	font-size: 15px;
-	font-weight: bold;
 	color: var(--grey-2);
+	/* letter-spacing: 0.3px; */
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 30px;
 }
 #subTitle span { display: inline-block; }
 #subTitle::first-letter, #subTitle span::first-letter {
-	font-size: 17px;
 	color: var(--green-1);
+	color: var(--green-1, #10724F);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
 }
