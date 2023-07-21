@@ -70,6 +70,7 @@
                     <input type="text" id="search-input-1" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button type="submit" class="btn button-search" id="search-button">
+							<!-- TODO: add logic of clicking search button, jumpt to search page -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -129,84 +130,6 @@
 					</ul>
 				</div>
             </div>
-        </div>
-        <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-1">
-                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
-                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-2">
-                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
-                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-1">
-                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
-                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-2">
-                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
-                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half">
-            </div>
-            <div class="col-5">
-                <div class="gallery" id="search-gallery-1"></div>
-            </div>
-            <div class="col-5">
-                <div class="gallery" id="search-gallery-2"></div>
-            </div>
-            <script>
-                const form1 = document.querySelector("#query-form-1");
-                const form2 = document.querySelector("#query-form-2");
-
-                form1.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    var promptSwitch = document.getElementById('switch-google-source');
-                    if (promptSwitch.checked == true){
-                        performImageSearch(event, "1", 10);
-                    } else {
-                        // searchUnsplashFunction(event, "1", 10);
-                        generateFunction(event, "1", 10);
-                    }
-                })
-
-                form2.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    var promptSwitch = document.getElementById('switch-google-source');
-                    if (promptSwitch.checked == true){
-                        performImageSearch(event, "2", 10);
-                    } else {
-                        // searchUnsplashFunction(event, "2", 10);
-                        generateFunction(event, "2", 10);
-                    }
-                })
-            </script>
-            <script src="js/imageSearchFunc.js"></script>
-            <script src="js/imageGenerateFunc.js"></script>
         </div>
     </div>
 
