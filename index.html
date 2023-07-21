@@ -42,7 +42,7 @@
             </div>
             <div class="col-1"></div>
         </div>
-    </div>    
+    </div>
 	<div class="container" id="search-container">
         <div class="row" style="margin-top: 3%;">
             <div class="d-inline-flex align-items-end">
@@ -52,13 +52,20 @@
             </div>
 		</div>
         <div class="row">
-			<p class="body-1-medium" style="color: var(--grey-1);"> 
-				Find patterns and detect biases in AI generated images. 
-				Search with different prompts to see how they are represented.... 
+			<div class="col-8">
+				<p class="body-1-medium" style="color: var(--grey-1);"> 
+					Find patterns and detect biases in AI generated images. 
+					Search with different prompts to see how they are represented.... 
+				</p>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 1%;">
+			<p class="body-1-medium" style="color: var(--grey-2);"> 
+				<b>Popular Prompts:</b> firefighters, kindergarten teacher with children, college professor with students
 			</p>
 		</div>
         <div class="row align-items-center">
-            <div class="col-md-5 mid1">
+            <div class="col-md-5-1qtr mid1">
                 <form id="query-form-1">
                     <input type="text" id="search-input-1" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
@@ -70,7 +77,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-5 mid2">
+            <div class="col-md-5-1qtr mid2">
                 <form id="query-form-2">
                     <input type="text" id="search-input-2" placeholder="Search for key terms">
                     <div class="input-group-append" style="background-color: #0C826A;">
@@ -94,10 +101,11 @@
                         function switchGoogleLayout() {
                             document.querySelector("#search-gallery-1").innerHTML = "";
                             document.querySelector("#search-gallery-2").innerHTML = "";
-                            var promptSwitch = document.getElementById('switch-google-source');
-                            if (promptSwitch.checked == true){
-                                alert("Change to Google search");
-                            }
+							// TODO: change this to responsive to dropdown menu
+                            // var promptSwitch = document.getElementById('switch-google-source');
+                            // if (promptSwitch.checked == true){
+                            //     alert("Change to Google search");
+                            // }
                         }
                     </script>
                     <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
@@ -105,15 +113,9 @@
                         <body1-medium> Compare </body1-medium>
                     </label>
                 </div>
-                <!-- <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-google-source" onclick="switchGoogleLayout()">
-                    <label class="form-check-label" for="switch-compare-prompt">
-                        <body1-medium> Google </body1-medium>
-                    </label>
-                </div> -->
 				<div class="btn-group" id="search-image-source-dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span class="logo-icon logo-icon-github"></span> Stable Diffu..
+						<span class="logo-icon logo-icon-github"></span> Stable Di..
 					</button>
 					<ul class="dropdown-menu">
 						<li><a class="dropdown-item" href="#">
@@ -129,7 +131,6 @@
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half"></div>
             <div class="col-5">
                 <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-1">
                     <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
@@ -150,7 +151,6 @@
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half"></div>
             <div class="col-5">
                 <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-1">
                     <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
@@ -209,46 +209,20 @@
             <script src="js/imageGenerateFunc.js"></script>
         </div>
     </div>
-	<!-- <header>
-		<h2>Find patterns and detect biases in Stable Diffusion.</h2>
 
-		<body1-medium>
-			Search for different prompts to see all the data that has been
-			collected related to it and detect biases. Some
-			of the trending topics being searched are doctors,
-			firefighters, CEO, family, professional hairstyle.
-		</body1-medium>
-
-		<div class="header-container">
-			<form style="flex-grow: 1">
-				<a href="responsive.html">
-					<div class="search-container">
-						<input type="text" id="search-input" placeholder="Search for key terms" name="search">
-						<button type="submit" id="search-button"> </button>
-					</div>
-				</a>
-			</form>
-			<div class="right-aligned">
-				<label class="switch">
-					<script src="js/switchSearchLayout.js"></script>
-					<input type="checkbox" id="switchLayout" onchange="toggleLayout()">
-					<span class="slider round"></span>
-				</label>
-				<body1-medium> compare prompts </body1-medium>
-				<img src="images/iconQuestion.png" alt="question" width="20" height="28" />
-			</div>
+	<div class="container" id="how-TAIGA-works" style="margin-top: 5%;">
+		<div>
+			<h3 style="color: var(--grey-1);"> 
+				How does TAIGA work?
+			</h3>
+			<img src="images/how-does-TAIGA-work.png" width="99%" style="margin-top: 1%;"/>
 		</div>
-
-		<p id="topic"></p>
-
-	</header> -->
-
-	<div style="margin-left: 8%; margin-right: 8%; margin-bottom: 7%;">
-		<img src="images/HowItWork-index/HowItWork-total.png" width="100%" />
-	</div>
-
-	<div style="margin-left: 8%; margin-right: 8%;">
-		<img src="images/TrendingThread-index.png" width="100%" />
+		<div style="margin-top: 7%;">
+			<h3 style="color: var(--grey-1);"> 
+				What are some trending threads?
+			</h3>
+		</div>
+		<img src="images/TrendingThread-index.png" width="99%" style="margin-left: 0%;"/>
 	</div>
 
 </body>
