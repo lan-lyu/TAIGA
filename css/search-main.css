@@ -10,6 +10,7 @@
   --grey-4: #dee4e1;
   --grey-5: #f8f9f8;
   --blue-1: #1860a8;
+  --blue-2: #435188;
 }
 
 .h1 {
@@ -161,13 +162,6 @@ form input {
   border-radius: 16px;
   font-size: 14px;
 }
-/* 
-#search-image-source-dropdown .dropdown-menu {
-	background-color: var(--bs-white);
-	border: var(--grey-2) 1px solid;
-	border-radius: 16px;
-	font-size: 14px;
-} */
 
 .logo-icon {
   display: inline-block;
