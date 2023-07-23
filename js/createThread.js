@@ -108,7 +108,7 @@ async function postToDiscourse(search1, search2, title, tag, category, content, 
             },
             params: {
                 title: title,
-                raw: "<b>" + tag + "</b>" + "<hr>" + content + "<br>",
+                raw: content + "<br>",
                 category: categoryNum,
                 tags: [tag]
             },
