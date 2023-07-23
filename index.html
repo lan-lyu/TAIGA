@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/gh/hoomanbahreini/bootstrap-half-and-quarter-grid/fractional-grid.min.css" rel="stylesheet"> 
 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>    
@@ -67,9 +68,9 @@
         <div class="row align-items-center">
             <div class="col-md-5-1qtr mid1">
                 <form id="query-form-1">
-                    <input type="text" id="search-input-1" placeholder="Search for key terms">
+                    <input type="text" id="search-index-1" placeholder="Search for key terms" onclick="switchToSearch()">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button type="submit" class="btn button-search" id="search-button">
+                        <button class="btn button-search" id="search-button-index">
 							<!-- TODO: add logic of clicking search button, jumpt to search page -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
@@ -80,9 +81,9 @@
             </div>
             <div class="col-md-5-1qtr mid2">
                 <form id="query-form-2">
-                    <input type="text" id="search-input-2" placeholder="Search for key terms">
+                    <input type="text" id="search-index-2" placeholder="Search for key terms" onclick="switchToSearch()">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button type="submit" class="btn button-search" id="search-button">
+                        <button class="btn button-search" id="search-button-index">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -90,6 +91,18 @@
                     </div>
                 </form>
             </div>
+            <script>
+                // when click on search input and button, jump to search page
+                function switchToSearch() {
+                    window.location.href = "responsive-search-2.html";
+                }
+                $(document).ready(function () {
+                    $("#search-button-index").on("click", function (event) {
+                        event.preventDefault();
+                        window.location.href = "responsive-search-2.html";
+                    });
+                });
+            </script>
             <div class="col-md-1 bottom1">
                 <div class="form-check form-switch">
                     <script>
@@ -97,16 +110,9 @@
                             var promptSwitch = document.getElementById('switch-compare-prompt');
                             if (promptSwitch.checked == false){
                                 window.location.href = "responsive.html";
+                            } else {
+                                window.location.href = "responsive-search-2.html";
                             }
-                        }
-                        function switchGoogleLayout() {
-                            document.querySelector("#search-gallery-1").innerHTML = "";
-                            document.querySelector("#search-gallery-2").innerHTML = "";
-							// TODO: change this to responsive to dropdown menu
-                            // var promptSwitch = document.getElementById('switch-google-source');
-                            // if (promptSwitch.checked == true){
-                            //     alert("Change to Google search");
-                            // }
                         }
                     </script>
                     <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
@@ -129,6 +135,16 @@
 						</a></li>
 					</ul>
 				</div>
+                <script>
+                    $(document).ready(function () {
+                        $("#search-image-source-dropdown .dropdown-item").on("click", function () {
+                            var selectedText = $(this).text().trim();
+                            var selectedIconClass = $(this).find(".logo-icon").attr("class");
+                            $("#search-image-source-dropdown .btn").html('<span class="' + selectedIconClass + '"></span> ' + selectedText);
+                            window.location.href = "responsive-search-2.html";
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>
