@@ -79,17 +79,16 @@ function createThread(gallery1Suffix, comparison) {
         image_name = "TAIGA_Compare"
         compare = true
     }
-    // console.log(searchTerm1, searchTerm2, threadTitle, threadTag, threadDescription)
-    // console.log(image_name)
-    // console.log(checkboxes_selected)
-    // console.log(image_urls)
     postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
 }
 
 function generateTopicURL(title) {
     const BASE_URL = "https://forum.weaudit.org/t/"
     var wordsArray = title.split("]vs[");
-    var resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-vs-");
+    var resultString = wordsArray.map(word => word.replace(/\[|\]/g, " ").toLowerCase()).join("-vs-");
+    resultString = resultString.replace(/[^a-zA-Z0-9]/g, " ");
+    resultString = resultString.trim();
+    resultString = resultString.replace(/\s{2,}/g, " ");
     wordsArray = resultString.split(" ");
     resultString = wordsArray.map(word => word.replace(/\[|\]/g, "").toLowerCase()).join("-");
     return BASE_URL + resultString + "/";
