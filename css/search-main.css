@@ -1,153 +1,183 @@
 :root {
-	--green-1: #10724f;
-	--green-2: #48996D;
-	--green-3: #87C7B3;
-	--green-4: #EFF9F5;
-	--green-5: #F7FCFA;
-	--grey-1: #222222;
-	--grey-2: #797B7B;
-	--grey-3: #A4ACA8;
-	--grey-4: #DEE4E1;
-	--grey-5: #F8F9F8;
+  --green-1: #10724f;
+  --green-2: #48996d;
+  --green-3: #87c7b3;
+  --green-4: #eff9f5;
+  --green-5: #f7fcfa;
+  --grey-1: #222222;
+  --grey-2: #797b7b;
+  --grey-3: #a4aca8;
+  --grey-4: #dee4e1;
+  --grey-5: #f8f9f8;
+  --blue-1: #1860a8;
+  --blue-2: #435188;
 }
 
 .h1 {
-	color: #000;
-	font-size: 48px;
-	font-family: Karla;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 58px;
-	letter-spacing: -0.96px;
+  color: #000;
+  font-size: 48px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 58px;
+  letter-spacing: -0.96px;
 }
 
 .h2 {
-	color: #000;
-	font-size: 36px;
-	font-family: Karla;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 46px;
-	letter-spacing: -0.432px;
+  color: #000;
+  font-size: 36px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 46px;
+  letter-spacing: -0.432px;
 }
 
 .h3 {
-	color: #000;
-	font-size: 28px;
-	font-family: Karla;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 36px;
-	letter-spacing: -0.336px;
+  color: #000;
+  font-size: 28px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.336px;
 }
 
 .h4 {
-	color: #000;
-	font-size: 20px;
-	font-family: Inter;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 30px;
+  color: #000;
+  font-size: 20px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .body-1-medium {
-	color: var(--gray-3);
-	font-size: 16px;
-	font-family: sans-serif;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 22px;
+  color: var(--gray-3);
+  font-size: 16px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
 }
 
 .body-4-medium {
-	color: var(--gray-2, #797B7B);
-	font-size: 10px;
-	font-family: sans-serif;
-	font-style: normal;
-	font-weight: 500;
-	line-height: normal;
+  color: var(--gray-2, #797b7b);
+  font-size: 10px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .button-font-1 {
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 22px;
-	letter-spacing: -0.288px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.288px;
 }
 
 .button-font-2 {
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 22px;
-	letter-spacing: -0.216px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.216px;
 }
 
 a {
-    text-decoration: none;
-    display: inline-block;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .previous {
-    background-color: var(--bs-white);
-    color: black;
-    font-size: 35px;
+  background-color: var(--bs-white);
+  color: black;
+  font-size: 35px;
 }
 
 form {
-	display: flex;
-	align-items: center;
-	border: 2px solid var(--green-2);
-	border-radius: 8px 8px 8px 8px;
-	background-color: #EFF9F5;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--green-2);
+  border-radius: 8px 8px 8px 8px;
+  background-color: #eff9f5;
 }
 
 form input {
-	flex: 1;
-	padding: 14px;
-	font-size: 16px;
-	border: none;
-	border-radius: 8px 0 0 8px;
-	background-color: #EFF9F5;
+  flex: 1;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  background-color: #eff9f5;
 }
 
 .btn {
-    --bs-btn-hover-bg: var(--green-1);
+  --bs-btn-hover-bg: var(--green-1);
 }
 
 .button-search {
-    height: 54px;
-	width: 54px;
+  height: 54px;
+  width: 54px;
 }
 
 .form-switch .form-check-input {
-	background-color: var(--grey-4);
-	border: var(--grey-5);
+  background-color: var(--grey-4);
+  border: var(--grey-5);
 }
 
 .form-switch .form-check-input:checked {
-	background-color: var(--green-1);
+  background-color: var(--green-1);
 }
 
 .form-switch .form-check-input:focus {
-	box-shadow: 0 0 1px var(--green-1);
+  box-shadow: 0 0 1px var(--green-1);
 }
 
 .image-loading-box {
-	margin: 10px;
-	width: 240px;
-	height: 240px;
-	border-radius: 4px;
-	background-color: var(--grey-3);
-	animation: imageLoadingAnimation 1s ease-in-out infinite alternate;
+  margin: 10px;
+  width: 240px;
+  height: 240px;
+  border-radius: 4px;
+  background-color: var(--grey-3);
+  animation: imageLoadingAnimation 1s ease-in-out infinite alternate;
 }
 
 @keyframes imageLoadingAnimation {
-	0% {
-	  opacity: 0.3;
-	}
-	100% {
-	  opacity: 1;
-	}
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#search-image-source-dropdown .btn,
+#search-image-source-dropdown .dropdown-menu {
+  background-color: var(--bs-white);
+  color: var(--grey-1);
+  border: var(--grey-4) 1px solid;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.logo-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  vertical-align: text-top;
+}
+
+.logo-icon-github {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-github' viewBox='0 0 16 16'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E");
+}
+
+.logo-icon-google {
+  background-image: url('../images/iconGoogle.png');
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-google' viewBox='0 0 16 16'%3E%3Cpath d='M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z'/%3E%3C/svg%3E"); */
 }
