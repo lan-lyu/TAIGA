@@ -136,26 +136,39 @@
                                 window.location.href = "responsive.html";
                             }
                         }
-                        function switchGoogleLayout() {
-                            document.querySelector("#search-gallery-1").innerHTML = "";
-                            document.querySelector("#search-gallery-2").innerHTML = "";
-                            var promptSwitch = document.getElementById('switch-google-source');
-                            if (promptSwitch.checked == true){
-                                alert("Change to Google search");
-                            }
-                        }
                     </script>
                     <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
                     <label class="form-check-label" for="switch-compare-prompt">
                         <body1-medium> Compare </body1-medium>
                     </label>
                 </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-google-source" onclick="switchGoogleLayout()">
-                    <label class="form-check-label" for="switch-compare-prompt">
-                        <body1-medium> Google </body1-medium>
-                    </label>
-                </div>
+
+				<div class="btn-group" id="search-image-source-dropdown">
+					<button class="btn btn-secondary btn-sm dropdown-toggle" id="selected-image-source" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="logo-icon logo-icon-github"></span> Stable Diffusion
+					</button>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">
+							<span class="logo-icon logo-icon-github"></span>
+							Stable Diffusion
+						</a></li>
+						<li><a class="dropdown-item align-items-start" href="#">
+							<span class="logo-icon logo-icon-google"></span>
+							Google
+						</a></li>
+					</ul>
+				</div>
+                <script>
+                    $(document).ready(function () {
+                        $("#search-image-source-dropdown .dropdown-item").on("click", function () {
+                            var selectedText = $(this).text().trim();
+                            var selectedIconClass = $(this).find(".logo-icon").attr("class");
+                            $("#search-image-source-dropdown .btn").html('<span class="' + selectedIconClass + '"></span> ' + selectedText);
+                            document.querySelector("#search-gallery-1").innerHTML = "";
+                            document.querySelector("#search-gallery-2").innerHTML = "";
+                        });
+                    });
+                </script>
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
@@ -215,23 +228,25 @@
 
                 form1.addEventListener("submit", (event) => {
                     event.preventDefault();
-                    var promptSwitch = document.getElementById('switch-google-source');
-                    if (promptSwitch.checked == true){
+                    var selectedText = $("#selected-image-source").text().trim();
+                    if (selectedText === "Google") {
                         performImageSearch(event, "1", 10);
-                    } else {
-                        // searchUnsplashFunction(event, "1", 10);
+                    } else if (selectedText === "Stable Diffusion") {
                         generateFunction(event, "1", 10);
+                    } else {
+                        alert("Please select a search source.");
                     }
                 })
 
                 form2.addEventListener("submit", (event) => {
                     event.preventDefault();
-                    var promptSwitch = document.getElementById('switch-google-source');
-                    if (promptSwitch.checked == true){
+                    var selectedText = $("#selected-image-source").text().trim();
+                    if (selectedText === "Google") {
                         performImageSearch(event, "2", 10);
-                    } else {
-                        // searchUnsplashFunction(event, "2", 10);
+                    } else if (selectedText === "Stable Diffusion") {
                         generateFunction(event, "2", 10);
+                    } else {
+                        alert("Please select a search source.");
                     }
                 })
             </script>
