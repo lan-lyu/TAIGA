@@ -60,57 +60,15 @@
 				</p>
 			</div>
 		</div>
-		<div class="row">
-            <div class="col-md-5">
-				<div class="btn-group" id="search-image-source-dropdown">
-					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span class="logo-icon logo-icon-github"></span> Stable Diffusion
-					</button>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">
-							<span class="logo-icon logo-icon-github"></span>
-							Stable Diffusion
-						</a></li>
-						<li><a class="dropdown-item align-items-start" href="#">
-							<span class="logo-icon logo-icon-google"></span>
-							Google
-						</a></li>
-					</ul>
-				</div>
-            </div>
-            <div class="col-auto ms-auto">
-                <div class="form-check form-switch">
-                    <script>
-                        function switchCompareLayout() {
-                            var promptSwitch = document.getElementById('switch-compare-prompt');
-                            if (promptSwitch.checked == false){
-                                window.location.href = "responsive.html";
-                            } else {
-                                window.location.href = "responsive-search-2.html";
-                            }
-                        }
-                    </script>
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
-                    <label class="form-check-label body-1-medium" for="switch-compare-prompt" style="color: var(--grey-2);">
-                        Compare Prompts
-                    </label>
-                </div>
-            </div>
-            <script>
-                $(document).ready(function () {
-                    $("#search-image-source-dropdown .dropdown-item").on("click", function () {
-                        var selectedText = $(this).text().trim();
-                        var selectedIconClass = $(this).find(".logo-icon").attr("class");
-                        $("#search-image-source-dropdown .btn").html('<span class="' + selectedIconClass + '"></span> ' + selectedText);
-                        window.location.href = "responsive-search-2.html";
-                    });
-                });
-            </script>
+		<div class="row" style="margin-top: 1%;">
+			<p class="body-1-medium" style="color: var(--grey-2);"> 
+				<b>Popular Prompts:</b> firefighters, kindergarten teacher with children, college professor with students
+			</p>
 		</div>
-        <div class="row align-items-center" style="margin-top: 1%;">
-            <div class="col-md-6 mid1">
+        <div class="row align-items-center">
+            <div class="col-md-5-1qtr mid1">
                 <form id="query-form-1">
-                    <input type="text" id="search-index-1" placeholder="kindergarten teacher with children" onclick="switchToSearch()">
+                    <input type="text" id="search-index-1" placeholder="Search for key terms" onclick="switchToSearch()">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button class="btn button-search" id="search-button-index">
 							<!-- TODO: add logic of clicking search button, jumpt to search page -->
@@ -121,9 +79,9 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6 mid2">
+            <div class="col-md-5-1qtr mid2">
                 <form id="query-form-2">
-                    <input type="text" id="search-index-2" placeholder="college professor with students" onclick="switchToSearch()">
+                    <input type="text" id="search-index-2" placeholder="Search for key terms" onclick="switchToSearch()">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button class="btn button-search" id="search-button-index">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
@@ -145,6 +103,49 @@
                     });
                 });
             </script>
+            <div class="col-md-1 bottom1">
+                <div class="form-check form-switch">
+                    <script>
+                        function switchCompareLayout() {
+                            var promptSwitch = document.getElementById('switch-compare-prompt');
+                            if (promptSwitch.checked == false){
+                                window.location.href = "responsive.html";
+                            } else {
+                                window.location.href = "responsive-search-2.html";
+                            }
+                        }
+                    </script>
+                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
+                    <label class="form-check-label" for="switch-compare-prompt">
+                        <body1-medium> Compare </body1-medium>
+                    </label>
+                </div>
+				<div class="btn-group" id="search-image-source-dropdown">
+					<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span class="logo-icon logo-icon-github"></span> Stable Di..
+					</button>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#">
+							<span class="logo-icon logo-icon-github"></span>
+							Stable Diffusion
+						</a></li>
+						<li><a class="dropdown-item align-items-start" href="#">
+							<span class="logo-icon logo-icon-google"></span>
+							Google
+						</a></li>
+					</ul>
+				</div>
+                <script>
+                    $(document).ready(function () {
+                        $("#search-image-source-dropdown .dropdown-item").on("click", function () {
+                            var selectedText = $(this).text().trim();
+                            var selectedIconClass = $(this).find(".logo-icon").attr("class");
+                            $("#search-image-source-dropdown .btn").html('<span class="' + selectedIconClass + '"></span> ' + selectedText);
+                            window.location.href = "responsive-search-2.html";
+                        });
+                    });
+                </script>
+            </div>
         </div>
     </div>
 
