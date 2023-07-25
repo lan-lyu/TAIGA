@@ -7,15 +7,15 @@
     <meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 	<link rel="stylesheet" type="text/css" href="css/search-main.css">
-	<link rel="stylesheet" type="text/css" href="css/search-2.css">
-    <link rel="stylesheet" type="text/css" href="css/thread-create.css">
+	<link rel="stylesheet" type="text/css" href="css/search-1.css">
+	<link rel="stylesheet" type="text/css" href="css/thread-create.css">
 
     <!-- bootstrap settings: https://getbootstrap.com/docs/5.3/getting-started/introduction/#important-globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/gh/hoomanbahreini/bootstrap-half-and-quarter-grid/fractional-grid.min.css" rel="stylesheet"> 
-
+    
     <!-- src: https://www.tiny.cloud/blog/bootstrap-wysiwyg-editor/ -->
     <script src="https://cdn.tiny.cloud/1/3y76gl6fpamvcloey1ahbtozaiu9ahdxccyldgo5xnzsdz3r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -27,7 +27,7 @@
             menubar: false,
         });
     </script>
-
+  
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
@@ -94,7 +94,7 @@
         </div>
     </div>
     <div class="container" id="search-container">
-        <!-- <div class="row" style="margin-top: 1%;">
+        <div class="row" style="margin-top: 3%;">
             <div class="d-inline-flex align-items-end">
                 <p id="title"> TAIGA </p>
                 <p id="title" style="color:var(--grey-2)"> &nbsp;|&nbsp; </p>
@@ -108,16 +108,16 @@
 					Search with different prompts to see how they are represented.... 
 				</p>
 			</div>
-		</div> -->
-        <div class="row align-items-center" style="margin-top: 3%;">
-            <div class="col-md-0-half top">
-                <!-- <a href="index.html">
+		</div>
+        <div class="row align-items-center" style="margin-top: 1%;">
+            <!-- <div class="col-0-half">
+                <a href="index.html">
                     <img src="images/iconBack.png" alt="back" width="25" height="25" />
-                </a> -->
-            </div>
-            <div class="col-md-5 mid1">
-                <form id="query-form-1">
-                    <input type="text" id="search-input-1" placeholder="e.g. &quot;A guy with a bow&quot;">
+                </a>
+            </div> -->
+            <div class="col-10-half">
+                <form id="query-form-one">
+                    <input type="text" id="search-input-one" placeholder="e.g. check &quot;moon gates&quot; in Stable Diffusion and Google results">
                     <div class="input-group-append" style="background-color: #0C826A;">
                         <button type="submit" class="btn button-search" id="search-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
@@ -127,34 +127,21 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-5 mid2">
-                <form id="query-form-2">
-                    <input type="text" id="search-input-2" placeholder="e.g. &quot;A girl with a bow&quot;">
-                    <div class="input-group-append" style="background-color: #0C826A;">
-                        <button type="submit" class="btn button-search" id="search-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-1 bottom1">
+            <div class="col-1">
                 <div class="form-check form-switch">
                     <script>
                         function switchCompareLayout() {
                             var promptSwitch = document.getElementById('switch-compare-prompt');
-                            if (promptSwitch.checked == false){
-                                window.location.href = "responsive.html";
+                            if (promptSwitch.checked == true){
+                                window.location.href = "responsive-search-2.html";
                             }
                         }
                     </script>
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()" checked>
+                    <input class="form-check-input" type="checkbox" role="switch" id="switch-compare-prompt" onclick="switchCompareLayout()">
                     <label class="form-check-label" for="switch-compare-prompt">
                         <body1-medium> Compare </body1-medium>
                     </label>
                 </div>
-
 				<div class="btn-group" id="search-image-source-dropdown">
 					<button class="btn btn-secondary btn-sm dropdown-toggle" id="selected-image-source" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 						<span class="logo-icon logo-icon-github"></span> Stable Diffusion
@@ -176,26 +163,15 @@
                             var selectedText = $(this).text().trim();
                             var selectedIconClass = $(this).find(".logo-icon").attr("class");
                             $("#search-image-source-dropdown .btn").html('<span class="' + selectedIconClass + '"></span> ' + selectedText);
-                            document.querySelector("#search-gallery-1").innerHTML = "";
-                            document.querySelector("#search-gallery-2").innerHTML = "";
+                            document.querySelector("#search-gallery-one").innerHTML = "";
                         });
                     });
                 </script>
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half"></div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-1">
-                    <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
-                    <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-2">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="generate-spinner-one">
                     <h4 style="color: var(--grey-2);"> Generating from Stable Diffusion... </h4>
                     <h6 style="color: var(--grey-3);"> It usually takes 10 seconds. Don't look away! </h6>
                     <div class="spinner-border text-success" role="status">
@@ -205,18 +181,8 @@
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half"></div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-1">
-                    <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
-                    <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
-                    <div class="spinner-border text-success" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-2">
+            <div class="col-11-half">
+                <div class="text-center" style="padding: 20px; display: none;" id="search-spinner-one">
                     <h4 style="color: var(--grey-2);"> Searching from Google... </h4>
                     <h6 style="color: var(--grey-3);"> You know Google, it's super fast! </h6>
                     <div class="spinner-border text-success" role="status">
@@ -226,44 +192,26 @@
             </div>
         </div>
         <div class="row align-items-center" style="padding-top: 2px;">
-            <div class="col-0-half">
+            <!-- <div class="col-0-half">
+            </div> -->
+            <div class="col-12">
+                <div class="gallery" id="search-gallery-one"></div>
+                <script>
+                    const formOne = document.querySelector("#query-form-one");
+                    formOne.addEventListener("submit", (event) => {
+                        var selectedText = $("#selected-image-source").text().trim();
+                        if (selectedText === "Google") {
+                            performImageSearch(event, "one", 25);
+                        } else if (selectedText === "Stable Diffusion") {
+                            generateFunction(event, "one", 25);
+                        } else {
+                            alert("Please select a search source.");
+                        }
+                    })
+                </script>
+                <script src="js/imageSearchFunc.js"></script>
+                <script src="js/imageGenerateFunc.js"></script>
             </div>
-            <div class="col-5">
-                <div class="gallery" id="search-gallery-1"></div>
-            </div>
-            <div class="col-5">
-                <div class="gallery" id="search-gallery-2"></div>
-            </div>
-            <script>
-                const form1 = document.querySelector("#query-form-1");
-                const form2 = document.querySelector("#query-form-2");
-
-                form1.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    var selectedText = $("#selected-image-source").text().trim();
-                    if (selectedText === "Google") {
-                        performImageSearch(event, "1", 10);
-                    } else if (selectedText === "Stable Diffusion") {
-                        generateFunction(event, "1", 10);
-                    } else {
-                        alert("Please select a search source.");
-                    }
-                })
-
-                form2.addEventListener("submit", (event) => {
-                    event.preventDefault();
-                    var selectedText = $("#selected-image-source").text().trim();
-                    if (selectedText === "Google") {
-                        performImageSearch(event, "2", 10);
-                    } else if (selectedText === "Stable Diffusion") {
-                        generateFunction(event, "2", 10);
-                    } else {
-                        alert("Please select a search source.");
-                    }
-                })
-            </script>
-            <script src="js/imageSearchFunc.js"></script>
-            <script src="js/imageGenerateFunc.js"></script>
         </div>
     </div>
 
@@ -272,18 +220,16 @@
     </button>
     <script>
         function updateButtonStatus() {
-            const gallery1ItemCount = $('#search-gallery-1').children().length;
-            const gallery2ItemCount = $('#search-gallery-2').children().length;
-            if (gallery1ItemCount >= 2 && gallery2ItemCount >= 2) {
+            const galleryItemCount = $('#search-gallery-one').children().length;
+            if (galleryItemCount >= 2) {
                 $('#thread-begin-button').prop('disabled', false);
             } else {
                 $('#thread-begin-button').prop('disabled', true);
             }
         }
-        $('#search-gallery-1, #search-gallery-2').on('DOMSubtreeModified', updateButtonStatus);
+        $('#search-gallery-one').on('DOMSubtreeModified', updateButtonStatus);
         updateButtonStatus();
     </script>
-
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
         <div class="offcanvas-header" style="padding-left: 10%; padding-right: 10%; border-bottom: solid 1px var(--grey-4);">
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
@@ -336,16 +282,13 @@
             <div class="modal-body" id="thread-create-modal-body-1">
                 Select certain images which are most relevant to the identified bias in order to highlight them among the results in the thread.
                 <div class="row margin-top:2%">
-                    <div class="col-6">
-                        <div class="gallery" id="thread-gallery-1"></div>
-                    </div>
-                    <div class="col-6">
-                        <div class="gallery" id="thread-gallery-2"></div>
+                    <div class="col-12">
+                        <div class="gallery" id="thread-gallery-one"></div>
                     </div>
                 </div>
                 <script src="js/createThread.js"></script>
                 <script>
-                    addButtonListener("", 2, "1", "2");
+                    addButtonListener("", 1, "one", "");
                     $(document).ready(function() {
                         // Attach the click event listener to the parent element
                         $('.gallery').on('click', '.gallery-item', function() {
@@ -402,11 +345,8 @@
                     <div><hr style="border: 1px solid var(--grey-4);"/></div>
                     <p id="threa-preview-content" class="modal-title body-3-medium" style="color: var(--grey-2);"> Content </p>
                     <div class="row margin-top:2%">
-                        <div class="col-6">
-                            <div class="gallery" id="thread-preview-gallery-1"></div>
-                        </div>
-                        <div class="col-6">
-                            <div class="gallery" id="thread-preview-gallery-2"></div>
+                        <div class="col-12">
+                            <div class="gallery" id="thread-preview-gallery-one"></div>
                         </div>
                     </div>
                 </div>
@@ -438,8 +378,7 @@
     <script>
         $('#thread-begin-button').click(function() {
             // check if the gallery if empty
-            if ($('#search-gallery-1').html() === "" || 
-                $('#search-gallery-2').html() === "") {
+            if ($('#search-gallery-one').html() === "") {
                 alert("Please search images before creating a new thread!");
                 return;
             }
@@ -447,14 +386,6 @@
         });
 
         $('#thread-create-btn').click(function() {
-            // check if the thread content is empty
-            // if ($('#thread-input-title').val() === "" || 
-            //     $('#thread-input-tag').val() === "0" ||
-            //     $('#thread-input-desc').val() === "") {
-            //     alert("Please fill in all the fields for the thread!");
-            //     // return;
-            // }
-            // document.getElementById('#thread-create-modal-1').setAttribute('databackdrop', 'static');
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
             tag = document.querySelector('#thread-input-tag').value;
@@ -463,8 +394,7 @@
         });
 
         $('#thread-create-next-button-1').click(function() {
-            gallery1HTML = document.querySelector('#thread-gallery-1').innerHTML;
-            gallery2HTML = document.querySelector('#thread-gallery-2').innerHTML;
+            galleryHTML = document.querySelector('#thread-gallery-one').innerHTML;
             $('#thread-create-modal-1').modal('hide');
             $('#thread-create-modal-2').modal('show');
         });
@@ -475,16 +405,15 @@
             document.querySelector('#thread-preview-title').innerHTML = title;
             document.querySelector('#thread-preview-tag').innerHTML = tag;
             document.querySelector('#threa-preview-content').innerHTML = content;
-            document.querySelector('#thread-preview-gallery-1').innerHTML = gallery1HTML;
-            document.querySelector('#thread-preview-gallery-2').innerHTML = gallery2HTML;
+            document.querySelector('#thread-preview-gallery-one').innerHTML = galleryHTML;
         });
 
         $('#thread-create-next-button-3').click(function() {
             $('#thread-create-modal-3').modal('hide');
             $('#thread-create-posting-modal').modal('show');
-            // var linkUrl = "https://forum.weaudit.org/t/fireman-vs-miners-comparison-discourse-topic-created-from-taiga/366";
+            // var linkUrl = "https://forum.weaudit.org/t/ceo-discourse-topic-created-from-taiga/367";
             // window.open(linkUrl);
-            createThread("1", true);
+            createThread("one", false);
         });
     </script>
 </body>

@@ -111,9 +111,9 @@
 		</div> -->
         <div class="row align-items-center" style="margin-top: 3%;">
             <div class="col-0-half">
-                <a href="index.html">
+                <!-- <a href="index.html">
                     <img src="images/iconBack.png" alt="back" width="25" height="25" />
-                </a>
+                </a> -->
             </div>
             <div class="col-10">
                 <form id="query-form-one">
@@ -215,9 +215,21 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas">
+    <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas" disabled>
         + &nbsp;New Thread
     </button>
+    <script>
+        function updateButtonStatus() {
+            const galleryItemCount = $('#search-gallery-one').children().length;
+            if (galleryItemCount >= 2) {
+                $('#thread-begin-button').prop('disabled', false);
+            } else {
+                $('#thread-begin-button').prop('disabled', true);
+            }
+        }
+        $('#search-gallery-one').on('DOMSubtreeModified', updateButtonStatus);
+        updateButtonStatus();
+    </script>
     <div class="offcanvas offcanvas-bottom" tabindex="-1" id="thread-create-offcanvas" aria-labelledby="offcanvasBottomLabel">
         <div class="offcanvas-header" style="padding-left: 10%; padding-right: 10%; border-bottom: solid 1px var(--grey-4);">
             <h3 class="offcanvas-title" id="offcanvasBottomLabel">Thread Details</h3>
