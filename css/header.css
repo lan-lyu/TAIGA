@@ -25,6 +25,21 @@
 	line-height: normal;
 	letter-spacing: -0.6px;
 	text-transform: capitalize;
+	user-select: none;
+	cursor: pointer;
+}
+
+#logo-TAIGA {
+	color: var(--grey-3);
+	font: Karla;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	/* letter-spacing: -0.6px; */
+	text-transform: capitalize;
+	user-select: none;
+	cursor: pointer;
 }
 
 #title {
