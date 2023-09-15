@@ -1,4 +1,9 @@
 // called in search-2.html and search.html
+var categoryMapper = {
+    "Stable Diffusion": 46,
+    "Google": 52
+};
+
 function addButtonListener(suffix, oneOrTwo, gallery1Suffix, gallery2Suffix) {
 
     // click on "create thread" button
@@ -40,6 +45,7 @@ function createThread(gallery1Suffix, comparison) {
     const threadTitle = document.querySelector(`#thread-input-title`).value.trim();
     const threadTag = document.querySelector(`#thread-input-tag`).value;
     const threadDescription = document.querySelector(`#thread-input-desc`).value;
+    const imageSource = $("#selected-image-source").text().trim();
     // content validation
     if (threadTitle === "") { alert("Please enter a thread title!");  return;}
     if (threadTag === "0") { alert("Please enter a thread tag!");  return;}
@@ -79,7 +85,7 @@ function createThread(gallery1Suffix, comparison) {
         image_name = "TAIGA_Compare"
         compare = true
     }
-    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, "", threadDescription, image_urls, checkboxes_selected, image_name, compare)
+    postToDiscourse(searchTerm1, searchTerm2, threadTitle, threadTag, categoryMapper[imageSource], threadDescription, image_urls, checkboxes_selected, image_name, compare)
 }
 
 function generateTopicURL(title) {
@@ -94,9 +100,8 @@ function generateTopicURL(title) {
     return BASE_URL + resultString + "/";
 }
 
-async function postToDiscourse(search1, search2, title, tag, category, content, image_urls, checkbox, image_name, compare) {
-    const categoryNum = 46; // Category for stable-diffusion
-    await fetch(`https://fmduzu5ad1.execute-api.us-east-1.amazonaws.com/Prod/taigacreatepost`, {
+async function postToDiscourse(search1, search2, title, tag, categoryNum, content, image_urls, checkbox, image_name, compare) {
+    await fetch(`https://ezjqmqzpug.execute-api.us-east-1.amazonaws.com/Prod/taigacreatepost`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
