@@ -126,9 +126,9 @@
         <div class="row align-items-center" style="margin-top: 1%;">
             <div class="col-md-6 mid1">
                 <form id="query-form-1">
-                    <input type="text" id="search-index-1" placeholder="kindergarten teacher with children" onclick="switchToSearch()">
+                    <input type="text" id="search-input-index-1" placeholder="e.g. &quot;A guy with a bow&quot;">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button class="btn button-search" id="search-button-index">
+                        <button class="btn button-search" id="search-button-index-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -138,9 +138,9 @@
             </div>
             <div class="col-md-6 mid2">
                 <form id="query-form-2">
-                    <input type="text" id="search-index-2" placeholder="college professor with students" onclick="switchToSearch()">
+                    <input type="text" id="search-input-index-2" placeholder="e.g. &quot;A girl with a bow&quot;">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button class="btn button-search" id="search-button-index">
+                        <button class="btn button-search" id="search-button-index-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -148,15 +148,34 @@
                     </div>
                 </form>
             </div>
-            <script>
+            <script>                
                 // when click on search input and button, jump to search page
                 function switchToSearch() {
                     window.location.href = "responsive-search-2.html";
                 }
                 $(document).ready(function () {
-                    $("#search-button-index").on("click", function (event) {
+                    $("#search-button-index-1").on("click", function (event) {
                         event.preventDefault();
-                        window.location.href = "responsive-search-2.html";
+                        console.log("click");
+                        const searchTerm = $("#search-input-index-1").val();
+                        console.log(searchTerm);
+                        if (searchTerm === undefined || searchTerm === "") {
+                            alert("Please enter a search term!");
+                            return;
+                        }
+                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                    });
+                    
+                    $("#search-button-index-2").on("click", function (event) {
+                        event.preventDefault();
+                        console.log("click");
+                        const searchTerm = $("#search-input-index-2").val();
+                        console.log(searchTerm);
+                        if (searchTerm === undefined || searchTerm === "") {
+                            alert("Please enter a search term!");
+                            return;
+                        }
+                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
                     });
                 });
             </script>
@@ -168,61 +187,55 @@
 			<h3 style="color: var(--grey-1);"> 
 				How does TAIGA work?
 			</h3>
-            <div id="carouselExampleCaptions" class="carousel slide"  data-bs-ride="carousel"  style="width: 90%; margin-left: 5%; border: 4px var(--green-5) solid; border-radius: 16px; margin-top: 3%;">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+            <div class="container text-center align-items-center" style="margin-top: 2%;">
+              <div class="row align-items-center justify-content-evenly">
+                <div class="col-3-3qtr how-taiga-works-column">
+                    <div class="how-taiga-works-column-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#10724f" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
+                        </svg>
+                    </div>
+                    <div class="how-taiga-works-column-item">
+                        <img src="images/HowItWork-index/create-thread.gif" width="90%" alt="Search Prompt Gif">
+                    </div>
+                    <div class="how-taiga-works-column-item">
+                        <h5 style="color: var(--green-1)">Search Prompts</h5>
+                        <p style="color: var(--grey-2); width: 95%;"> Search prompt to see the generated results and create threads.</p>
+                    </div>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/HowItWork-index/prompt-search.gif" class="d-block w-100" width=80% alt="Search Prompt Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>1/4 Search Prompts</h5>
-                      <p>Search prompt you are interested to see the generated results.</p>
+                <div class="col-3-3qtr how-taiga-works-column">
+                    <div class="how-taiga-works-column-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#10724f" class="bi bi-2-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+                        </svg>
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/create-thread.gif" class="d-block w-100" alt="Create Thread Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>2/4 Create Thread</h5>
-                      <p>Create your own thread and write about bias you found.</p>
+                    <div class="how-taiga-works-column-item">
+                        <img src="images/HowItWork-index/highlight-image.gif" width="99%" alt="Search Prompt Gif">
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/highlight-image.gif" class="d-block w-100" alt="Highlight Image Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>3/4 Highlight Images</h5>
-                      <p>Highlihgt the images that you think worth attention.</p>
+                    <div class="how-taiga-works-column-item">
+                        <h5 style="color: var(--green-1)">Highlight Images</h5>
+                        <p style="color: var(--grey-2); width: 95%;"> Discuss bias you found in your thread and highlight images worth attention.</p>
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/posting.gif" class="d-block w-100" alt="Posting Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>4/4 Post Thread</h5>
-                      <p>Preview your thread and post it to WeAudit forum.</p>
-                    </div>
-                  </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-3-3qtr how-taiga-works-column">
+                    <div class="how-taiga-works-column-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#10724f" class="bi bi-3-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+                          </svg>
+                    </div>
+                    <div class="how-taiga-works-column-item">
+                        <img src="images/HowItWork-index/posting-short.gif" width="90%" alt="Search Prompt Gif">
+                    </div>
+                    <div class="how-taiga-works-column-item">
+                        <h5 style="color: var(--green-1)">Post Thread</h5>
+                        <p style="color: var(--grey-2); width: 95%;"> Preview your thread and post it to WeAudit forum for further.</p>
+                    </div>
+                </div>
+              </div>
             </div>
         </div>
-        <!-- <div>
-			<h3 style="color: var(--grey-1);"> 
-				How does TAIGA work?
-			</h3>
-            <img src="images/HowItWork-index/search.gif" width="99%"  alt="Search GIF">
-            <img src="images/HowItWork-index/create-thread.gif"  width="99%" alt="Create Thread GIF">       
-			<img src="images/how-does-TAIGA-work.png" width="99%" style="margin-top: 1%;"/>
-		</div> -->
+        <!-- TODO(P2): add current trending threads -->
 		<div style="margin-top: 7%;">
 			<h3 style="color: var(--grey-1);"> 
 				What are some trending threads?
