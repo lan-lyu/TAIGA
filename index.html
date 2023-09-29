@@ -126,9 +126,9 @@
         <div class="row align-items-center" style="margin-top: 1%;">
             <div class="col-md-6 mid1">
                 <form id="query-form-1">
-                    <input type="text" id="search-index-1" placeholder="e.g. &quot;A guy with a bow&quot;" onclick="switchToSearch()">
+                    <input type="text" id="search-input-index-1" placeholder="e.g. &quot;A guy with a bow&quot;">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button class="btn button-search" id="search-button-index">
+                        <button class="btn button-search" id="search-button-index-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -138,9 +138,9 @@
             </div>
             <div class="col-md-6 mid2">
                 <form id="query-form-2">
-                    <input type="text" id="search-index-2" placeholder="e.g. &quot;A girl with a bow&quot;" onclick="switchToSearch()">
+                    <input type="text" id="search-input-index-2" placeholder="e.g. &quot;A girl with a bow&quot;">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button class="btn button-search" id="search-button-index">
+                        <button class="btn button-search" id="search-button-index-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="#ffffff" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
                             </svg>
@@ -148,15 +148,34 @@
                     </div>
                 </form>
             </div>
-            <script>
+            <script>                
                 // when click on search input and button, jump to search page
                 function switchToSearch() {
                     window.location.href = "responsive-search-2.html";
                 }
                 $(document).ready(function () {
-                    $("#search-button-index").on("click", function (event) {
+                    $("#search-button-index-1").on("click", function (event) {
                         event.preventDefault();
-                        window.location.href = "responsive-search-2.html";
+                        console.log("click");
+                        const searchTerm = $("#search-input-index-1").val();
+                        console.log(searchTerm);
+                        if (searchTerm === undefined || searchTerm === "") {
+                            alert("Please enter a search term!");
+                            return;
+                        }
+                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                    });
+                    
+                    $("#search-button-index-2").on("click", function (event) {
+                        event.preventDefault();
+                        console.log("click");
+                        const searchTerm = $("#search-input-index-2").val();
+                        console.log(searchTerm);
+                        if (searchTerm === undefined || searchTerm === "") {
+                            alert("Please enter a search term!");
+                            return;
+                        }
+                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
                     });
                 });
             </script>
@@ -168,51 +187,35 @@
 			<h3 style="color: var(--grey-1);"> 
 				How does TAIGA work?
 			</h3>
-            <div id="carouselExampleCaptions" class="carousel slide"  data-bs-ride="carousel"  style="width: 90%; margin-left: 5%; border: 4px var(--green-5) solid; border-radius: 16px; margin-top: 3%;">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+            <div class="container text-center align-items-center">
+              <div class="row align-items-center">
+                <div class="col-4">
+                    <img src="images/HowItWork-index/create-thread.gif" width=100% alt="Search Prompt Gif">
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/HowItWork-index/prompt-search.gif" class="d-block w-100" width=80% alt="Search Prompt Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>1/4 Search Prompts</h5>
-                      <p>Search prompt you are interested to see the generated results.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/create-thread.gif" class="d-block w-100" alt="Create Thread Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>2/4 Create Thread</h5>
-                      <p>Create your own thread and write about bias you found.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/highlight-image.gif" class="d-block w-100" alt="Highlight Image Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>3/4 Highlight Images</h5>
-                      <p>Highlihgt the images that you think worth attention.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/HowItWork-index/posting.gif" class="d-block w-100" alt="Posting Gif">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>4/4 Post Thread</h5>
-                      <p>Preview your thread and post it to WeAudit forum.</p>
-                    </div>
-                  </div>
+                <div class="col-4">
+                    <img src="images/HowItWork-index/highlight-image.gif" width=100% alt="Highlight Image Gif">
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+                <div class="col-4">
+                    <img src="images/HowItWork-index/posting.gif" width=100% alt="Posting Gif">
+                </div>
+              </div>
+              <!-- <div class="row align-items-center">
+                <div class="col-5">
+                    <img src="images/HowItWork-index/prompt-search.gif" width=80% alt="Search Prompt Gif">
+                </div>
+                <div class="col-5">
+                    <img src="images/HowItWork-index/create-thread.gif" width=80% alt="Search Prompt Gif">
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-5">
+                    <img src="images/HowItWork-index/highlight-image.gif" width=80% alt="Highlight Image Gif">
+                </div>
+                <div class="col-5">
+                    <img src="images/HowItWork-index/posting.gif" width=80% alt="Posting Gif">
+                </div>
+              </div> -->
             </div>
         </div>
         <!-- <div>
@@ -223,6 +226,7 @@
             <img src="images/HowItWork-index/create-thread.gif"  width="99%" alt="Create Thread GIF">       
 			<img src="images/how-does-TAIGA-work.png" width="99%" style="margin-top: 1%;"/>
 		</div> -->
+        <!-- TODO(P2): add current trending threads -->
 		<div style="margin-top: 7%;">
 			<h3 style="color: var(--grey-1);"> 
 				What are some trending threads?
