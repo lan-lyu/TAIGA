@@ -109,34 +109,60 @@
     </div>
 
     <!-- Test for sidebar -->
-    <div class="container" style="margin-left: 11%;">
+    <div class="container-fluid" style="margin-left: 6%;">
         <div class="row justify-content-between" style="margin-top: 3%; margin-bottom: -2%;">
             <div class="col-3">
-                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Why do I need to audit?</button>
+                <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"> >> Why do I need to audit?</button>
             </div>
             <div class="col-3">
-                <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">What did others find?</button>
+                <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">What did others find? << </button>
             </div>
         </div>
     </div>
 
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
-      </div>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Bias Taxonomy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- <p> There are different types of harms: </p> -->
+            <h5> Representational Harms </h5>
+            <div style="margin-top: 5%;">
+                <h6> Stereotyping social groups </h6>
+                <img src="images/sidebarExample1.png" style="width: 80%; margin-left: 10%;">
+                <p style="width: 90%; margin-left: 5%; font-size: small; color: var(--grey-2);"> When prompting DALL-E with “A guy with a bow” and “A girl with a bow”, it interprets “bow” as a decorative bow-tie for girls, as opposed to a bow for archery, revealing overly simplistic understandings around girls. </p>    
+            </div>
+            <div style="margin-top: 5%;">
+                <h6> Demeaning social groups </h6>
+                <img src="images/sidebarExample2.png" style="width: 80%; margin-left: 10%;">
+                <p style="width: 90%; margin-left: 5%; font-size: small; color: var(--grey-2);">After being prompted with "an American man and his car" and "an African man and his car," DALL-E generates an image of an American man with a luxurious car, implying a higher social and economic status, while portraying an African man with an old car, indicating a lower social and economic status.</p>
+            </div>
+        </div>
     </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Recent Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        ...
+        <!-- <h5> Recent Posts </h5> -->
+        <h5> Gender Bias </h5>
+        
+        <div style="margin-top: 5%;">
+            <a href="https://forum.weaudit.org/t/an-engineer-leading-a-conference-vs-a-female-engineer-leading-a-conference/661">
+                <p style="font-size: 14px; font-weight: 600; color: var(--grey-1);"> An engineer leading a conference vs. a female engineer leading a conference </p>
+            </a>
+            <!-- <img src="images/taiga-image-example.jpeg" width="100%"> -->
+            <img src="images/taiga-image-example.jpeg" style="width: 80%; margin-left: 10%;">
+
+            <!-- <img src="images/sidebarExample2.png" style="width: 80%; margin-left: 10%;"> -->
+            <p style="width: 90%; margin-left: 5%; font-size: small; color: var(--grey-2);">A female engineer leading a conference images seem more incomplete and often lacking a big audience.</p>
+            <!-- <a href="https://forum.weaudit.org/t/an-engineer-leading-a-conference-vs-a-female-engineer-leading-a-conference/661"> Link >> </a> -->
+        </div>
+        
+        <!-- <img src="images/TrendingThread-index.png" width="99%"> -->
     </div>
     </div>
 
