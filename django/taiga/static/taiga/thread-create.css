@@ -1,0 +1,124 @@
+
+#thread-begin-button {
+	position: fixed;
+	bottom: 10%;
+	right: 5%;
+	z-index: 1;
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: #07826a;
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--green-1);
+}
+
+#thread-dismiss-btn {
+	--bs-btn-color: var(--green-1);
+	--bs-btn-bg: var(--bs-white);
+	--bs-btn-hover-color: var(--green-1);
+    --bs-btn-hover-bg: var(--green-4);
+	--bs-btn-border-color: var(--green-5);
+}
+
+#thread-create-btn {
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: #07826a;
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--green-1);
+	--bs-btn-border-color: var(--green-1);
+	font-size: 20px;
+}
+
+#thread-create-btn.disabled {
+	--bs-btn-color: var(--grey-3);
+	--bs-btn-bg: var(--grey-4);
+	--bs-btn-border-color: var(--grey-4);
+}
+
+#thread-input-title, #thread-input-tag {
+	border-radius: 16px;
+	border: 2px solid var(--gray-4, #DEE4E1);
+	color: var(--grey-2);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+#thread-create-offcanvas {
+	height: 40%;
+}
+
+#thread-input-desc {
+	border-radius: 16px;
+	border: 2px solid var(--gray-4, #DEE4E1);
+	color: var(--gray-2, #797B7B);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.back-icon-btn {
+	--bs-btn-color: var(--grey-1);
+	--bs-btn-bg: var(--bs-white);
+	--bs-btn-border-color: var(--bs-white);
+	--bs-btn-hover-color: var(--green-1);
+	--bs-btn-hover-bg: var(--bs-white);
+	--bs-btn-hover-border-color: var(--bs-white);
+}
+
+.next-modal-btn {
+	--bs-btn-color: var(--bs-white);
+	--bs-btn-bg: #07826a;
+	--bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--green-1);
+	--bs-btn-border-color: var(--green-1);
+	font-size: 20px;
+}
+
+.modal-body {
+	color: var(--gray-2, #797B7B);
+	font-size: 14px;
+	font-family: sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+	letter-spacing: -0.14px;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+.gallery-item {
+    cursor: pointer;
+    border: 4px solid transparent;
+    transition: border-color 0.3s;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+	align-items: flex-start;
+	margin: 3px;
+}
+
+.gallery-item.selected {
+    border: 4px solid #FFD540;
+}
+
+#thread-create-preview-page {
+	padding: 10px;
+	margin-top: 10px; 
+	border: 1px solid var(--grey-3);
+}
+
+#thread-preview-tag {
+	background-color: var(--grey-4);
+	display: inline-block;
+	color: #000000;
+	border-radius: 6px;
+	font-size: small;
+}
+
+#thread-create-posting-spinner {
+	width: 4rem;
+	height: 4rem;
+	/* padding-top: 15%; */
+	/* padding-bottom: 15%; */
+}

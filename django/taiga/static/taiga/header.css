@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--green-1: #10724f;
+	--green-2: #48996D;
+	--green-3: #87C7B3;
+	--green-4: #EFF9F5;
+	--green-5: #F7FCFA;
+	--grey-1: #222222;
+	--grey-2: #797B7B;
+	--grey-3: #A4ACA8;
+	--grey-4: #DEE4E1;
+	--grey-5: #F8F9F8;
+}
+
+#header {
+	background-color: var(--green-5);
+    border-bottom: 1px solid var(--grey-4);
+}
+
+#logo-WeAudit {
+	color: var(--green-1);
+	font: Karla;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: -0.6px;
+	text-transform: capitalize;
+	user-select: none;
+	cursor: pointer;
+}
+
+#logo-TAIGA {
+	color: var(--grey-3);
+	font: Karla;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	/* letter-spacing: -0.6px; */
+	text-transform: capitalize;
+	user-select: none;
+	cursor: pointer;
+}
+
+#title {
+	font: Karla;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 46px; /* 127.778% */
+	letter-spacing: 1px;
+	color: var(--green-1);
+}
+
+#subTitle {
+	font: Karla;
+	color: var(--grey-2);
+	/* letter-spacing: 0.3px; */
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+#subTitle span { display: inline-block; }
+#subTitle::first-letter, #subTitle span::first-letter {
+	color: var(--green-1);
+	color: var(--green-1, #10724F);
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+}
+
+.how-taiga-works-column {
+	border: #0C826A 1px solid;
+	border-radius: 5px;
+}
+
+.how-taiga-works-column-item {
+	margin-top: 3%;
+	margin-bottom: 3%;
+	padding: 3%;
+}
