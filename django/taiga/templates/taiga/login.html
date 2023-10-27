@@ -1,0 +1,21 @@
+{% extends "taiga/base.html" %}
+
+{% block user-info %}
+    <div>
+        <a href="{% url 'register' %}" id="id_register_link">
+            <button>Register</button>
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p id="id_page_name">Login</p>
+
+    <form method="post" action="/">
+        <table>
+            {{form}}
+        </table>
+        {% csrf_token %}
+        <button type="submit" id="id_login_button">Submit</button>
+    </form>
+{% endblock %}
