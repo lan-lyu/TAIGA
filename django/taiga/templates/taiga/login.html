@@ -3,20 +3,28 @@
 {% block user-info %}
     <div class="col-8"></div>
     <div class="col-0-3qtr ms-auto">
-        <a href="{% url 'login' %}" id="id_login_link">
+        <a href="{% url 'register' %}" id="id_register_link">
             <button class="btn btn-success btn-sm">Register</button>
         </a>
     </div>
 {% endblock %}
 
 {% block content %}
-    <p id="id_page_name">Login</p>
-
-    <form method="post" action="login">
-        <table>
-            {{form}}
-        </table>
-        {% csrf_token %}
-        <button type="submit" id="id_login_button">Submit</button>
-    </form>
+    <div class="container">
+        <div class="row" style="margin-top: 3%;">
+            <h2 id="id_page_name" style="color: var(--green-1)">Login to TAIGA</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="login">
+                <div class="col-md-6">
+                    <table>
+                        {{form}}
+                    </table>
+                    {% csrf_token %}
+                    <button class="btn btn-success" type="submit" id="id_login_button">Submit</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+        
 {% endblock %}

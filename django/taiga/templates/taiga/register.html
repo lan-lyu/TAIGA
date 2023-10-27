@@ -12,23 +12,26 @@
 
 
 {% block content %}
-    <p id="id_page_name">Register</p>
-
-    <form method="post" action="{% url 'register' %}">
-        <table>
-            {% for field in form.visible_fields %}
-                <tr>
-                    <td>{{field.label_tag}}</td>
-                    <td>{{field}}</td>
-                    <td class="errorlist">
-                        {% for error in field.errors %} {{error}} {% endfor %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-        {% csrf_token %}
-        <button type="submit" id="id_register_button">Register</button>
-    </form>
+    <div class="container">
+        <div class="row" style="margin-top: 3%;">
+            <h2 id="id_page_name" style="color: var(--green-1)">Register an account</h2>
+        </div>
+        <form method="post" action="{% url 'register' %}">
+            <table>
+                {% for field in form.visible_fields %}
+                    <tr>
+                        <td>{{field.label_tag}}</td>
+                        <td>{{field}}</td>
+                        <td class="errorlist">
+                            {% for error in field.errors %} {{error}} {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit" id="id_register_button">Register</button>
+        </form>
+    </div>
 
     {% for error in form.non_field_errors %}
         <p class="errorlist">
