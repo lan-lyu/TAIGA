@@ -1,9 +1,10 @@
-{% extends "taiga/base.html" %}
+{% extends "taiga/base-header.html" %}
 
 {% block user-info %}
-    <div>
-        <a href="{% url 'register' %}" id="id_register_link">
-            <button>Register</button>
+    <div class="col-8"></div>
+    <div class="col-0-3qtr ms-auto">
+        <a href="{% url 'login' %}" id="id_login_link">
+            <button class="btn btn-success btn-sm">Register</button>
         </a>
     </div>
 {% endblock %}
@@ -11,7 +12,7 @@
 {% block content %}
     <p id="id_page_name">Login</p>
 
-    <form method="post" action="/">
+    <form method="post" action="login">
         <table>
             {{form}}
         </table>

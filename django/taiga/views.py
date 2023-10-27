@@ -22,7 +22,7 @@ def login_action(request):
 
     # Check if the user is already logged in
     if request.user.is_authenticated:
-        return redirect(reverse('global'))
+        return redirect(reverse('home'))
 
     # Just display the registration form if this is a GET request.
     if request.method == 'GET':
@@ -46,7 +46,7 @@ def login_action(request):
     #     new_profile.save()
 
     login(request, new_user)
-    return redirect(reverse('global'))
+    return redirect(reverse('home'))
 
 def register_action(request):
     context = {}
