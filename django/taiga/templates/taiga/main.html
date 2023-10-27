@@ -15,18 +15,31 @@
 <body>
 
     {% block user-info %}
-    <div class="col-7"></div>
-    <div class="col-0-half ms-auto">
-        <a href="{% url 'register' %}" id="id_register_link">
-            <button class="btn btn-success btn-sm">Register</button>
-        </a>
-    </div>
-    <div class="col-0-3qtr ms-auto">
-        <a href="{% url 'login' %}" id="id_login_link">
-            <button class="btn btn-success btn-sm">Log in</button>
-        </a>
-    </div>
+        {% if user.is_authenticated %}
+            <div class="col-6"></div>
+            <div class="col-auto ms-auto">
+                You are login as {{ user.first_name }} {{ user.last_name }}
+            </div>
+            <div class="col-0-half ms-auto">
+                <a href="{% url 'logout' %}" id="id_logout_link">
+                    <button class="btn btn-danger btn-sm">Logout</button>
+                </a>
+            </div>
+        {% else %}
+            <div class="col-7"></div>
+            <div class="col-0-half ms-auto">
+                <a href="{% url 'register' %}" id="id_register_link">
+                    <button class="btn btn-success btn-sm">Register</button>
+                </a>
+            </div>
+            <div class="col-0-3qtr ms-auto">
+                <a href="{% url 'login' %}" id="id_login_link">
+                    <button class="btn btn-success btn-sm">Log in</button>
+                </a>
+            </div>
+        {% endif %}
     {% endblock %}
+
 
     {% block introduction %}
 	<div class="container" id="how-TAIGA-works" style="margin-top: 5%;" data-bs-theme="dark">
