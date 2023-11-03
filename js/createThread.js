@@ -128,3 +128,19 @@ async function postToDiscourse(search1, search2, title, tag, categoryNum, conten
     const URL = generateTopicURL(title);
     window.location.href = URL;
 }
+
+function threadContentValidation() {
+    if (document.querySelector('#thread-input-title').value === "") {
+        alert("Please enter a title for your thread!");
+        return false;
+    }
+    if (document.querySelector('#thread-input-tag').value === "") {
+        alert("Please enter a tag for your thread!");
+        return false;
+    }
+    if (document.querySelector('#thread-input-desc').value === "") {
+        alert("Please enter a description for your thread!");
+        return false;
+    }
+    return true;
+}

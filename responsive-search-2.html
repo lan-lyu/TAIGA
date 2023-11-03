@@ -442,6 +442,9 @@
         });
 
         $('#thread-create-btn').click(function() {
+            if (threadContentValidation() === false) {
+                return;
+            }
             // document.getElementById('#thread-create-modal-1').setAttribute('databackdrop', 'static');
             $('#thread-create-modal-1').modal('show');
             title = document.querySelector('#thread-input-title').value;
