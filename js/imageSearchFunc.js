@@ -138,7 +138,7 @@ function performImageSearch(event, inputId, img_num) {
         for (let i = 0; i < img_num; i++) {
             var item = data.items[i];
             var imageElement = document.createElement("img");
-            imageElement.src = item.link;
+            imageElement.src = item.image.thumbnailLink;
             imageElement.alt = item.title;
     
             gallery.appendChild(imageElement);
