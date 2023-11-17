@@ -120,7 +120,8 @@ form input {
 
 .button-search {
   height: 54px;
-  width: 54px;
+  width: 90px;
+  color: white;
 }
 
 .form-switch .form-check-input {
