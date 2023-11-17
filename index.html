@@ -146,34 +146,74 @@
             </div>
             <script>                
                 // when click on search input and button, jump to search page
-                function switchToSearch() {
-                    window.location.href = "responsive-search-2.html";
+                function switchToSearch(query1, query2, src) {
+                    if (!validateQuery(query1)) {
+                        window.location.href = `responsive-search-2.html?query2=${query2}&src=${src}`;
+                        return;
+                    }
+                    if (!validateQuery(query2)) {
+                        window.location.href = `responsive-search-2.html?query1=${query1}&src=${src}`;
+                        return;
+                    }
+                    window.location.href = `responsive-search-2.html?query1=${query1}&query2=${query2}&src=${src}`;
                 }
+
+                function validateQuery(query) {
+                    if (query === undefined || query === "") {
+                        return false;
+                    }
+                    return true;
+                }
+
                 $(document).ready(function () {
                     $("#search-button-index-1").on("click", function (event) {
                         event.preventDefault();
-                        console.log("click");
-                        const searchTerm = $("#search-input-index-1").val();
-                        console.log(searchTerm);
-                        if (searchTerm === undefined || searchTerm === "") {
+                        const query1 = $("#search-input-index-1").val();
+                        if (!validateQuery(query1)) {
                             alert("Please enter a search term!");
                             return;
                         }
-                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                        const query2 = $("#search-input-index-2").val();
+                        const src = $("#search-image-source-dropdown .btn").text().trim();
+                        switchToSearch(query1, query2, src);
                     });
                     
                     $("#search-button-index-2").on("click", function (event) {
                         event.preventDefault();
-                        console.log("click");
-                        const searchTerm = $("#search-input-index-2").val();
-                        console.log(searchTerm);
-                        if (searchTerm === undefined || searchTerm === "") {
+                        const query2 = $("#search-input-index-2").val();
+                        if (!validateQuery(query2)) {
                             alert("Please enter a search term!");
                             return;
                         }
-                        window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                        const query1 = $("#search-input-index-1").val();
+                        const src = $("#search-image-source-dropdown .btn").text().trim();
+                        switchToSearch(query1, query2, src);
                     });
                 });
+                // function switchToSearch() {
+                //     window.location.href = "responsive-search-2.html";
+                // }
+                // $(document).ready(function () {
+                //     $("#search-button-index-1").on("click", function (event) {
+                //         event.preventDefault();
+                //         const searchTerm = $("#search-input-index-1").val();
+                //         if (searchTerm === undefined || searchTerm === "") {
+                //             alert("Please enter a search term!");
+                //             return;
+                //         }
+                //         window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                //     });
+                    
+                //     $("#search-button-index-2").on("click", function (event) {
+                //         event.preventDefault();
+                //         const searchTerm = $("#search-input-index-2").val();
+                //         if (searchTerm === undefined || searchTerm === "") {
+                //             alert("Please enter a search term!");
+                //             return;
+                //         }
+                //         window.location.href = `responsive-search-2.html?query=${encodeURIComponent(searchTerm)}`;
+                //     });
+                // });
             </script>
         </div>
     </div>

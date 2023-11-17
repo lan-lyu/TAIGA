@@ -114,7 +114,7 @@
                 <form id="query-form-1">
                     <input type="text" id="search-input-1" placeholder="e.g. &quot;Kindergarten teacher in a class&quot;">
                     <div class="input-group-append" style="background-color: #0C826A; width: 18%;">
-                        <button type="submit" class="btn button-search" id="search-button" style="color: white;">
+                        <button type="submit" class="btn button-search" id="search-button-1" style="color: white;">
                             Generate
                         </button>
                     </div>
@@ -124,7 +124,7 @@
                 <form id="query-form-2">
                     <input type="text" id="search-input-2" placeholder="e.g. &quot;University professor in a class&quot;">
                     <div class="input-group-append" style="background-color: #0C826A;">
-                        <button type="submit" class="btn button-search" id="search-button" style="color: white;">
+                        <button type="submit" class="btn button-search" id="search-button-2" style="color: white;">
                             Generate
                         </button>
                     </div>
@@ -257,6 +257,31 @@
             <script src="js/imageGenerateFunc.js"></script>
         </div>
     </div>
+
+    <script>
+        // Retrieve search query from URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryParam1 = urlParams.get('query1');
+            const queryParam2 = urlParams.get('query2');
+            const src = urlParams.get('src');
+            console.log(queryParam1, queryParam2);
+    
+            if (src === 'Google') {
+                $("#selected-image-source").html('<span class="logo-icon logo-icon-google"></span> Google');
+            } else if (src === 'Stable Diffusion') {
+                $("#selected-image-source").html('<span class="logo-icon logo-icon-github"></span> Stable Diffusion');
+            }
+            if (queryParam1 !== null) {
+                document.querySelector("#search-input-1").value = queryParam1;
+                document.querySelector("#search-button-1").click();
+            }
+            if (queryParam2 !== null) {
+                document.querySelector("#search-input-2").value = queryParam2;
+                document.querySelector("#search-button-2").click();
+            }
+        });
+    </script>
 
     <button type="button" class="btn btn-floating btn-lg" id="thread-begin-button" aria-controls="thread-create-offcanvas" disabled>
         + &nbsp;New Thread
