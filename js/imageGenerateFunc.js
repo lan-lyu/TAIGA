@@ -1,5 +1,6 @@
 const handleGeneration = async (query, img_num) => {
-    let response = await fetch('https://ezjqmqzpug.execute-api.us-east-1.amazonaws.com/Prod/predict', {
+    // let response = await fetch('https://ezjqmqzpug.execute-api.us-east-1.amazonaws.com/Prod/predict', {
+    let response = await fetch('https://vtsuohpeo0.execute-api.us-east-1.amazonaws.com/Prod/predict', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
